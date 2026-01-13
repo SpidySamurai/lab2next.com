@@ -1,17 +1,18 @@
 "use client";
 
+import { ReactNode } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ShieldCheck } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { Toaster, toast } from "sonner";
 import * as Tooltip from "@radix-ui/react-tooltip";
-import { Autoplay, Navigation, Pagination, EffectFade, Keyboard } from "swiper/modules";
+import * as Dialog from "@radix-ui/react-dialog";
+import { Autoplay, Navigation, Pagination, Keyboard } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/effect-fade";
 
 const IconRegistro = () => (
   <svg className="h-7 w-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -76,33 +77,15 @@ const features = [
 ];
 
 const businessBenefits = [
-  {
-    title: "Rapidez operativa",
-    desc: "Menos pasos manuales, más resultados entregados a tiempo.",
-  },
-  {
-    title: "Automatización clínica",
-    desc: "Flujos guiados y alertas que reducen errores y retrabajos.",
-  },
-  {
-    title: "Eficiencia administrativa",
-    desc: "Paneles claros, métricas y reportes listos para auditoría.",
-  },
+  { title: "Rapidez operativa", desc: "Menos pasos manuales, más resultados entregados a tiempo." },
+  { title: "Automatización clínica", desc: "Flujos guiados y alertas que reducen errores y retrabajos." },
+  { title: "Eficiencia administrativa", desc: "Paneles claros, métricas y reportes listos para auditoría." },
 ];
 
 const plans = [
-  {
-    name: "Esencial",
-    features: ["Pacientes ilimitados", "Inventario básico", "Resultados PDF", "Soporte chat"],
-  },
-  {
-    name: "Pro",
-    features: ["Control de calidad", "Trazabilidad avanzada", "Integración HL7", "Soporte prioritario"],
-  },
-  {
-    name: "Enterprise",
-    features: ["SSO y auditoría", "Reportes personalizados", "Integraciones dedicadas", "Acompañamiento 24/7"],
-  },
+  { name: "Esencial", features: ["Pacientes ilimitados", "Inventario básico", "Resultados PDF", "Soporte chat"] },
+  { name: "Pro", features: ["Control de calidad", "Trazabilidad avanzada", "Integración HL7", "Soporte prioritario"] },
+  { name: "Enterprise", features: ["SSO y auditoría", "Reportes personalizados", "Integraciones dedicadas", "Acompañamiento 24/7"] },
 ];
 
 const testimonials = [
@@ -263,7 +246,7 @@ export default function Home() {
         </motion.section>
 
         {/* Features */}
-        <section id="funcionalidades" className="space-y-6">
+        <section id="funcionalidades" className="space-y-6 scroll-mt-24">
           <div className="text-center space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Características clave</p>
             <h2 className="text-2xl font-semibold text-slate-900">Todo lo que tu laboratorio necesita</h2>
@@ -297,7 +280,7 @@ export default function Home() {
         </section>
 
         {/* Security */}
-        <section id="seguridad" className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:grid-cols-[1.1fr_0.9fr]">
+        <section id="seguridad" className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:grid-cols-[1.1fr_0.9fr] scroll-mt-24">
           <div className="space-y-3">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Seguridad y cumplimiento</p>
             <div className="flex items-center gap-2">
@@ -346,7 +329,7 @@ export default function Home() {
         </section>
 
         {/* Plans */}
-        <section id="paquetes" className="space-y-6">
+        <section id="paquetes" className="space-y-6 scroll-mt-24">
           <div className="text-center space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Nuestros paquetes</p>
             <h2 className="text-2xl font-semibold text-slate-900">Escoge según tus necesidades</h2>
@@ -378,7 +361,7 @@ export default function Home() {
         {/* Testimonials Carousel */}
         <motion.section
           id="testimonios"
-          className="space-y-6"
+          className="space-y-6 scroll-mt-24"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -392,7 +375,7 @@ export default function Home() {
         </motion.section>
 
         {/* Final CTA */}
-        <section id="contacto" className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <section id="contacto" className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm scroll-mt-24">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="space-y-3">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Agenda</p>
@@ -426,6 +409,8 @@ type Testimonial = {
   image?: string;
 };
 
+// DemoDialogTrigger eliminado porque ahora el scroll es directo a la sección de contacto
+
 function ContactForm() {
   const {
     register,
@@ -433,12 +418,7 @@ function ContactForm() {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<ContactFormInputs>({
-    defaultValues: {
-      name: "",
-      email: "",
-      sites: "",
-      needs: "",
-    },
+    defaultValues: { name: "", email: "", sites: "", needs: "" },
   });
 
   const onSubmit = async (data: ContactFormInputs) => {
@@ -522,20 +502,33 @@ function NextIconProfile() {
 
 function TestimonialsCarousel({ testimonials }: { testimonials: Testimonial[] }) {
   return (
-    <div className="relative">
+    <div className="relative w-full max-w-5xl mx-auto">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={24}
-        slidesPerView={1}
+        className="testimonial-swiper"
+        modules={[Navigation, Pagination, Autoplay, Keyboard]}
+        spaceBetween={20}
+        slidesPerView={1.1}
+        centeredSlides
         loop
         navigation={{ prevEl: ".testimonials-prev", nextEl: ".testimonials-next" }}
         pagination={{ clickable: true }}
         autoplay={{ delay: 5200, disableOnInteraction: false }}
+        keyboard={{ enabled: true }}
+        breakpoints={{
+          640: { slidesPerView: 1.3, spaceBetween: 20 },
+          900: { slidesPerView: 1.6, spaceBetween: 22 },
+          1200: { slidesPerView: 2.2, spaceBetween: 24 },
+        }}
         aria-live="polite"
       >
         {testimonials.map((t) => (
-          <SwiperSlide key={t.name}>
-            <article className="flex flex-col items-center gap-4 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm text-center">
+          <SwiperSlide key={t.name} className="pb-10">
+            <motion.article
+              className="mx-auto flex max-w-2xl flex-col items-center gap-4 rounded-2xl border border-slate-200 bg-white/90 p-8 shadow-md text-center backdrop-blur"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
               <div className="mb-2 flex justify-center">
                 {t.image ? (
                   <span className="inline-block h-16 w-16 rounded-full bg-slate-100 overflow-hidden border-2 border-emerald-200">
@@ -558,21 +551,21 @@ function TestimonialsCarousel({ testimonials }: { testimonials: Testimonial[] })
                 <span className="font-semibold text-slate-900">{t.name}</span>
                 <span className="text-sm text-slate-600">{t.role}</span>
               </div>
-            </article>
+            </motion.article>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between">
+      <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between px-2">
         <button
           aria-label="Anterior"
-          className="testimonials-prev pointer-events-auto -ml-3 rounded-full bg-emerald-50 p-2 shadow hover:bg-emerald-100"
+          className="testimonials-prev pointer-events-auto z-10 -ml-1 rounded-full bg-emerald-50 p-2 shadow hover:bg-emerald-100"
         >
           <ArrowLeft className="h-5 w-5 text-emerald-700" />
         </button>
         <button
           aria-label="Siguiente"
-          className="testimonials-next pointer-events-auto -mr-3 rounded-full bg-emerald-50 p-2 shadow hover:bg-emerald-100"
+          className="testimonials-next pointer-events-auto z-10 -mr-1 rounded-full bg-emerald-50 p-2 shadow hover:bg-emerald-100"
         >
           <ArrowRight className="h-5 w-5 text-emerald-700" />
         </button>
