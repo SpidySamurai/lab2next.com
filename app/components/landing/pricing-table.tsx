@@ -23,42 +23,73 @@ function Reveal({ children, delay = 0, className = "" }: { children: React.React
 
 const WA_DEMO = "https://wa.me/529994875155?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20una%20demo%20de%20Lab2Next";
 
+const WA_PREMIUM = "https://wa.me/529994875155?text=Hola,%20me%20gustar%C3%ADa%20recibir%20novedades%20del%20Plan%20Premium%20de%20Lab2Next";
+
 const PLANS = [
   {
     name: "BASIC",
     price: "$350",
     tagline: "Para laboratorios que empiezan a digitalizar su operación.",
-    features: ["500 órdenes/mes", "3 usuarios", "1 sucursal (matriz)", "PDF clásico", "Soporte email", "Implementación gratuita"],
-    cta: "Solicitar demo",
-  },
-  {
-    name: "ADVANCED",
-    price: "$850",
-    tagline: "Un equipo con operación estable y crecimiento moderado.",
-    features: ["1,000 órdenes/mes", "10 usuarios", "Matriz + 1 sucursal", "Etiquetas de muestras", "3 listas de precios", "Soporte email"],
+    features: [
+      "500 órdenes/mes",
+      "5 usuarios",
+      "1 sucursal",
+      "Paquetes de exámenes",
+      "Médicos referidores",
+      "Portal de pacientes",
+      "WhatsApp + QR",
+      "PDF clásico",
+      "Soporte por email",
+      "Implementación gratuita",
+    ],
     cta: "Solicitar demo",
   },
   {
     name: "FOUNDER",
     price: "$550",
     tagline: "Precio especial de fundador. Acceso completo para escalar.",
-    features: ["1,000 órdenes/mes", "15 usuarios", "Matriz + 1 sucursal", "WhatsApp + QR", "PDF avanzado", "Soporte chat + email"],
+    features: [
+      "1,500 órdenes/mes",
+      "15 usuarios",
+      "Matriz + 1 sucursal",
+      "Convenios y precios especiales",
+      "WhatsApp personalizable",
+      "PDF avanzado con membrete",
+      "Soporte por chat",
+    ],
     featured: true,
     ribbon: "Más elegido",
     cta: "Solicitar demo",
   },
   {
     name: "PREMIUM",
-    price: "$1,350",
+    price: "$1,200",
     tagline: "Para redes y laboratorios con alto volumen y múltiples sedes.",
-    features: ["2,000 órdenes/mes", "15 usuarios", "Hasta 3 sucursales", "WhatsApp + QR", "PDF avanzado", "Soporte chat + email"],
-    cta: "Solicitar demo",
+    features: [
+      "5,000 órdenes/mes",
+      "30 usuarios",
+      "Hasta 5 sucursales",
+      "Ventas y corte de caja",
+      "Cotizaciones persistentes",
+      "Reportes operativos avanzados",
+      "Soporte VIP",
+    ],
+    ribbon: "Próximamente",
+    waLink: WA_PREMIUM,
+    cta: "Registrar interés",
   },
   {
     name: "ENTERPRISE",
     price: "Consultar",
     tagline: "Instituciones y cadenas con necesidades a la medida.",
-    features: ["Volumen a la medida", "Usuarios flexibles", "Sucursales ilimitadas", "VIP dedicado", "Sitio web personalizado", "Contrato a medida"],
+    features: [
+      "Volumen a la medida",
+      "Usuarios flexibles",
+      "Sucursales ilimitadas",
+      "VIP dedicado",
+      "Sitio web personalizado",
+      "Contrato a medida",
+    ],
     cta: "Contactar",
   },
 ];
@@ -101,7 +132,7 @@ export function PricingTable() {
                   </li>
                 ))}
               </ul>
-              <a href={WA_DEMO} target="_blank" rel="noopener noreferrer" className="l-plan-cta">
+              <a href={(p as any).waLink ?? WA_DEMO} target="_blank" rel="noopener noreferrer" className="l-plan-cta">
                 {p.cta}
               </a>
             </Reveal>
