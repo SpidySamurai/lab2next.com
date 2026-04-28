@@ -1,18 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { NavLink } from "../domain/types";
 
-const WA_DEMO = "https://wa.me/529994875155?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20una%20demo%20de%20Lab2Next";
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
 
-const NAV_LINKS = [
-  { label: "Producto", href: "#modulos" },
-  { label: "Precios", href: "#precios" },
-  { label: "Cómo funciona", href: "#como-funciona" },
-  { label: "FAQ", href: "#faq" },
-];
+interface NavbarProps {
+  links: NavLink[];
+}
 
-export function Navbar() {
+export function Navbar({ links }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -33,7 +30,7 @@ export function Navbar() {
         </a>
 
         <nav className="l-nav-links">
-          {NAV_LINKS.map((l) => (
+          {links.map((l) => (
             <a key={l.href} href={l.href} className="l-nav-link">
               {l.label}
             </a>
