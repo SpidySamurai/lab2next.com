@@ -1,37 +1,28 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Check } from "lucide-react";
 
-function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current; if (!el) return;
-    const io = new IntersectionObserver(
-      entries => { if (entries[0].isIntersecting) { setInView(true); io.disconnect(); } },
-      { threshold: 0.12 }
-    );
-    io.observe(el); return () => io.disconnect();
-  }, []);
-  return (
-    <div ref={ref} className={`l-reveal ${inView ? "in" : ""}`} data-delay={delay || undefined}>
-      {children}
-    </div>
-  );
-}
+const BADGES = [
+  "Sin tarjeta de crédito",
+  "14 días de prueba gratis",
+  "Cancelas cuando quieras",
+  "Soporte 100% en español",
+  "Datos en México",
+];
 
 export function TrustBar() {
   return (
-    <section className="l-trust">
-      <div className="l-container">
-        <Reveal>
-          <div className="l-trust-label">Laboratorios que ya modernizaron su operación</div>
-        </Reveal>
-        <Reveal delay={1}>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <div className="l-trust-logo" style={{ fontSize: 18, opacity: 0.7 }}>Biogen Foundery</div>
-          </div>
-        </Reveal>
+    <section className="l-trust-v3">
+      <div className="l-container l-trust-v3-inner">
+        <div className="l-trust-v3-label">Por qué los laboratorios eligen Lab2Next</div>
+        <div className="l-trust-v3-badges">
+          {BADGES.map((b) => (
+            <span key={b} className="l-trust-v3-badge">
+              <Check size={13} />
+              {b}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );
