@@ -6,10 +6,10 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     h: "Producto",
     items: [
-      { label: "Módulos", href: "#modulos" },
-      { label: "Precios", href: "#precios" },
-      { label: "Cómo funciona", href: "#como-funciona" },
-      { label: "FAQ", href: "#faq" },
+      { label: "Módulos", href: "/#modulos" },
+      { label: "Precios", href: "/#precios" },
+      { label: "Cómo funciona", href: "/#como-funciona" },
+      { label: "FAQ", href: "/#faq" },
     ],
   },
   {
@@ -17,7 +17,8 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     items: [
       { label: "Propósito", href: "/#proposito" },
       { label: "Roadmap", href: "/roadmap" },
-      { label: "Contacto", href: "#demo" },
+      { label: "Nosotros", href: "/nosotros" },
+      { label: "Contacto", href: "/#demo" },
     ],
   },
   {
