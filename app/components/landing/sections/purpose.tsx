@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { Reveal } from "../ui/reveal";
-import { SectionHeader } from "../ui/section-header";
 
 const PILLARS = [
   {
@@ -28,21 +28,16 @@ export function Purpose() {
             <div className="l-purpose-left">
               <div className="l-eyebrow">Quiénes somos</div>
               <h2 className="l-purpose-headline">
-                Creemos que gestionar un laboratorio clínico no debería requerir
-                un departamento de IT.
+                Construimos el sistema que los laboratorios independientes
+                merecían desde hace años.
               </h2>
               <p className="l-purpose-body">
-                Lab2Next nació porque los laboratorios independientes merecen la
-                misma tecnología que las grandes cadenas — sin el costo, sin la
-                complejidad, sin esperar a nadie.
+                Vimos de cerca lo que significa operar un laboratorio con
+                cuadernos y WhatsApp. Decidimos construir algo mejor.
               </p>
-              <p className="l-purpose-body">
-                Somos un equipo pequeño con experiencia en salud digital y
-                operaciones de laboratorio. Construimos Lab2Next porque vimos de
-                cerca lo que significa perder una orden en papel, llamar al
-                paciente tres veces para darle un resultado o no saber cuántas
-                órdenes entraron hoy.
-              </p>
+              <Link href="/nosotros" className="l-btn l-btn-secondary mt-6 inline-flex">
+                Conoce al equipo →
+              </Link>
             </div>
           </Reveal>
 
