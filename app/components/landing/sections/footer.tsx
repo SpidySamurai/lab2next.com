@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { FooterColumn } from "../domain/types";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
@@ -7,18 +8,30 @@ interface FooterProps {
   miniBadges: readonly string[];
 }
 
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const isExternal = href.startsWith("http");
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+    );
+  }
+  return <Link href={href}>{children}</Link>;
+}
+
 export function Footer({ columns, miniBadges }: FooterProps) {
   return (
     <footer className="l-footer-v2">
       <div className="l-container">
         <div className="l-footer-grid-v2">
           <div className="l-footer-brand">
-            <a href="#" className="l-logo">
+            <Link href="/" className="l-logo">
               <span className="l-logo-mark">
                 <span className="l-logo-mark-text">L2</span>
               </span>
               <span>Lab2Next</span>
-            </a>
+            </Link>
             <p className="l-footer-tagline">
               El sistema de información clínica para laboratorios independientes en México.
             </p>
@@ -35,7 +48,7 @@ export function Footer({ columns, miniBadges }: FooterProps) {
               <ul className="l-footer-col-list">
                 {col.items.map((item) => (
                   <li key={item.label}>
-                    <a href={item.href}>{item.label}</a>
+                    <FooterLink href={item.href}>{item.label}</FooterLink>
                   </li>
                 ))}
               </ul>
@@ -48,8 +61,8 @@ export function Footer({ columns, miniBadges }: FooterProps) {
             © {new Date().getFullYear()} Lab2Next — Hecho en México para laboratorios mexicanos.
           </span>
           <div className="l-footer-bottom-links">
-            <a href={`${APP_URL}/privacy`}>Privacidad</a>
-            <a href={`${APP_URL}/terms`}>Términos</a>
+            <a href={`${APP_URL}/privacy`} target="_blank" rel="noopener noreferrer">Privacidad</a>
+            <a href={`${APP_URL}/terms`} target="_blank" rel="noopener noreferrer">Términos</a>
           </div>
         </div>
       </div>
