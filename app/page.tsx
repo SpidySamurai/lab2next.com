@@ -1,5 +1,3 @@
-"use client";
-
 import { Navbar } from "./components/landing/sections/navbar";
 import { Hero } from "./components/landing/sections/hero/hero";
 import { TrustBar } from "./components/landing/sections/trust-bar";
