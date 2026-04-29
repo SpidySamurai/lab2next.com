@@ -1,53 +1,107 @@
 @import "tailwindcss";
 
-/* Lab2Next v3 — Clinical SaaS, navy + teal, light-first */
+/* ─────────────────────────────────────────────────────────
+   Lab2Next design system — Tailwind v4 @theme
+   Tokens aquí → disponibles como utilidades Tailwind:
+     bg-navy-900  text-teal-500  border-ink-200
+     rounded-card  rounded-pill
+   Y como CSS vars: var(--color-navy-900) en componentes nuevos.
+   Componentes existentes siguen usando var(--navy-900) via alias en :root.
+───────────────────────────────────────────────────────── */
+@theme {
+  /* Colors */
+  --color-navy-900: #0A1F44;
+  --color-navy-800: #142C5A;
+  --color-navy-700: #1E3A6F;
+  --color-navy-600: #2A4A85;
+  --color-navy-100: #E8EDF5;
+  --color-navy-50:  #F4F6FB;
 
+  --color-teal-600: #0284C7;
+  --color-teal-500: #0EA5E9;
+  --color-teal-400: #38BDF8;
+  --color-teal-50:  #E0F2FE;
+
+  --color-green-600: #059669;
+  --color-green-500: #10B981;
+  --color-green-50:  #ECFDF5;
+
+  --color-amber-500: #F59E0B;
+  --color-amber-50:  #FFFBEB;
+
+  --color-red-500: #EF4444;
+  --color-red-50:  #FEF2F2;
+
+  --color-ink-900: #0F172A;
+  --color-ink-700: #334155;
+  --color-ink-600: #475569;
+  --color-ink-500: #64748B;
+  --color-ink-400: #94A3B8;
+  --color-ink-300: #CBD5E1;
+  --color-ink-200: #E2E8F0;
+  --color-ink-100: #F1F5F9;
+  --color-ink-50:  #F8FAFC;
+
+  --color-warm-paper: #F7F4EF;
+
+  /* Border radius — rounded-sm, rounded-card, rounded-lg, rounded-xl, rounded-pill */
+  --radius-sm:   6px;
+  --radius-card: 10px;
+  --radius-lg:   14px;
+  --radius-xl:   20px;
+  --radius-pill: 999px;
+
+  /* Shadows — shadow-xs, shadow-card, shadow-lg, shadow-xl */
+  --shadow-xs:   0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-lg:   0 16px 40px rgba(10, 31, 68, 0.10), 0 4px 12px rgba(10, 31, 68, 0.06);
+  --shadow-xl:   0 32px 64px rgba(10, 31, 68, 0.14), 0 8px 24px rgba(10, 31, 68, 0.08);
+}
+
+/* ── Aliases — CSS legado usa var(--navy-900); apuntan a @theme ── */
 :root {
-  --navy-900: #0A1F44;
-  --navy-800: #142C5A;
-  --navy-700: #1E3A6F;
-  --navy-600: #2A4A85;
-  --navy-100: #E8EDF5;
-  --navy-50:  #F4F6FB;
+  --navy-900: var(--color-navy-900);
+  --navy-800: var(--color-navy-800);
+  --navy-700: var(--color-navy-700);
+  --navy-600: var(--color-navy-600);
+  --navy-100: var(--color-navy-100);
+  --navy-50:  var(--color-navy-50);
 
-  --teal-600: #0284C7;
-  --teal-500: #0EA5E9;
-  --teal-400: #38BDF8;
-  --teal-50:  #E0F2FE;
+  --teal-600: var(--color-teal-600);
+  --teal-500: var(--color-teal-500);
+  --teal-400: var(--color-teal-400);
+  --teal-50:  var(--color-teal-50);
 
-  --green-600: #059669;
-  --green-500: #10B981;
-  --green-50:  #ECFDF5;
+  --green-600: var(--color-green-600);
+  --green-500: var(--color-green-500);
+  --green-50:  var(--color-green-50);
 
-  --amber-500: #F59E0B;
-  --amber-50:  #FFFBEB;
+  --amber-500: var(--color-amber-500);
+  --amber-50:  var(--color-amber-50);
 
-  --red-500: #EF4444;
-  --red-50:  #FEF2F2;
+  --red-500: var(--color-red-500);
+  --red-50:  var(--color-red-50);
 
-  --ink-900: #0F172A;
-  --ink-700: #334155;
-  --ink-600: #475569;
-  --ink-500: #64748B;
-  --ink-400: #94A3B8;
-  --ink-300: #CBD5E1;
-  --ink-200: #E2E8F0;
-  --ink-100: #F1F5F9;
-  --ink-50:  #F8FAFC;
+  --ink-900: var(--color-ink-900);
+  --ink-700: var(--color-ink-700);
+  --ink-600: var(--color-ink-600);
+  --ink-500: var(--color-ink-500);
+  --ink-400: var(--color-ink-400);
+  --ink-300: var(--color-ink-300);
+  --ink-200: var(--color-ink-200);
+  --ink-100: var(--color-ink-100);
+  --ink-50:  var(--color-ink-50);
   --white:   #FFFFFF;
 
-  --radius-sm: 6px;
-  --radius:    10px;
-  --radius-lg: 14px;
-  --radius-xl: 20px;
+  --warm-paper: var(--color-warm-paper);
 
-  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  /* Aliases donde el nombre legado difiere del @theme */
+  /* --radius-sm/lg/xl inyectados por @theme → no necesitan alias */
+  --radius: var(--radius-card); /* legado usa --radius sin sufijo */
+
+  /* --shadow-lg/xl/xs inyectados por @theme → no necesitan alias */
+  --shadow-sm: var(--shadow-card); /* legado usa --shadow-sm, @theme usa --shadow-card */
   --shadow:    0 4px 12px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 16px 40px rgba(10, 31, 68, 0.10), 0 4px 12px rgba(10, 31, 68, 0.06);
-  --shadow-xl: 0 32px 64px rgba(10, 31, 68, 0.14), 0 8px 24px rgba(10, 31, 68, 0.08);
-
-  --warm-paper: #F7F4EF;
 
   --l-max: 1200px;
   --l-gutter: clamp(20px, 4vw, 40px);

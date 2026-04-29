@@ -1,3 +1,5 @@
+"use client";
+
 import { Hero } from "../components/landing/sections/hero/hero";
 import { TrustBar } from "../components/landing/sections/trust-bar";
 import { Problem } from "../components/landing/sections/problem";
