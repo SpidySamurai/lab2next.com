@@ -58,43 +58,43 @@ export default function NosotrosPage() {
 
       {/* ── Origen ── */}
       <section className="l-section bg-warm-paper">
-        <div className="l-container grid gap-16 lg:grid-cols-[200px_1fr]">
-          <div>
-            <span className="l-eyebrow">El origen</span>
-          </div>
-          <div>
-            <p className="mb-6 text-xl font-medium leading-relaxed text-navy-900">
+        <div className="l-container">
+          <span className="l-eyebrow">El origen</span>
+          <div className="mt-6 grid gap-x-16 gap-y-6 lg:grid-cols-2">
+            <p className="text-xl font-medium leading-relaxed text-navy-900">
               Vimos de cerca cómo un laboratorio clínico independiente operaba
               con cuadernos, hojas de Excel y WhatsApp manual. El director llegaba
               a las 7am, recibía órdenes en papel, y a las 11pm todavía contestaba
               mensajes de pacientes preguntando por sus resultados.
             </p>
-            <p className="mb-5 max-w-[65ch] text-base leading-[1.75] text-ink-700">
-              No era un problema de disciplina ni de presupuesto. Era un problema
-              de acceso. Los grandes laboratorios tienen departamentos de TI,
-              sistemas integrados y equipos dedicados. El laboratorio independiente
-              tiene un director que también es técnico, recepcionista y gerente.
-            </p>
-            <p className="max-w-[65ch] text-base leading-[1.75] text-ink-700">
-              Lab2Next nació de una pregunta simple: ¿por qué el laboratorio de
-              la colonia no puede tener la misma tecnología que los grandes? No
-              hay razón técnica. Solo había falta de voluntad para construirlo.
-              Nosotros decidimos construirlo.
-            </p>
-
-            {/* Stats */}
-            <div className="mt-9 flex flex-wrap gap-10 border-t border-navy-900/10 pt-9">
-              {STATS.map((s) => (
-                <div key={s.n} className="flex flex-col gap-1">
-                  <span className="text-4xl font-extrabold leading-none tracking-tight text-navy-900">
-                    {s.n}
-                  </span>
-                  <span className="whitespace-pre-line text-[13px] leading-snug text-ink-500">
-                    {s.label}
-                  </span>
-                </div>
-              ))}
+            <div className="flex flex-col gap-4 text-base leading-[1.75] text-ink-700">
+              <p>
+                No era un problema de disciplina ni de presupuesto. Era un problema
+                de acceso. Los grandes laboratorios tienen departamentos de TI,
+                sistemas integrados y equipos dedicados. El laboratorio independiente
+                tiene un director que también es técnico, recepcionista y gerente.
+              </p>
+              <p>
+                Lab2Next nació de una pregunta simple: ¿por qué el laboratorio de
+                la colonia no puede tener la misma tecnología que los grandes? No
+                hay razón técnica. Solo había falta de voluntad para construirlo.
+                Nosotros decidimos construirlo.
+              </p>
             </div>
+          </div>
+
+          {/* Stats */}
+          <div className="mt-10 flex flex-wrap gap-10 border-t border-navy-900/10 pt-10">
+            {STATS.map((s) => (
+              <div key={s.n} className="flex flex-col gap-1">
+                <span className="text-4xl font-extrabold leading-none tracking-tight text-navy-900">
+                  {s.n}
+                </span>
+                <span className="whitespace-pre-line text-[13px] leading-snug text-ink-500">
+                  {s.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -116,10 +116,10 @@ export default function NosotrosPage() {
       {/* ── Equipo ── */}
       <section className="l-section bg-ink-50">
         <div className="l-container">
-          <span className="l-eyebrow">El equipo</span>
-          <h2 className="mb-12 mt-3 text-3xl font-extrabold tracking-tight text-navy-900">
-            Las personas detrás del sistema.
-          </h2>
+          <div className="l-section-head">
+            <span className="l-eyebrow">El equipo</span>
+            <h2 className="l-section-title">Las personas detrás del sistema.</h2>
+          </div>
           <div className="grid gap-6 sm:grid-cols-2">
             {TEAM.map((m) => (
               <div
