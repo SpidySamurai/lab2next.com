@@ -34,6 +34,8 @@ export interface HowItWorksStep {
   tasks: string[];
 }
 
+export type Currency = "MXN" | "USD" | "COP";
+
 export interface PricingFeature {
   text: string;
   included: boolean;
@@ -42,8 +44,7 @@ export interface PricingFeature {
 export interface PricingPlan {
   name: string;
   tagline: string;
-  priceMonthly?: number;
-  priceYearly?: number;
+  prices?: Partial<Record<Currency, { monthly: number; yearly: number }>>;
   priceCustom?: boolean;
   note: string;
   cta: string;
