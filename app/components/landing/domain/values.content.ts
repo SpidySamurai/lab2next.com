@@ -5,12 +5,12 @@ export const VALUE_CARDS: ValueCard[] = [
   {
     num: "01",
     icon: Zap,
-    title: "Implementación en 3 semanas",
-    body: "No 6 meses. Configuración, migración de datos, capacitación y go-live en 21 días. Tu equipo operando con autonomía desde la primera semana.",
+    title: "Operando el mismo día",
+    body: "Sin implementación, sin técnicos, sin esperar a nadie. Te registras, importas tu catálogo pre-cargado con 155+ exámenes y recibes tu primera orden — todo en menos de una hora.",
     points: [
-      "Plan de implementación firmado el día 1",
-      "Migración de tu base de pacientes y catálogo",
-      "Capacitación incluida para todo el equipo",
+      "Catálogo con 155+ exámenes listo para importar",
+      "Configuración guiada sin soporte técnico",
+      "Primera orden en menos de una hora",
     ],
   },
   {

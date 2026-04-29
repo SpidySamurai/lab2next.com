@@ -552,14 +552,37 @@ img, svg { display: block; max-width: 100%; }
 }
 .l-dash-float-1 {
   top: 20px; left: -28px;
-  animation: l-float 6s ease-in-out infinite;
+  opacity: 0;
+  transform: scale(0.78);
 }
 .l-dash-float-1 .l-dash-float-icon { background: var(--green-50); color: var(--green-600); }
 .l-dash-float-2 {
   bottom: 28px; right: -24px;
-  animation: l-float 7s ease-in-out infinite -2s;
+  opacity: 0;
+  transform: scale(0.78);
 }
 .l-dash-float-2 .l-dash-float-icon { background: var(--teal-50); color: var(--teal-600); }
+
+/* Entrance: triggered when parent Reveal is in view */
+.l-reveal.in .l-dash-float-2 {
+  animation:
+    l-float-pop  0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards,
+    l-float      7s ease-in-out 1.3s infinite;
+}
+.l-reveal.in .l-dash-float-1 {
+  animation:
+    l-float-pop  0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.3s forwards,
+    l-float      6s ease-in-out 1.9s infinite;
+}
+
+@keyframes l-float-pop {
+  from { opacity: 0; transform: scale(0.78); }
+  60%  { opacity: 1; transform: scale(1.06); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+/* translate (individual property) — no conflict with transform: scale() */
+@keyframes l-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+
 .l-dash-float-label {
   font-size: 10px;
   font-weight: 600;
@@ -568,7 +591,6 @@ img, svg { display: block; max-width: 100%; }
   color: var(--ink-500);
 }
 .l-dash-float-value { font-size: 13px; font-weight: 700; color: var(--navy-900); }
-@keyframes l-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
 /* ── Dashboard internal stagger ── */
 @keyframes l-slide-up {
@@ -1572,7 +1594,8 @@ img, svg { display: block; max-width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .l-reveal { opacity: 1; transform: none; transition: none; }
-  .l-dash-float-1, .l-dash-float-2, .l-dash-pulse { animation: none; }
+  .l-dash-float-1, .l-dash-float-2 { animation: none; opacity: 1; transform: none; }
+  .l-dash-pulse { animation: none; }
   .l-reveal.in .l-dash-kpi,
   .l-reveal.in .l-dash-order { animation: none; }
   .l-hero .l-btn-primary,
