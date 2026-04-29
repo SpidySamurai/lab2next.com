@@ -24,62 +24,47 @@ export function HowItWorks({ steps }: HowItWorksProps) {
       return;
     }
 
+    // Thresholds: fraction of full scroll travel at which each step activates.
+    // Travel = viewportH (section entering) + gridRect.height (section crossing).
+    // Steps activate at 15 / 42 / 68 % — all fire while section is comfortably in view.
+    const THRESHOLDS = [0.15, 0.42, 0.68];
+    // Progress-bar anchor points that match each step threshold
+    const BAR_PTS    = [0, 50, 100];
+
     let ticking = false;
     const update = () => {
       ticking = false;
-      const isMobile = window.innerWidth <= 880;
-      const viewportH = window.innerHeight;
-      const viewportW = window.innerWidth;
-      const triggerLine = isMobile ? viewportH * 0.55 : viewportH * 0.5;
-
-      const positions = stepRefs.current.map((el) => {
-        if (!el) return null;
-        const num = el.querySelector(".l-how-step-num");
-        const r = (num || el).getBoundingClientRect();
-        return isMobile ? r.top + r.height / 2 : r.left + r.width / 2;
-      });
+      const viewportH  = window.innerHeight;
+      const { top, height } = grid.getBoundingClientRect();
+      const travel   = viewportH + height;
+      const progress = Math.max(0, Math.min(1, (viewportH - top) / travel));
 
       let active = -1;
-      if (isMobile) {
-        for (let i = 0; i < positions.length; i++) {
-          if (positions[i] !== null && (positions[i] as number) <= triggerLine) active = i;
-        }
-      } else {
-        const gridRect = grid.getBoundingClientRect();
-        if (gridRect.top < viewportH * 0.7 && gridRect.bottom > viewportH * 0.3) {
-          for (let i = 0; i < positions.length; i++) {
-            if (positions[i] !== null && (positions[i] as number) <= viewportW * 0.55) active = i;
-          }
-        } else if (gridRect.bottom <= viewportH * 0.3) {
-          active = total - 1;
-        }
-      }
+      THRESHOLDS.forEach((t, i) => { if (progress >= t) active = i; });
       setActiveIdx(active);
 
+      // Smooth bar interpolation between anchor points
       let pct = 0;
       if (active >= 0) {
         if (active >= total - 1) {
           pct = 100;
         } else {
-          const cur = positions[active] as number;
-          const nxt = positions[active + 1] as number;
-          const trigger = isMobile ? triggerLine : viewportW * 0.55;
-          const segFrac = nxt != null && cur != null ? Math.max(0, Math.min(1, (trigger - cur) / (nxt - cur))) : 0;
-          pct = ((active + segFrac) / (total - 1)) * 100;
+          const t0 = THRESHOLDS[active],     t1 = THRESHOLDS[active + 1];
+          const b0 = BAR_PTS[active],         b1 = BAR_PTS[active + 1];
+          const seg = Math.max(0, Math.min(1, (progress - t0) / (t1 - t0)));
+          pct = b0 + seg * (b1 - b0);
         }
       }
-      grid.style.setProperty("--how-progress", `${pct}%`);
+      grid.style.setProperty("--how-progress", `${pct.toFixed(1)}%`);
     };
 
-    const onScroll = () => {
-      if (!ticking) { requestAnimationFrame(update); ticking = true; }
-    };
+    const onScroll = () => { if (!ticking) { requestAnimationFrame(update); ticking = true; } };
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", update);
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", update);
     };
   }, [total]);
 
