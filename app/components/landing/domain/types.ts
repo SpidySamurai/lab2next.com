@@ -52,6 +52,7 @@ export interface PricingPlan {
   external?: boolean;
   featured?: boolean;
   badge?: string;
+  spotsLeft?: number;
   features: PricingFeature[];
 }
 

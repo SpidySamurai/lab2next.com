@@ -38,7 +38,8 @@ export const PRICING_PLANS: PricingPlan[] = [
     ctaStyle: "l-btn-primary",
     external: false,
     featured: true,
-    badge: "Solo 20 cupos",
+    badge: "Precio fundador",
+    spotsLeft: 15,
     features: [
       { text: "Todo lo del plan BASIC, más:", included: true },
       { text: "Agenda de citas", included: true },

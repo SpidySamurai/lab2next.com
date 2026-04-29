@@ -67,6 +67,23 @@ export function PricingTable({ plans }: PricingTableProps) {
               <div className={`l-plan-card ${p.featured ? "featured" : ""}`}>
                 {p.badge && <div className="l-plan-badge-v2">{p.badge}</div>}
 
+                {p.spotsLeft != null && (
+                  <div className="l-plan-spots">
+                    <div className="l-plan-spots-row">
+                      <span className="l-plan-spots-label">
+                        <span className="l-plan-spots-dot" />
+                        {p.spotsLeft} cupos restantes de 20
+                      </span>
+                    </div>
+                    <div className="l-plan-spots-bar">
+                      <div
+                        className="l-plan-spots-fill"
+                        style={{ width: `${(p.spotsLeft / 20) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                )}
+
                 <div className="l-plan-name-v2">{p.name}</div>
                 <div className="l-plan-tagline-v2">{p.tagline}</div>
 

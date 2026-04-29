@@ -11,7 +11,14 @@ interface FaqProps {
 }
 
 export function FAQ({ items }: FaqProps) {
-  const [open, setOpen] = useState<number>(0);
+  const [open, setOpen] = useState<Set<number>>(new Set([0]));
+
+  const toggle = (i: number) =>
+    setOpen((prev) => {
+      const next = new Set(prev);
+      next.has(i) ? next.delete(i) : next.add(i);
+      return next;
+    });
 
   return (
     <section className="l-section" id="faq">
@@ -24,11 +31,11 @@ export function FAQ({ items }: FaqProps) {
         <Reveal threshold={0.08}>
           <div className="l-faq-grid">
             {items.map((item, i) => (
-              <div key={i} className={`l-faq-item ${open === i ? "open" : ""}`}>
+              <div key={i} className={`l-faq-item ${open.has(i) ? "open" : ""}`}>
                 <button
                   className="l-faq-q"
-                  onClick={() => setOpen(open === i ? -1 : i)}
-                  aria-expanded={open === i}
+                  onClick={() => toggle(i)}
+                  aria-expanded={open.has(i)}
                 >
                   <span>{item.q}</span>
                   <span className="l-faq-icon"><Plus size={16} /></span>
