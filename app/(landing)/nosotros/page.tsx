@@ -100,10 +100,12 @@ export default function NosotrosPage() {
       </section>
 
       {/* ── Misión ── */}
-      <section className="l-section bg-white">
+      <section className="bg-navy-900 py-20">
         <div className="l-container max-w-3xl">
-          <span className="l-eyebrow">Nuestra misión</span>
-          <blockquote className="mt-5 border-l-2 border-teal-500 pl-6 text-2xl font-semibold leading-[1.45] tracking-[-0.02em] text-navy-900 sm:text-3xl">
+          <span className="l-eyebrow" style={{ color: "var(--color-teal-400)" }}>
+            Nuestra misión
+          </span>
+          <blockquote className="mt-5 text-2xl font-semibold leading-[1.45] tracking-[-0.02em] text-white sm:text-3xl">
             Dar a cada laboratorio clínico independiente en LATAM la misma
             capacidad tecnológica que las grandes cadenas, sin IT interno,
             sin contratos de años y sin curvas de aprendizaje de meses.
