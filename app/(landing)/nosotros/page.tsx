@@ -25,69 +25,85 @@ const TEAM = [
   },
 ];
 
+const STATS = [
+  { n: "+2 000", label: "laboratorios independientes\nsolo en México" },
+  { n: "80%",   label: "siguen operando\nen papel o Excel" },
+  { n: "Día 1", label: "capacidad de un gran laboratorio\nsin IT interno" },
+];
+
 export default function NosotrosPage() {
   return (
     <>
-      {/* ── Page header ─────────────────────────────── */}
-      <section className="l-nos-header">
-        <div className="l-container">
-          <p className="l-eyebrow l-eyebrow-light">Quiénes somos</p>
-          <h1 className="l-nos-h1">
+      {/* ── Page header ── */}
+      <section className="relative overflow-hidden bg-navy-900 py-20 lg:py-24">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+            maskImage: "radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 75%)",
+          }}
+          aria-hidden="true"
+        />
+        <div className="l-container relative z-10">
+          <p className="l-eyebrow" style={{ color: "var(--color-teal-400)" }}>
+            Quiénes somos
+          </p>
+          <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.1] tracking-[-0.03em] text-white sm:text-5xl lg:text-[3.5rem]">
             Construimos el sistema que los laboratorios independientes
-            <br className="l-nos-break" /> merecían desde hace años.
+            <br className="hidden sm:block" /> merecían desde hace años.
           </h1>
         </div>
       </section>
 
-      {/* ── Origen ──────────────────────────────────── */}
-      <section className="l-section l-nos-origen">
-        <div className="l-container l-nos-origen-inner">
-          <div className="l-nos-origen-label">
+      {/* ── Origen ── */}
+      <section className="l-section bg-warm-paper">
+        <div className="l-container grid gap-16 lg:grid-cols-[200px_1fr]">
+          <div>
             <span className="l-eyebrow">El origen</span>
           </div>
-          <div className="l-nos-origen-body">
-            <p className="l-nos-lead">
+          <div>
+            <p className="mb-6 text-xl font-medium leading-relaxed text-navy-900">
               Vimos de cerca cómo un laboratorio clínico independiente operaba
               con cuadernos, hojas de Excel y WhatsApp manual. El director llegaba
               a las 7am, recibía órdenes en papel, y a las 11pm todavía contestaba
               mensajes de pacientes preguntando por sus resultados.
             </p>
-            <p className="l-nos-p">
+            <p className="mb-5 max-w-[65ch] text-base leading-[1.75] text-ink-700">
               No era un problema de disciplina ni de presupuesto. Era un problema
               de acceso. Los grandes laboratorios tienen departamentos de TI,
               sistemas integrados y equipos dedicados. El laboratorio independiente
               tiene un director que también es técnico, recepcionista y gerente.
             </p>
-            <p className="l-nos-p">
+            <p className="max-w-[65ch] text-base leading-[1.75] text-ink-700">
               Lab2Next nació de una pregunta simple: ¿por qué el laboratorio de
               la colonia no puede tener la misma tecnología que los grandes? No
               hay razón técnica. Solo había falta de voluntad para construirlo.
               Nosotros decidimos construirlo.
             </p>
 
-            <div className="l-nos-stat-row">
-              <div className="l-nos-stat">
-                <span className="l-nos-stat-n">+2&thinsp;000</span>
-                <span className="l-nos-stat-l">laboratorios independientes<br />solo en México</span>
-              </div>
-              <div className="l-nos-stat">
-                <span className="l-nos-stat-n">80%</span>
-                <span className="l-nos-stat-l">siguen operando<br />en papel o Excel</span>
-              </div>
-              <div className="l-nos-stat">
-                <span className="l-nos-stat-n">Día 1</span>
-                <span className="l-nos-stat-l">capacidad de un gran laboratorio<br />sin IT interno</span>
-              </div>
+            {/* Stats */}
+            <div className="mt-9 flex flex-wrap gap-10 border-t border-navy-900/10 pt-9">
+              {STATS.map((s) => (
+                <div key={s.n} className="flex flex-col gap-1">
+                  <span className="text-4xl font-extrabold leading-none tracking-tight text-navy-900">
+                    {s.n}
+                  </span>
+                  <span className="whitespace-pre-line text-[13px] leading-snug text-ink-500">
+                    {s.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Misión ──────────────────────────────────── */}
-      <section className="l-section l-nos-mision">
-        <div className="l-container l-nos-mision-inner">
+      {/* ── Misión ── */}
+      <section className="l-section bg-white">
+        <div className="l-container max-w-3xl">
           <span className="l-eyebrow">Nuestra misión</span>
-          <blockquote className="l-nos-mision-q">
+          <blockquote className="mt-5 border-l-2 border-teal-500 pl-6 text-2xl font-semibold leading-[1.45] tracking-[-0.02em] text-navy-900 sm:text-3xl">
             Dar a cada laboratorio clínico independiente en LATAM la misma
             capacidad tecnológica que las grandes cadenas, sin IT interno,
             sin contratos de años y sin curvas de aprendizaje de meses.
@@ -95,21 +111,26 @@ export default function NosotrosPage() {
         </div>
       </section>
 
-      {/* ── Equipo ──────────────────────────────────── */}
-      <section className="l-section l-nos-equipo">
+      {/* ── Equipo ── */}
+      <section className="l-section bg-ink-50">
         <div className="l-container">
           <span className="l-eyebrow">El equipo</span>
-          <h2 className="l-section-title" style={{ marginTop: 12, marginBottom: 48 }}>
+          <h2 className="mb-12 mt-3 text-3xl font-extrabold tracking-tight text-navy-900">
             Las personas detrás del sistema.
           </h2>
-          <div className="l-nos-team-grid">
+          <div className="grid gap-6 sm:grid-cols-2">
             {TEAM.map((m) => (
-              <div key={m.name} className="l-nos-team-card">
-                <div className="l-nos-team-avatar">{m.initials}</div>
-                <div className="l-nos-team-info">
-                  <span className="l-nos-team-name">{m.name}</span>
-                  <span className="l-nos-team-role">{m.role}</span>
-                  <p className="l-nos-team-bio">{m.bio}</p>
+              <div
+                key={m.name}
+                className="flex gap-5 rounded-lg border border-ink-200 bg-white p-7 shadow-card"
+              >
+                <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-navy-900 font-mono text-sm font-bold text-white">
+                  {m.initials}
+                </div>
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-base font-bold text-navy-900">{m.name}</span>
+                  <span className="text-[13px] font-semibold text-teal-600">{m.role}</span>
+                  <p className="mt-2.5 text-sm leading-relaxed text-ink-600">{m.bio}</p>
                 </div>
               </div>
             ))}
@@ -117,18 +138,17 @@ export default function NosotrosPage() {
         </div>
       </section>
 
-      {/* ── CTA ─────────────────────────────────────── */}
-      <section className="l-nos-cta">
-        <div className="l-container l-nos-cta-inner">
-          <h2 className="l-nos-cta-h2">¿Tu laboratorio sigue en papel?</h2>
-          <p className="l-nos-cta-p">
+      {/* ── CTA ── */}
+      <section className="bg-navy-900 py-20">
+        <div className="l-container flex flex-col items-center gap-4 text-center">
+          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+            ¿Tu laboratorio sigue en papel?
+          </h2>
+          <p className="text-lg text-white/60">
             Empieza gratis. Sin tarjeta, sin contrato, sin IT.
           </p>
-          <div className="l-nos-cta-btns">
-            <a
-              href={`${APP_URL}/register`}
-              className="l-btn l-btn-teal l-btn-lg"
-            >
+          <div className="mt-2 flex flex-wrap justify-center gap-3">
+            <a href={`${APP_URL}/register`} className="l-btn l-btn-teal l-btn-lg">
               Crear cuenta gratis
             </a>
             <Link href="/roadmap" className="l-btn l-btn-ghost-white l-btn-lg">
