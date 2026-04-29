@@ -7,8 +7,11 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     name: "BASIC",
     tagline: "Para laboratorios que empiezan a digitalizar su operación.",
-    priceMonthly: 350,
-    priceYearly: 280,
+    prices: {
+      MXN: { monthly: 350,    yearly: 280    },
+      USD: { monthly: 19,     yearly: 15     },
+      COP: { monthly: 80000,  yearly: 64000  },
+    },
     note: "Hasta 500 órdenes/mes · 1 sucursal · 5 usuarios",
     cta: "Crear cuenta gratis",
     ctaHref: `${APP_URL}/register`,
@@ -30,8 +33,11 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     name: "FOUNDER",
     tagline: "Precio especial para los primeros 20 laboratorios. Acceso completo.",
-    priceMonthly: 550,
-    priceYearly: 440,
+    prices: {
+      MXN: { monthly: 550,     yearly: 440    },
+      USD: { monthly: 29,      yearly: 23     },
+      COP: { monthly: 130000,  yearly: 104000 },
+    },
     note: "Hasta 1,500 órdenes/mes · hasta 2 sucursales",
     cta: "Crear cuenta gratis",
     ctaHref: `${APP_URL}/register`,

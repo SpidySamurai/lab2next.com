@@ -14,7 +14,11 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   },
   {
     h: "Empresa",
-    items: [{ label: "Contacto", href: "#demo" }],
+    items: [
+      { label: "Propósito", href: "/#proposito" },
+      { label: "Roadmap", href: "/roadmap" },
+      { label: "Contacto", href: "#demo" },
+    ],
   },
   {
     h: "Legal",

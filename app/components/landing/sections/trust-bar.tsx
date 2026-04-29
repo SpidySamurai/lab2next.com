@@ -23,7 +23,7 @@ const TRUST_ITEMS = [
   },
   {
     icon: Globe,
-    label: "Datos en México",
+    label: "Datos seguros",
     color: "var(--green-500)",
     live: true,
   },
