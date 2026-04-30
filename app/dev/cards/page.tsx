@@ -1,27 +1,19 @@
 import { notFound } from "next/navigation";
-import { Zap, ClipboardList, MessageCircle } from "lucide-react";
+import { Zap, ClipboardList, MessageCircle, FlaskConical, Bell, BarChart2 } from "lucide-react";
 import { StatCard } from "../../components/landing/molecules/stat-card";
 import { FeatureCard } from "../../components/landing/molecules/feature-card";
 import { PersonCard } from "../../components/landing/molecules/person-card";
 import { Section } from "../../components/landing/layout/section";
 import { Container } from "../../components/landing/layout/container";
+import { StatCardCompact, StatCardDark, StatCardNumbered } from "../components/stat-card-variants";
+import { FeatureCardHorizontal, FeatureCardGhost, FeatureCardDense } from "../components/feature-card-variants";
+import { PersonCardAccent, PersonCardCompact, PersonCardTestiDark } from "../components/person-card-variants";
 
 export default function DevCardsPage() {
   if (process.env.NODE_ENV !== "development") notFound();
 
   return (
     <div className="min-h-screen bg-ink-50">
-      {/* Header */}
-      <div className="border-b border-ink-200 bg-white px-8 py-5">
-        <div className="flex items-center gap-3">
-          <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-600 border border-amber-200">
-            DEV ONLY
-          </span>
-          <h1 className="text-lg font-bold text-navy-900">Card Variants</h1>
-          <span className="text-sm text-ink-400">— atoms/molecules preview panel</span>
-        </div>
-      </div>
-
       {/* ── StatCard ── */}
       <Section bg="white">
         <Container>
@@ -173,6 +165,325 @@ export default function DevCardsPage() {
               lab="Análisis Clínicos Integrales"
               quote="La velocidad con la que atendemos a los pacientes subió un 40%."
               showStars
+            />
+          </div>
+        </Container>
+      </Section>
+
+      {/* ════════════════════════════════════
+          EXPERIMENTAL VARIANTS
+          ════════════════════════════════════ */}
+
+      {/* ── StatCard variants ── */}
+      <Section bg="gray">
+        <Container>
+          <SectionLabel
+            title="StatCard — Compact"
+            path="dev/components/stat-card-variants.tsx"
+            desc="Mismos datos, p-5, número en text-2xl, separación más apretada."
+          />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <StatCardCompact
+              stat="Hasta 2 h/día"
+              title="Resultados en papel"
+              body="El paciente regresa por su sobre. Tu personal imprime, archiva, busca expedientes."
+            />
+            <StatCardCompact
+              stat="1 de cada 50"
+              title="Errores de transcripción"
+              body="Capturar a mano resultados del analizador es un riesgo clínico real."
+            />
+            <StatCardCompact
+              stat="Todo el día"
+              title="Sin visibilidad en tiempo real"
+              body="No sabes cuántas órdenes hay pendientes hasta que alguien llama."
+            />
+          </div>
+        </Container>
+      </Section>
+
+      <Section bg="white">
+        <Container>
+          <SectionLabel
+            title="StatCard — Dark"
+            path="dev/components/stat-card-variants.tsx"
+            desc="Fondo navy-900, número en teal-400 font-black, texto blanco."
+          />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <StatCardDark
+              stat="Hasta 2 h/día"
+              title="Resultados en papel"
+              body="El paciente regresa por su sobre. Tu personal imprime, archiva, busca expedientes."
+            />
+            <StatCardDark
+              stat="1 de cada 50"
+              title="Errores de transcripción"
+              body="Capturar a mano resultados del analizador es un riesgo clínico real."
+            />
+            <StatCardDark
+              stat="Todo el día"
+              title="Sin visibilidad en tiempo real"
+              body="No sabes cuántas órdenes hay pendientes hasta que alguien llama."
+            />
+          </div>
+        </Container>
+      </Section>
+
+      <Section bg="gray">
+        <Container>
+          <SectionLabel
+            title="StatCard — Numbered"
+            path="dev/components/stat-card-variants.tsx"
+            desc="Número editorial grande en text-ink-100 de fondo, stat/título/body encima."
+          />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <StatCardNumbered
+              num="01"
+              stat="Hasta 2 h/día"
+              title="Resultados en papel"
+              body="El paciente regresa por su sobre. Tu personal imprime, archiva, busca expedientes."
+            />
+            <StatCardNumbered
+              num="02"
+              stat="1 de cada 50"
+              title="Errores de transcripción"
+              body="Capturar a mano resultados del analizador es un riesgo clínico real."
+            />
+            <StatCardNumbered
+              num="03"
+              stat="Todo el día"
+              title="Sin visibilidad en tiempo real"
+              body="No sabes cuántas órdenes hay pendientes hasta que alguien llama."
+            />
+          </div>
+        </Container>
+      </Section>
+
+      {/* ── FeatureCard variants ── */}
+      <Section bg="white">
+        <Container>
+          <SectionLabel
+            title="FeatureCard — Horizontal"
+            path="dev/components/feature-card-variants.tsx"
+            desc="Ícono 48×48 en columna izquierda, título+body+tags en columna derecha. Full-width."
+          />
+          <div className="grid gap-4 lg:grid-cols-2">
+            <FeatureCardHorizontal
+              icon={ClipboardList}
+              title="Gestión de órdenes y pacientes"
+              body="Captura de órdenes con autocompletado de catálogo, expediente clínico digital e historial completo."
+              tags={["Pacientes", "Órdenes", "Catálogo"]}
+            />
+            <FeatureCardHorizontal
+              icon={MessageCircle}
+              title="Portal de resultados por WhatsApp"
+              body="El staff envía el enlace al paciente por WhatsApp en un clic. Acceso seguro con QR."
+              tags={["WhatsApp", "QR", "Portal web"]}
+            />
+            <FeatureCardHorizontal
+              icon={Zap}
+              title="Operando el mismo día"
+              body="Sin implementación, sin técnicos, sin esperar a nadie. Primer orden en menos de una hora."
+              tags={["Setup rápido", "Sin IT"]}
+            />
+            <FeatureCardHorizontal
+              icon={BarChart2}
+              title="Dashboard en tiempo real"
+              body="Métricas de producción, finanzas y calidad disponibles desde el primer día."
+              tags={["Reportes", "Multi-sucursal"]}
+            />
+          </div>
+        </Container>
+      </Section>
+
+      <Section bg="gray">
+        <Container>
+          <SectionLabel
+            title="FeatureCard — Ghost"
+            path="dev/components/feature-card-variants.tsx"
+            desc="Sin borde ni sombra en reposo. Hover revela borde ink-200 + shadow-md + fondo blanco."
+          />
+          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            <FeatureCardGhost
+              icon={ClipboardList}
+              title="Gestión de órdenes"
+              body="Captura rápida con catálogo autocompletado y expediente digital."
+              tags={["Pacientes", "Órdenes"]}
+            />
+            <FeatureCardGhost
+              icon={MessageCircle}
+              title="Entrega por WhatsApp"
+              body="Resultados al paciente en un clic, con enlace firmado y QR."
+              tags={["WhatsApp", "QR"]}
+            />
+            <FeatureCardGhost
+              icon={FlaskConical}
+              title="Control de calidad integrado"
+              body="Reglas de validación automáticas sobre cada resultado ingresado."
+              tags={["Calidad", "Validación"]}
+            />
+            <FeatureCardGhost
+              icon={Bell}
+              title="Alertas de valores críticos"
+              body="Notificación inmediata al médico cuando un resultado supera el umbral."
+              tags={["Alertas", "Clínica"]}
+            />
+            <FeatureCardGhost
+              icon={Zap}
+              title="Activación el mismo día"
+              body="Tu laboratorio operando en menos de una hora, sin técnicos."
+              tags={["Setup rápido"]}
+            />
+            <FeatureCardGhost
+              icon={BarChart2}
+              title="Reportes automáticos"
+              body="Producción, facturación e inventario disponibles sin configurar nada."
+              tags={["Reportes", "Finanzas"]}
+            />
+          </div>
+        </Container>
+      </Section>
+
+      <Section bg="white">
+        <Container>
+          <SectionLabel
+            title="FeatureCard — Dense"
+            path="dev/components/feature-card-variants.tsx"
+            desc="Compacto p-4, ícono 32×32, title text-sm, body text-xs. Ideal en grilla 2 col."
+          />
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <FeatureCardDense
+              icon={ClipboardList}
+              title="Órdenes"
+              body="Captura y despacho de órdenes clínicas."
+              tags={["Core"]}
+            />
+            <FeatureCardDense
+              icon={MessageCircle}
+              title="WhatsApp"
+              body="Entrega de resultados por enlace seguro."
+              tags={["Pacientes"]}
+            />
+            <FeatureCardDense
+              icon={FlaskConical}
+              title="Control de calidad"
+              body="Validación automática de resultados."
+              tags={["QC"]}
+            />
+            <FeatureCardDense
+              icon={Bell}
+              title="Alertas críticas"
+              body="Notificación inmediata de valores fuera de rango."
+              tags={["Clínica"]}
+            />
+            <FeatureCardDense
+              icon={BarChart2}
+              title="Reportes"
+              body="Producción y facturación en tiempo real."
+              tags={["Analytics"]}
+            />
+            <FeatureCardDense
+              icon={Zap}
+              title="Activación rápida"
+              body="Operando el mismo día sin soporte IT."
+              tags={["Setup"]}
+            />
+          </div>
+        </Container>
+      </Section>
+
+      {/* ── PersonCard variants ── */}
+      <Section bg="gray">
+        <Container>
+          <SectionLabel
+            title="PersonCard — Accent"
+            path="dev/components/person-card-variants.tsx"
+            desc="Variante de equipo con borde superior teal-500 de 3px."
+          />
+          <div className="grid gap-5 sm:grid-cols-2">
+            <PersonCardAccent
+              initials="JC"
+              name="Javier Ortiz"
+              role="CEO & Co-fundador"
+              bio="Vio de cerca cómo un laboratorio independiente operaba con Excel y WhatsApp. Decidió construir lo que faltaba."
+            />
+            <PersonCardAccent
+              initials="AG"
+              name="Nombre Co-fundador"
+              role="CTO & Co-fundador"
+              bio="Experiencia en tecnología y salud. Construye la infraestructura que hace posible operar el mismo día."
+            />
+          </div>
+        </Container>
+      </Section>
+
+      <Section bg="white">
+        <Container>
+          <SectionLabel
+            title="PersonCard — Compact"
+            path="dev/components/person-card-variants.tsx"
+            desc="Avatar 36px, nombre · rol en la misma línea, bio en text-xs. Muy apretado."
+          />
+          <div className="grid gap-3 sm:grid-cols-2">
+            <PersonCardCompact
+              initials="JC"
+              name="Javier Ortiz"
+              role="CEO & Co-fundador"
+              bio="Vio de cerca cómo un laboratorio independiente operaba con Excel y WhatsApp."
+            />
+            <PersonCardCompact
+              initials="AG"
+              name="Nombre Co-fundador"
+              role="CTO & Co-fundador"
+              bio="Construye la infraestructura que hace posible operar el mismo día."
+            />
+            <PersonCardCompact
+              initials="LM"
+              name="Lic. Laura M."
+              role="Customer Success"
+              bio="Acompaña a cada laboratorio en su proceso de adopción digital."
+            />
+            <PersonCardCompact
+              initials="RS"
+              name="Ing. Rodrigo S."
+              role="Lead Engineer"
+              bio="Responsable de la estabilidad e integración con analizadores."
+            />
+          </div>
+        </Container>
+      </Section>
+
+      <Section bg="gray">
+        <Container>
+          <SectionLabel
+            title="PersonCard — TestiDark"
+            path="dev/components/person-card-variants.tsx"
+            desc="Testimonio dark navy: estrellas teal, quote blanco/80, avatar con gradiente prop."
+          />
+          <div className="grid gap-5 sm:grid-cols-3">
+            <PersonCardTestiDark
+              initials="BE"
+              name="Bioquímico Edwin"
+              role="Director de Laboratorio"
+              lab="Biogen Foundery"
+              quote="Lab2Next nos permitió digitalizar por completo el flujo de recepción y entrega de resultados."
+              grad="linear-gradient(135deg, #7C3AED, #22D3EE)"
+            />
+            <PersonCardTestiDark
+              initials="CR"
+              name="Dra. Carmen R."
+              role="Jefa de Calidad"
+              lab="Laboratorios del Sureste"
+              quote="Ahora todo cuadra al centavo y el control de calidad es impecable."
+              grad="linear-gradient(135deg, #A78BFA, #F472B6)"
+            />
+            <PersonCardTestiDark
+              initials="RM"
+              name="Lic. Roberto M."
+              role="Administrador"
+              lab="Análisis Clínicos Integrales"
+              quote="La velocidad con la que atendemos a los pacientes subió un 40%."
+              grad="linear-gradient(135deg, #34D399, #7C3AED)"
             />
           </div>
         </Container>
