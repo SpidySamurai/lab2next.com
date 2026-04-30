@@ -48,6 +48,14 @@ Both consume the same tokens from `@theme` in `globals.css`.
 - **CSS var naming in `app/styles/*.css`**: use legacy aliases (`var(--ink-700)`, `var(--navy-900)`) not the `@theme` generated names (`var(--color-ink-700)`). Both work but mixing breaks grep and consistency
 - **`l-*` classes are unlayered** — they always win over Tailwind utilities on the same property. If a Tailwind utility isn't working on an element that also has an `l-*` class, the `l-*` class is overriding it
 
+**Token consumption — one rule per layer:**
+
+| Layer | Where | Rule | Never |
+|-------|-------|------|-------|
+| JSX `className` | Tailwind utilities | `bg-navy-900`, `text-teal-500`, `rounded-card` | `var(--color-*)`, inline hex |
+| `app/styles/*.css` | `var(--legacy-alias)` | `var(--navy-900)`, `var(--radius-lg)` | `var(--color-navy-900)` |
+| `style={{}}` inline | Runtime-computed values only | `` style={{ width: `${pct}%` }} `` | Token values, hex colors |
+
 ---
 
 ## How Javier Gives Instructions
