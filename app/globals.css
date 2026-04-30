@@ -168,9 +168,17 @@
 ──────────────────────────────────── */
 
 /* ── Base (mobile): override CSS-file desktop defaults ── */
+.l-hero               { padding: 52px 0 60px; }
+.l-page-hero          { padding: 48px 0 56px; }
+.l-section            { padding: 60px 0; }
+.l-section-tight      { padding: 44px 0; }
+.l-section-head       { margin-bottom: 36px; }
+
 .l-hero-grid          { grid-template-columns: 1fr; gap: 40px; }
 .l-hero-actions       { flex-direction: column; }
+.l-hero-actions > *   { width: 100%; }
 .l-hero-sub           { font-size: 17px; }
+.l-dash-float         { display: none; }
 
 .l-nav-links          { display: none; }
 .l-nav-cta            { display: none; }
@@ -217,22 +225,40 @@
 
 .l-dash-body          { grid-template-columns: 1fr; }
 .l-dash-side          { display: none; }
-.l-dash-float-1       { left: 8px; }
-.l-dash-float-2       { right: 8px; }
 
-.l-nos-origen-inner   { grid-template-columns: 1fr; gap: 32px; }
+/* Dashboard orders: 3-col on mobile (Paciente / Estado / Total; hide Folio + Estudio) */
+.l-dash-orders-head,
+.l-dash-order         { grid-template-columns: 1fr 72px 56px; }
+.l-dash-orders-head > span:first-child,
+.l-dash-orders-head > span:nth-child(3),
+.l-dash-order .l-ord-id,
+.l-dash-order .l-ord-test { display: none; }
 
 /* ── sm (≥480px): narrow phones improve ── */
 @media (min-width: 480px) {
   .l-hero-actions       { flex-direction: row; flex-wrap: wrap; }
+  .l-hero-actions > *   { width: auto; }
 }
 
 /* ── md (≥768px): tablets ── */
 @media (min-width: 768px) {
+  .l-section            { padding: 80px 0; }
+  .l-section-tight      { padding: 60px 0; }
+  .l-section-head       { margin-bottom: 48px; }
+  .l-hero               { padding: 72px 0 84px; }
+  .l-page-hero          { padding: 64px 0 72px; }
   .l-hero-sub           { font-size: 19px; }
 
   .l-dash-body          { grid-template-columns: 196px 1fr; }
   .l-dash-side          { display: block; }
+  .l-dash-float         { display: flex; }
+  /* Restore full 5-col orders table at tablet+ */
+  .l-dash-orders-head,
+  .l-dash-order         { grid-template-columns: 80px 1fr 100px 80px 70px; }
+  .l-dash-orders-head > span:first-child,
+  .l-dash-orders-head > span:nth-child(3),
+  .l-dash-order .l-ord-id,
+  .l-dash-order .l-ord-test { display: revert; }
 
   .l-problem-grid       { grid-template-columns: repeat(2, 1fr); }
   .l-problem-card       { padding: 32px 28px; }
@@ -245,12 +271,16 @@
 
   .l-footer-grid-v2     { grid-template-columns: 1fr 1fr; }
   .l-footer-tagline     { max-width: 280px; }
-
-  .l-nos-origen-inner   { grid-template-columns: 200px 1fr; gap: 64px; }
 }
 
 /* ── lg (≥1024px): full desktop ── */
 @media (min-width: 1024px) {
+  .l-hero               { padding: 80px 0 100px; }
+  .l-page-hero          { padding: 80px 0 96px; }
+  .l-section            { padding: 96px 0; }
+  .l-section-tight      { padding: 72px 0; }
+  .l-section-head       { margin-bottom: 56px; }
+
   .l-nav-links          { display: flex; }
   .l-nav-cta            { display: flex; }
   .l-hamburger          { display: none; }
