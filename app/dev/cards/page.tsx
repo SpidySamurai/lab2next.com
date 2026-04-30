@@ -183,21 +183,9 @@ export default function DevCardsPage() {
             desc="Mismos datos, p-5, número en text-2xl, separación más apretada."
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <StatCardCompact
-              stat="Hasta 2 h/día"
-              title="Resultados en papel"
-              body="El paciente regresa por su sobre. Tu personal imprime, archiva, busca expedientes."
-            />
-            <StatCardCompact
-              stat="1 de cada 50"
-              title="Errores de transcripción"
-              body="Capturar a mano resultados del analizador es un riesgo clínico real."
-            />
-            <StatCardCompact
-              stat="Todo el día"
-              title="Sin visibilidad en tiempo real"
-              body="No sabes cuántas órdenes hay pendientes hasta que alguien llama."
-            />
+            <StatCardCompact delay={0} stat="Hasta 2 h/día" title="Resultados en papel" body="El paciente regresa por su sobre. Tu personal imprime, archiva, busca expedientes." />
+            <StatCardCompact delay={1} stat="1 de cada 50" title="Errores de transcripción" body="Capturar a mano resultados del analizador es un riesgo clínico real." />
+            <StatCardCompact delay={2} stat="Todo el día" title="Sin visibilidad en tiempo real" body="No sabes cuántas órdenes hay pendientes hasta que alguien llama." />
           </div>
         </Container>
       </Section>
@@ -210,21 +198,9 @@ export default function DevCardsPage() {
             desc="Fondo navy-900, número en teal-400 font-black, texto blanco."
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <StatCardDark
-              stat="Hasta 2 h/día"
-              title="Resultados en papel"
-              body="El paciente regresa por su sobre. Tu personal imprime, archiva, busca expedientes."
-            />
-            <StatCardDark
-              stat="1 de cada 50"
-              title="Errores de transcripción"
-              body="Capturar a mano resultados del analizador es un riesgo clínico real."
-            />
-            <StatCardDark
-              stat="Todo el día"
-              title="Sin visibilidad en tiempo real"
-              body="No sabes cuántas órdenes hay pendientes hasta que alguien llama."
-            />
+            <StatCardDark delay={0} stat="Hasta 2 h/día" title="Resultados en papel" body="El paciente regresa por su sobre. Tu personal imprime, archiva, busca expedientes." />
+            <StatCardDark delay={1} stat="1 de cada 50" title="Errores de transcripción" body="Capturar a mano resultados del analizador es un riesgo clínico real." />
+            <StatCardDark delay={2} stat="Todo el día" title="Sin visibilidad en tiempo real" body="No sabes cuántas órdenes hay pendientes hasta que alguien llama." />
           </div>
         </Container>
       </Section>
@@ -237,24 +213,9 @@ export default function DevCardsPage() {
             desc="Número editorial grande en text-ink-100 de fondo, stat/título/body encima."
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <StatCardNumbered
-              num="01"
-              stat="Hasta 2 h/día"
-              title="Resultados en papel"
-              body="El paciente regresa por su sobre. Tu personal imprime, archiva, busca expedientes."
-            />
-            <StatCardNumbered
-              num="02"
-              stat="1 de cada 50"
-              title="Errores de transcripción"
-              body="Capturar a mano resultados del analizador es un riesgo clínico real."
-            />
-            <StatCardNumbered
-              num="03"
-              stat="Todo el día"
-              title="Sin visibilidad en tiempo real"
-              body="No sabes cuántas órdenes hay pendientes hasta que alguien llama."
-            />
+            <StatCardNumbered delay={0} num="01" stat="Hasta 2 h/día" title="Resultados en papel" body="El paciente regresa por su sobre. Tu personal imprime, archiva, busca expedientes." />
+            <StatCardNumbered delay={1} num="02" stat="1 de cada 50" title="Errores de transcripción" body="Capturar a mano resultados del analizador es un riesgo clínico real." />
+            <StatCardNumbered delay={2} num="03" stat="Todo el día" title="Sin visibilidad en tiempo real" body="No sabes cuántas órdenes hay pendientes hasta que alguien llama." />
           </div>
         </Container>
       </Section>
@@ -268,30 +229,10 @@ export default function DevCardsPage() {
             desc="Ícono 48×48 en columna izquierda, título+body+tags en columna derecha. Full-width."
           />
           <div className="grid gap-4 lg:grid-cols-2">
-            <FeatureCardHorizontal
-              icon={ClipboardList}
-              title="Gestión de órdenes y pacientes"
-              body="Captura de órdenes con autocompletado de catálogo, expediente clínico digital e historial completo."
-              tags={["Pacientes", "Órdenes", "Catálogo"]}
-            />
-            <FeatureCardHorizontal
-              icon={MessageCircle}
-              title="Portal de resultados por WhatsApp"
-              body="El staff envía el enlace al paciente por WhatsApp en un clic. Acceso seguro con QR."
-              tags={["WhatsApp", "QR", "Portal web"]}
-            />
-            <FeatureCardHorizontal
-              icon={Zap}
-              title="Operando el mismo día"
-              body="Sin implementación, sin técnicos, sin esperar a nadie. Primer orden en menos de una hora."
-              tags={["Setup rápido", "Sin IT"]}
-            />
-            <FeatureCardHorizontal
-              icon={BarChart2}
-              title="Dashboard en tiempo real"
-              body="Métricas de producción, finanzas y calidad disponibles desde el primer día."
-              tags={["Reportes", "Multi-sucursal"]}
-            />
+            <FeatureCardHorizontal delay={0} icon={ClipboardList} title="Gestión de órdenes y pacientes" body="Captura de órdenes con autocompletado de catálogo, expediente clínico digital e historial completo." tags={["Pacientes", "Órdenes", "Catálogo"]} />
+            <FeatureCardHorizontal delay={1} icon={MessageCircle} title="Portal de resultados por WhatsApp" body="El staff envía el enlace al paciente por WhatsApp en un clic. Acceso seguro con QR." tags={["WhatsApp", "QR", "Portal web"]} />
+            <FeatureCardHorizontal delay={2} icon={Zap} title="Operando el mismo día" body="Sin implementación, sin técnicos, sin esperar a nadie. Primer orden en menos de una hora." tags={["Setup rápido", "Sin IT"]} />
+            <FeatureCardHorizontal delay={3} icon={BarChart2} title="Dashboard en tiempo real" body="Métricas de producción, finanzas y calidad disponibles desde el primer día." tags={["Reportes", "Multi-sucursal"]} />
           </div>
         </Container>
       </Section>
@@ -304,42 +245,12 @@ export default function DevCardsPage() {
             desc="Sin borde ni sombra en reposo. Hover revela borde ink-200 + shadow-md + fondo blanco."
           />
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            <FeatureCardGhost
-              icon={ClipboardList}
-              title="Gestión de órdenes"
-              body="Captura rápida con catálogo autocompletado y expediente digital."
-              tags={["Pacientes", "Órdenes"]}
-            />
-            <FeatureCardGhost
-              icon={MessageCircle}
-              title="Entrega por WhatsApp"
-              body="Resultados al paciente en un clic, con enlace firmado y QR."
-              tags={["WhatsApp", "QR"]}
-            />
-            <FeatureCardGhost
-              icon={FlaskConical}
-              title="Control de calidad integrado"
-              body="Reglas de validación automáticas sobre cada resultado ingresado."
-              tags={["Calidad", "Validación"]}
-            />
-            <FeatureCardGhost
-              icon={Bell}
-              title="Alertas de valores críticos"
-              body="Notificación inmediata al médico cuando un resultado supera el umbral."
-              tags={["Alertas", "Clínica"]}
-            />
-            <FeatureCardGhost
-              icon={Zap}
-              title="Activación el mismo día"
-              body="Tu laboratorio operando en menos de una hora, sin técnicos."
-              tags={["Setup rápido"]}
-            />
-            <FeatureCardGhost
-              icon={BarChart2}
-              title="Reportes automáticos"
-              body="Producción, facturación e inventario disponibles sin configurar nada."
-              tags={["Reportes", "Finanzas"]}
-            />
+            <FeatureCardGhost delay={0} icon={ClipboardList} title="Gestión de órdenes" body="Captura rápida con catálogo autocompletado y expediente digital." tags={["Pacientes", "Órdenes"]} />
+            <FeatureCardGhost delay={1} icon={MessageCircle} title="Entrega por WhatsApp" body="Resultados al paciente en un clic, con enlace firmado y QR." tags={["WhatsApp", "QR"]} />
+            <FeatureCardGhost delay={2} icon={FlaskConical} title="Control de calidad integrado" body="Reglas de validación automáticas sobre cada resultado ingresado." tags={["Calidad", "Validación"]} />
+            <FeatureCardGhost delay={3} icon={Bell} title="Alertas de valores críticos" body="Notificación inmediata al médico cuando un resultado supera el umbral." tags={["Alertas", "Clínica"]} />
+            <FeatureCardGhost delay={4} icon={Zap} title="Activación el mismo día" body="Tu laboratorio operando en menos de una hora, sin técnicos." tags={["Setup rápido"]} />
+            <FeatureCardGhost delay={5} icon={BarChart2} title="Reportes automáticos" body="Producción, facturación e inventario disponibles sin configurar nada." tags={["Reportes", "Finanzas"]} />
           </div>
         </Container>
       </Section>
@@ -352,42 +263,12 @@ export default function DevCardsPage() {
             desc="Compacto p-4, ícono 32×32, title text-sm, body text-xs. Ideal en grilla 2 col."
           />
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <FeatureCardDense
-              icon={ClipboardList}
-              title="Órdenes"
-              body="Captura y despacho de órdenes clínicas."
-              tags={["Core"]}
-            />
-            <FeatureCardDense
-              icon={MessageCircle}
-              title="WhatsApp"
-              body="Entrega de resultados por enlace seguro."
-              tags={["Pacientes"]}
-            />
-            <FeatureCardDense
-              icon={FlaskConical}
-              title="Control de calidad"
-              body="Validación automática de resultados."
-              tags={["QC"]}
-            />
-            <FeatureCardDense
-              icon={Bell}
-              title="Alertas críticas"
-              body="Notificación inmediata de valores fuera de rango."
-              tags={["Clínica"]}
-            />
-            <FeatureCardDense
-              icon={BarChart2}
-              title="Reportes"
-              body="Producción y facturación en tiempo real."
-              tags={["Analytics"]}
-            />
-            <FeatureCardDense
-              icon={Zap}
-              title="Activación rápida"
-              body="Operando el mismo día sin soporte IT."
-              tags={["Setup"]}
-            />
+            <FeatureCardDense delay={0} icon={ClipboardList} title="Órdenes" body="Captura y despacho de órdenes clínicas." tags={["Core"]} />
+            <FeatureCardDense delay={1} icon={MessageCircle} title="WhatsApp" body="Entrega de resultados por enlace seguro." tags={["Pacientes"]} />
+            <FeatureCardDense delay={2} icon={FlaskConical} title="Control de calidad" body="Validación automática de resultados." tags={["QC"]} />
+            <FeatureCardDense delay={3} icon={Bell} title="Alertas críticas" body="Notificación inmediata de valores fuera de rango." tags={["Clínica"]} />
+            <FeatureCardDense delay={4} icon={BarChart2} title="Reportes" body="Producción y facturación en tiempo real." tags={["Analytics"]} />
+            <FeatureCardDense delay={5} icon={Zap} title="Activación rápida" body="Operando el mismo día sin soporte IT." tags={["Setup"]} />
           </div>
         </Container>
       </Section>
@@ -401,18 +282,8 @@ export default function DevCardsPage() {
             desc="Variante de equipo con borde superior teal-500 de 3px."
           />
           <div className="grid gap-5 sm:grid-cols-2">
-            <PersonCardAccent
-              initials="JC"
-              name="Javier Ortiz"
-              role="CEO & Co-fundador"
-              bio="Vio de cerca cómo un laboratorio independiente operaba con Excel y WhatsApp. Decidió construir lo que faltaba."
-            />
-            <PersonCardAccent
-              initials="AG"
-              name="Nombre Co-fundador"
-              role="CTO & Co-fundador"
-              bio="Experiencia en tecnología y salud. Construye la infraestructura que hace posible operar el mismo día."
-            />
+            <PersonCardAccent delay={0} initials="JC" name="Javier Ortiz" role="CEO & Co-fundador" bio="Vio de cerca cómo un laboratorio independiente operaba con Excel y WhatsApp. Decidió construir lo que faltaba." />
+            <PersonCardAccent delay={1} initials="AG" name="Nombre Co-fundador" role="CTO & Co-fundador" bio="Experiencia en tecnología y salud. Construye la infraestructura que hace posible operar el mismo día." />
           </div>
         </Container>
       </Section>
@@ -425,30 +296,10 @@ export default function DevCardsPage() {
             desc="Avatar 36px, nombre · rol en la misma línea, bio en text-xs. Muy apretado."
           />
           <div className="grid gap-3 sm:grid-cols-2">
-            <PersonCardCompact
-              initials="JC"
-              name="Javier Ortiz"
-              role="CEO & Co-fundador"
-              bio="Vio de cerca cómo un laboratorio independiente operaba con Excel y WhatsApp."
-            />
-            <PersonCardCompact
-              initials="AG"
-              name="Nombre Co-fundador"
-              role="CTO & Co-fundador"
-              bio="Construye la infraestructura que hace posible operar el mismo día."
-            />
-            <PersonCardCompact
-              initials="LM"
-              name="Lic. Laura M."
-              role="Customer Success"
-              bio="Acompaña a cada laboratorio en su proceso de adopción digital."
-            />
-            <PersonCardCompact
-              initials="RS"
-              name="Ing. Rodrigo S."
-              role="Lead Engineer"
-              bio="Responsable de la estabilidad e integración con analizadores."
-            />
+            <PersonCardCompact delay={0} initials="JC" name="Javier Ortiz" role="CEO & Co-fundador" bio="Vio de cerca cómo un laboratorio independiente operaba con Excel y WhatsApp." />
+            <PersonCardCompact delay={1} initials="AG" name="Nombre Co-fundador" role="CTO & Co-fundador" bio="Construye la infraestructura que hace posible operar el mismo día." />
+            <PersonCardCompact delay={2} initials="LM" name="Lic. Laura M." role="Customer Success" bio="Acompaña a cada laboratorio en su proceso de adopción digital." />
+            <PersonCardCompact delay={3} initials="RS" name="Ing. Rodrigo S." role="Lead Engineer" bio="Responsable de la estabilidad e integración con analizadores." />
           </div>
         </Container>
       </Section>
@@ -461,30 +312,9 @@ export default function DevCardsPage() {
             desc="Testimonio dark navy: estrellas teal, quote blanco/80, avatar con gradiente prop."
           />
           <div className="grid gap-5 sm:grid-cols-3">
-            <PersonCardTestiDark
-              initials="BE"
-              name="Bioquímico Edwin"
-              role="Director de Laboratorio"
-              lab="Biogen Foundery"
-              quote="Lab2Next nos permitió digitalizar por completo el flujo de recepción y entrega de resultados."
-              grad="linear-gradient(135deg, #7C3AED, #22D3EE)"
-            />
-            <PersonCardTestiDark
-              initials="CR"
-              name="Dra. Carmen R."
-              role="Jefa de Calidad"
-              lab="Laboratorios del Sureste"
-              quote="Ahora todo cuadra al centavo y el control de calidad es impecable."
-              grad="linear-gradient(135deg, #A78BFA, #F472B6)"
-            />
-            <PersonCardTestiDark
-              initials="RM"
-              name="Lic. Roberto M."
-              role="Administrador"
-              lab="Análisis Clínicos Integrales"
-              quote="La velocidad con la que atendemos a los pacientes subió un 40%."
-              grad="linear-gradient(135deg, #34D399, #7C3AED)"
-            />
+            <PersonCardTestiDark delay={0} initials="BE" name="Bioquímico Edwin" role="Director de Laboratorio" lab="Biogen Foundery" quote="Lab2Next nos permitió digitalizar por completo el flujo de recepción y entrega de resultados." grad="linear-gradient(135deg, #7C3AED, #22D3EE)" />
+            <PersonCardTestiDark delay={1} initials="CR" name="Dra. Carmen R." role="Jefa de Calidad" lab="Laboratorios del Sureste" quote="Ahora todo cuadra al centavo y el control de calidad es impecable." grad="linear-gradient(135deg, #A78BFA, #F472B6)" />
+            <PersonCardTestiDark delay={2} initials="RM" name="Lic. Roberto M." role="Administrador" lab="Análisis Clínicos Integrales" quote="La velocidad con la que atendemos a los pacientes subió un 40%." grad="linear-gradient(135deg, #34D399, #7C3AED)" />
           </div>
         </Container>
       </Section>
