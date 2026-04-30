@@ -1,7 +1,5 @@
 import type { FooterColumn } from "./types";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
-
 export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     h: "Producto",
@@ -24,8 +22,8 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     h: "Legal",
     items: [
-      { label: "Aviso de privacidad", href: `${APP_URL}/privacy` },
-      { label: "Términos de servicio", href: `${APP_URL}/terms` },
+      { label: "Aviso de privacidad", href: "/aviso-de-privacidad" },
+      { label: "Términos de servicio", href: "/terminos" },
     ],
   },
 ];

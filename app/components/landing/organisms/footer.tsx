@@ -1,8 +1,6 @@
 import Link from "next/link";
 import type { FooterColumn } from "../domain/types";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
-
 interface FooterProps {
   columns: FooterColumn[];
   miniBadges: readonly string[];
@@ -58,11 +56,11 @@ export function Footer({ columns, miniBadges }: FooterProps) {
 
         <div className="l-footer-bottom">
           <span>
-            © {new Date().getFullYear()} Lab2Next — Hecho en México para laboratorios mexicanos.
+            © {new Date().getFullYear()} Lab2Next — Hecho en México para laboratorios de México y el mundo.
           </span>
           <div className="l-footer-bottom-links">
-            <a href={`${APP_URL}/privacy`} target="_blank" rel="noopener noreferrer">Privacidad</a>
-            <a href={`${APP_URL}/terms`} target="_blank" rel="noopener noreferrer">Términos</a>
+            <Link href="/aviso-de-privacidad">Privacidad</Link>
+            <Link href="/terminos">Términos</Link>
           </div>
         </div>
       </div>
