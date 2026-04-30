@@ -178,13 +178,7 @@
 .l-hero-actions       { flex-direction: column; }
 .l-hero-actions > *   { width: 100%; }
 .l-hero-sub           { font-size: 17px; }
-/* Floats: stacked below dashboard content on mobile */
-.l-dash-inner-clip    { margin-bottom: 116px; }
-.l-dash-float         { display: flex; opacity: 1; transform: none; }
-.l-dash-float-1       { top: auto; bottom: 64px; left: 8px; right: 8px; }
-.l-dash-float-2       { top: auto; bottom: 8px;  left: 8px; right: 8px; }
-.l-reveal.in .l-dash-float-1,
-.l-reveal.in .l-dash-float-2 { animation: none; }
+.l-dash-float         { display: none; }
 
 .l-nav-links          { display: none; }
 .l-nav-cta            { display: none; }
@@ -257,6 +251,7 @@
 
   .l-dash-body          { grid-template-columns: 196px 1fr; }
   .l-dash-side          { display: block; }
+  .l-dash-float         { display: flex; }
   /* Restore full 5-col orders table at tablet+ */
   .l-dash-orders-head,
   .l-dash-order         { grid-template-columns: 80px 1fr 100px 80px 70px; }
@@ -293,21 +288,8 @@
   .l-mobile-menu        { display: none; }
 
   .l-hero-grid          { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 64px; }
-  /* Floats: restore desktop positioning + entrance animations */
-  .l-dash-inner-clip    { margin-bottom: 0; }
-  .l-dash-float         { opacity: 0; transform: scale(0.78); }
-  .l-dash-float-1       { top: 20px; bottom: auto; left: -28px; right: auto; }
-  .l-dash-float-2       { bottom: 28px; top: auto; right: -24px; left: auto; }
-  .l-reveal.in .l-dash-float-1 {
-    animation:
-      l-float-pop 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.3s forwards,
-      l-float     6s ease-in-out 1.9s infinite;
-  }
-  .l-reveal.in .l-dash-float-2 {
-    animation:
-      l-float-pop 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards,
-      l-float     7s ease-in-out 1.3s infinite;
-  }
+  .l-dash-float-1       { left: -28px; }
+  .l-dash-float-2       { right: -24px; }
 
   .l-values-grid        { grid-template-columns: repeat(3, 1fr); }
   .l-value-card         { padding: 32px; }

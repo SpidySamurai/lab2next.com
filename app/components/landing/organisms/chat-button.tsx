@@ -80,7 +80,7 @@ export function ChatButton() {
               </p>
               <div className="mt-3 flex gap-2">
                 <a
-                  href="https://wa.me/521XXXXXXXXXX"
+                  href="https://wa.me/5219994875155"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 rounded-lg bg-green-500 px-3 py-1.5 text-[12px] font-semibold text-white transition-colors hover:bg-green-600"
@@ -88,12 +88,12 @@ export function ChatButton() {
                   <FaWhatsapp size={14} />
                   WhatsApp
                 </a>
-                <a
+                {/* <a
                   href="mailto:hola@lab2next.com"
                   className="inline-flex items-center gap-1.5 rounded-lg border border-ink-200 bg-white px-3 py-1.5 text-[12px] font-semibold text-ink-700 transition-colors hover:bg-ink-50"
                 >
                   Email
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
