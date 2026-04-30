@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/app/lib/utils";
-import type { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef, ElementType } from "react";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 font-semibold whitespace-nowrap border border-transparent cursor-pointer no-underline transition-all duration-150 rounded-card",
@@ -33,26 +33,19 @@ export type ButtonIntent = NonNullable<
 export { buttonVariants };
 
 // Renders as <button> by default. Pass as="a" + href for link buttons.
-interface ButtonProps
-  extends Omit<ComponentPropsWithoutRef<"button">, "type">,
-    VariantProps<typeof buttonVariants> {
-  as?: "button" | "a";
-  href?: string;
-  target?: string;
-  rel?: string;
-}
+type CVAProps = VariantProps<typeof buttonVariants>;
+type ButtonAsButton = CVAProps & { as?: "button" } & Omit<ComponentPropsWithoutRef<"button">, "type">;
+type ButtonAsAnchor = CVAProps & { as: "a" } & ComponentPropsWithoutRef<"a">;
+type ButtonProps = ButtonAsButton | ButtonAsAnchor;
 
-export function Button({
-  as: Tag = "button",
-  intent,
-  size,
-  className,
-  ...props
-}: ButtonProps) {
+export function Button({ as: Tag = "button", intent, size, className, ...props }: ButtonProps) {
+  // Cast required: TypeScript cannot verify JSX prop compatibility for a dynamic tag union.
+  // The discriminated union above ensures callers pass valid props for their chosen Tag.
+  const Comp = Tag as ElementType;
   return (
-    <Tag
+    <Comp
       className={cn(buttonVariants({ intent, size }), className)}
-      {...(props as any)}
+      {...props}
     />
   );
 }
