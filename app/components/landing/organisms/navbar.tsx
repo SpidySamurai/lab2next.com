@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
 import type { NavLink } from "../domain/types";
 import { APP_URL } from "../domain/config";
+import { Button } from "../atoms/button";
 
 interface NavbarProps {
   links: NavLink[];
@@ -98,20 +99,12 @@ export function Navbar({ links }: NavbarProps) {
           </nav>
 
           <div className="l-nav-cta">
-            <a
-              href={`${APP_URL}/login`}
-              className="l-btn l-btn-ghost"
-              style={{ height: 44, padding: "0 14px", fontSize: 14 }}
-            >
+            <Button as="a" href={`${APP_URL}/login`} intent="ghost" size="sm">
               Iniciar sesión
-            </a>
-            <a
-              href={`${APP_URL}/register`}
-              className="l-btn l-btn-primary"
-              style={{ height: 44, padding: "0 16px", fontSize: 14 }}
-            >
+            </Button>
+            <Button as="a" href={`${APP_URL}/register`} intent="primary" size="sm">
               Crear cuenta gratis
-            </a>
+            </Button>
           </div>
 
           <button
@@ -159,22 +152,12 @@ export function Navbar({ links }: NavbarProps) {
         </nav>
 
         <div className="l-mobile-cta">
-          <a
-            href={`${APP_URL}/register`}
-            className="l-btn l-btn-primary l-btn-lg"
-            style={{ width: "100%", justifyContent: "center" }}
-            onClick={close}
-          >
+          <Button as="a" href={`${APP_URL}/register`} intent="primary" size="lg" style={{ width: "100%", justifyContent: "center" }} onClick={close}>
             Crear cuenta gratis
-          </a>
-          <a
-            href={`${APP_URL}/login`}
-            className="l-btn l-btn-ghost"
-            style={{ width: "100%", justifyContent: "center" }}
-            onClick={close}
-          >
+          </Button>
+          <Button as="a" href={`${APP_URL}/login`} intent="ghost" style={{ width: "100%", justifyContent: "center" }} onClick={close}>
             Iniciar sesión
-          </a>
+          </Button>
         </div>
       </div>
     </>
