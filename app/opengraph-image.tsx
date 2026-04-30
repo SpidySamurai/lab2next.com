@@ -238,15 +238,17 @@ export default async function OGImage() {
           {/* Headline */}
           <div
             style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "baseline",
               fontSize: "52px",
               fontWeight: "800",
               lineHeight: "1.06",
               letterSpacing: "-0.032em",
-              color: "white",
               marginBottom: "16px",
             }}
           >
-            Tu laboratorio digital,{" "}
+            <span style={{ color: "white" }}>Tu laboratorio digital,&nbsp;</span>
             <span style={{ color: "#0EA5E9" }}>operando hoy.</span>
           </div>
 
