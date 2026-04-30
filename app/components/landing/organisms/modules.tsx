@@ -1,11 +1,11 @@
 import { SectionHeader } from "../molecules/section-header";
-import { FeatureCard } from "../molecules/feature-card";
+import { ModuleCard } from "../molecules/module-card";
 import { Section } from "../layout/section";
 import { Container } from "../layout/container";
-import type { ModuleCard } from "../domain/types";
+import type { ModuleCard as ModuleCardData } from "../domain/types";
 
 interface ModulesProps {
-  cards: ModuleCard[];
+  cards: ModuleCardData[];
 }
 
 export function Modules({ cards }: ModulesProps) {
@@ -19,14 +19,13 @@ export function Modules({ cards }: ModulesProps) {
         />
         <div className="l-modules-grid">
           {cards.map((m, i) => (
-            <FeatureCard
+            <ModuleCard
               key={m.title}
               icon={m.icon}
               title={m.title}
               body={m.body}
               tags={m.tags}
               delay={i % 3}
-              variant="module"
             />
           ))}
         </div>
