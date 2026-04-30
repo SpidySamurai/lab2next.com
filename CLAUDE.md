@@ -44,6 +44,9 @@ Both consume the same tokens from `@theme` in `globals.css`.
 - Complex organisms → `l-*` in `app/styles/<organism>.css`
 - Never hardcode color/radius/shadow values — use `@theme` tokens
 - `@apply` optional inside CSS files for utility combos
+- **New CSS file = immediate `@import` in `globals.css`** — omitting causes silent class loss with no build error
+- **CSS var naming in `app/styles/*.css`**: use legacy aliases (`var(--ink-700)`, `var(--navy-900)`) not the `@theme` generated names (`var(--color-ink-700)`). Both work but mixing breaks grep and consistency
+- **`l-*` classes are unlayered** — they always win over Tailwind utilities on the same property. If a Tailwind utility isn't working on an element that also has an `l-*` class, the `l-*` class is overriding it
 
 ---
 

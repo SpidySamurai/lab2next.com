@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
-/* ── Component styles ── */
+/* ── Component styles ──
+   IMPORTANT: every new app/styles/*.css file must be imported here.
+   Omitting an import causes all l-* classes in that file to be silently undefined — no build error.
+   Add new organisms at the bottom of this list. */
 @import "./styles/layout.css";
 @import "./styles/atoms.css";
 @import "./styles/nav.css";
@@ -133,6 +136,13 @@
 @layer base {
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
+
+  /* Global keyboard focus ring — applies to all interactive elements unless suppressed */
+  :focus-visible {
+    outline: 2px solid var(--teal-500);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
 
   body {
     font-family: var(--font-sans);

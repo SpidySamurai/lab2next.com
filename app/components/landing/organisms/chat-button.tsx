@@ -38,10 +38,7 @@ export function ChatButton() {
         ].join(" ")}
       >
         {/* Header */}
-        <div
-          className="flex items-center justify-between px-5 py-4"
-          style={{ background: "linear-gradient(135deg, #0A1F44 0%, #1E3A6F 100%)" }}
-        >
+        <div className="l-chat-header flex items-center justify-between px-5 py-4">
           <div className="flex items-center gap-3">
             {/* Robot avatar */}
             <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-teal-400 shadow-lg ring-2 ring-white/20">

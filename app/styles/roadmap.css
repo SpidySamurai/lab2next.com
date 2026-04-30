@@ -63,7 +63,7 @@
 
 /* ── Timeline section ── */
 .l-rmap-section {
-  background: #F7F4EF; /* warm paper */
+  background: var(--warm-paper);
   padding: 64px 0 96px;
   position: relative;
   overflow: hidden;
@@ -162,15 +162,14 @@
   transform: translateX(0) translateY(calc(-50% - 2px));
 }
 
-/* Card variants — left accent border for instant status hierarchy */
-.l-rmap-card-done    { border-color: rgba(5,150,105,0.28); background: #FAFFFC; border-left: 3px solid #059669; }
+/* Card variants — status communicated via border color + background tint */
+.l-rmap-card-done    { border-color: rgba(5,150,105,0.35); background: rgba(5,150,105,0.04); }
 .l-rmap-card-current {
   border-color: var(--teal-500);
-  border-left: 3px solid var(--teal-500);
   box-shadow: 0 0 0 3px rgba(14,165,233,0.14), var(--shadow);
 }
-.l-rmap-card-building { border-color: rgba(14,165,233,0.3); border-left: 3px solid var(--teal-400); }
-.l-rmap-card-planned  { background: var(--ink-50); border-color: var(--ink-200); border-left: 3px solid var(--ink-300); }
+.l-rmap-card-building { border-color: rgba(14,165,233,0.3); }
+.l-rmap-card-planned  { background: var(--ink-50); border-color: var(--ink-200); }
 
 /* Connector dot — inner edge points toward the path */
 .l-rmap-card-l::after,
@@ -181,7 +180,7 @@
   width: 8px; height: 8px;
   border-radius: 50%;
   background: var(--ink-300);
-  border: 2px solid #F7F4EF; /* match section bg */
+  border: 2px solid var(--warm-paper); /* match section bg */
 }
 .l-rmap-card-l::after { right: -4px; }
 .l-rmap-card-r::after { left:  -4px; }
