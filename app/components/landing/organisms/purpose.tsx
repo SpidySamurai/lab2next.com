@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Reveal } from "../atoms/reveal";
+import { buttonVariants } from "../atoms/button";
+import { cn } from "../../../lib/utils";
 
 const PILLARS = [
   {
@@ -34,7 +36,7 @@ export function Purpose() {
               Vimos de cerca lo que significa operar con cuadernos y WhatsApp.
               Decidimos construir algo mejor.
             </p>
-            <Link href="/nosotros" className="l-btn l-btn-secondary mt-2">
+            <Link href="/nosotros" className={cn(buttonVariants({ intent: "secondary" }), "mt-2")}>
               Conoce al equipo →
             </Link>
           </div>

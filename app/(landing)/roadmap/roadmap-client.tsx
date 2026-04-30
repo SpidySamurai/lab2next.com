@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { MapPin, MessageCircle } from "lucide-react";
+import { Button } from "../../components/landing/atoms/button";
 
 type Status = "done" | "current" | "building" | "planned";
 type Side = "left" | "right";
@@ -242,10 +243,10 @@ export function RoadmapClient() {
         <div className="l-container">
           <div className="l-rmap-bottom">
             <p className="l-rmap-bottom-text">¿Necesitas algo que no está aquí?</p>
-            <a href={WA} target="_blank" rel="noopener noreferrer" className="l-btn l-btn-secondary">
+            <Button as="a" href={WA} target="_blank" rel="noopener noreferrer" intent="secondary">
               <MessageCircle size={15} />
               Sugerir por WhatsApp
-            </a>
+            </Button>
             <p className="l-rmap-disclaimer">
               Roadmap orientativo — no contractual.{" · "}
               <Link href="/">← Inicio</Link>
