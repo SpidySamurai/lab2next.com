@@ -1,5 +1,5 @@
 import { Check, Wrench, Calendar } from "lucide-react";
-import { Reveal } from "../ui/reveal";
+import { Reveal } from "../atoms/reveal";
 
 type PhaseStatus = "live" | "building" | "planned";
 

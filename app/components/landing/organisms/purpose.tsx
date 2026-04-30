@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Reveal } from "../ui/reveal";
+import { Reveal } from "../atoms/reveal";
 
 const PILLARS = [
   {

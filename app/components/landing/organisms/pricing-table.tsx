@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef, useState } from "react";
 import { Check, Minus } from "lucide-react";
-import { Reveal } from "../ui/reveal";
+import { Reveal } from "../atoms/reveal";
 import type { Currency, PricingPlan } from "../domain/types";
 
 interface PricingTableProps {

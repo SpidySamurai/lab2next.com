@@ -1,5 +1,5 @@
-import { Navbar } from "../components/landing/sections/navbar";
-import { Footer } from "../components/landing/sections/footer";
+import { Navbar } from "../components/landing/organisms/navbar";
+import { Footer } from "../components/landing/organisms/footer";
 import { NAV_LINKS } from "../components/landing/domain/navbar.content";
 import { FOOTER_COLUMNS, FOOTER_MINI_BADGES } from "../components/landing/domain/footer.content";
 

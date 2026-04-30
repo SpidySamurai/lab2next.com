@@ -1,15 +1,13 @@
-"use client";
-
-import { Hero } from "../components/landing/sections/hero/hero";
-import { TrustBar } from "../components/landing/sections/trust-bar";
-import { Problem } from "../components/landing/sections/problem";
-import { Values } from "../components/landing/sections/values";
-import { Modules } from "../components/landing/sections/modules";
-import { HowItWorks } from "../components/landing/sections/how-it-works";
-import { Purpose } from "../components/landing/sections/purpose";
-import { PricingTable } from "../components/landing/sections/pricing-table";
-import { FAQ } from "../components/landing/sections/faq";
-import { ContactCTA } from "../components/landing/sections/contact-cta";
+import { Hero } from "../components/landing/organisms/hero/hero";
+import { TrustBar } from "../components/landing/organisms/trust-bar";
+import { Problem } from "../components/landing/organisms/problem";
+import { Values } from "../components/landing/organisms/values";
+import { Modules } from "../components/landing/organisms/modules";
+import { HowItWorks } from "../components/landing/organisms/how-it-works";
+import { Purpose } from "../components/landing/organisms/purpose";
+import { PricingTable } from "../components/landing/organisms/pricing-table";
+import { FAQ } from "../components/landing/organisms/faq";
+import { ContactCTA } from "../components/landing/organisms/contact-cta";
 
 import { HERO_TRUST_ITEMS, TRUST_BAR_BADGES, CONTACT_CTA_GUARANTEES } from "../components/landing/domain/hero.content";
 import { PROBLEM_CARDS } from "../components/landing/domain/problem.content";
@@ -18,8 +16,8 @@ import { MODULE_CARDS } from "../components/landing/domain/modules.content";
 import { HOW_IT_WORKS_STEPS } from "../components/landing/domain/how-it-works.content";
 import { PRICING_PLANS } from "../components/landing/domain/pricing.content";
 import { FAQ_ITEMS } from "../components/landing/domain/faq.content";
-// import { Testimonials } from "../components/landing/sections/testimonials"; // ACTIVATE when real testimonials ready
-// import { TESTIMONIALS } from "../components/landing/domain/testimonials.content"; // ACTIVATE with section above
+// import { Testimonials } from "../components/landing/organisms/testimonials"; // ACTIVATE when real testimonials ready
+// import { TESTIMONIALS } from "../components/landing/domain/testimonials.content";  // ACTIVATE with section above
 
 export default function Home() {
   return (

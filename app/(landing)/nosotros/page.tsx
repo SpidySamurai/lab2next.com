@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { APP_URL } from "../../components/landing/domain/config";
+import { Section } from "../../components/landing/layout/section";
+import { Container } from "../../components/landing/layout/container";
+import { SectionHeader } from "../../components/landing/molecules/section-header";
+import { PersonCard } from "../../components/landing/molecules/person-card";
 
 export const metadata: Metadata = {
   title: "Nosotros — Lab2Next",
@@ -7,19 +12,17 @@ export const metadata: Metadata = {
     "Conoce al equipo detrás de Lab2Next. Construimos el sistema que los laboratorios clínicos independientes en LATAM merecían desde hace años.",
 };
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
-
-// PLACEHOLDER team data — replace name/role/bio/initials before launch
+// PLACEHOLDER team data — replace name/role/bio/initials/src before launch
 const TEAM = [
   {
-    initials: "[--]",
-    name: "[Nombre Fundador]",
+    initials: "??",
+    name: "Nombre Fundador",
     role: "CEO & Co-fundador",
     bio: "Descripción breve del fundador: experiencia relevante, por qué construyó esto.",
   },
   {
-    initials: "[--]",
-    name: "[Nombre Co-fundador]",
+    initials: "??",
+    name: "Nombre Co-fundador",
     role: "CTO & Co-fundador",
     bio: "Descripción breve del co-fundador: experiencia en tecnología y salud.",
   },
@@ -35,30 +38,21 @@ export default function NosotrosPage() {
   return (
     <>
       {/* ── Page header ── */}
-      <section className="relative overflow-hidden bg-navy-900 py-20 lg:py-24">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-            maskImage: "radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 75%)",
-          }}
-          aria-hidden="true"
-        />
-        <div className="l-container relative z-10">
-          <p className="l-eyebrow" style={{ color: "var(--color-teal-400)" }}>
-            Quiénes somos
-          </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.1] tracking-[-0.03em] text-white sm:text-5xl lg:text-[3.5rem]">
-            Construimos el sistema que los laboratorios independientes
-            <br className="hidden sm:block" /> merecían desde hace años.
-          </h1>
-        </div>
-      </section>
+      <header className="l-page-hero">
+        <Container>
+          <div className="l-page-hero-inner">
+            <p className="l-eyebrow l-eyebrow-light">El equipo</p>
+            <h1 className="l-page-hero-title">
+              Construimos el sistema que los laboratorios independientes
+              <br className="hidden sm:block" /> merecían desde hace años.
+            </h1>
+          </div>
+        </Container>
+      </header>
 
       {/* ── Origen ── */}
-      <section className="l-section bg-warm-paper">
-        <div className="l-container">
+      <Section bg="paper">
+        <Container>
           <span className="l-eyebrow">El origen</span>
           <div className="mt-6 grid gap-x-16 gap-y-6 lg:grid-cols-2">
             <p className="text-xl font-medium leading-relaxed text-navy-900">
@@ -83,7 +77,6 @@ export default function NosotrosPage() {
             </div>
           </div>
 
-          {/* Stats */}
           <div className="mt-10 flex flex-wrap gap-10 border-t border-navy-900/10 pt-10">
             {STATS.map((s) => (
               <div key={s.n} className="flex flex-col gap-1">
@@ -96,53 +89,36 @@ export default function NosotrosPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── Misión ── */}
-      <section className="bg-navy-900 py-20">
-        <div className="l-container max-w-3xl">
-          <span className="l-eyebrow" style={{ color: "var(--color-teal-400)" }}>
-            Nuestra misión
-          </span>
+      <Section bg="dark">
+        <Container size="narrow">
+          <span className="l-eyebrow l-eyebrow-light">Nuestra misión</span>
           <blockquote className="mt-5 text-2xl font-semibold leading-[1.45] tracking-[-0.02em] text-white sm:text-3xl">
             Dar a cada laboratorio clínico independiente en LATAM la misma
             capacidad tecnológica que las grandes cadenas, sin IT interno,
             sin contratos de años y sin curvas de aprendizaje de meses.
           </blockquote>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── Equipo ── */}
-      <section className="l-section bg-ink-50">
-        <div className="l-container">
-          <div className="l-section-head">
-            <span className="l-eyebrow">El equipo</span>
-            <h2 className="l-section-title">Las personas detrás del sistema.</h2>
-          </div>
+      <Section bg="gray">
+        <Container>
+          <SectionHeader eyebrow="El equipo" title="Las personas detrás del sistema." />
           <div className="grid gap-6 sm:grid-cols-2">
             {TEAM.map((m) => (
-              <div
-                key={m.name}
-                className="flex gap-5 rounded-lg border border-ink-200 bg-white p-7 shadow-card"
-              >
-                <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-navy-900 font-mono text-sm font-bold text-white">
-                  {m.initials}
-                </div>
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-base font-bold text-navy-900">{m.name}</span>
-                  <span className="text-[13px] font-semibold text-teal-600">{m.role}</span>
-                  <p className="mt-2.5 text-sm leading-relaxed text-ink-600">{m.bio}</p>
-                </div>
-              </div>
+              <PersonCard key={m.name} {...m} />
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── CTA ── */}
-      <section className="bg-navy-900 py-20">
-        <div className="l-container flex flex-col items-center gap-4 text-center">
+      <Section bg="dark">
+        <Container className="flex flex-col items-center gap-4 text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             ¿Tu laboratorio sigue en papel?
           </h2>
@@ -157,8 +133,8 @@ export default function NosotrosPage() {
               Ver roadmap →
             </Link>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </>
   );
 }

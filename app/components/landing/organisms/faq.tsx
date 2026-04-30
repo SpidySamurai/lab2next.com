@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { Plus } from "lucide-react";
-import { Reveal } from "../ui/reveal";
-import { SectionHeader } from "../ui/section-header";
+import { Reveal } from "../atoms/reveal";
+import { SectionHeader } from "../molecules/section-header";
 import type { FaqItem } from "../domain/types";
 
 interface FaqProps {
