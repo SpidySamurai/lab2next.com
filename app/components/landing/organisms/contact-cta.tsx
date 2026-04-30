@@ -1,9 +1,7 @@
-"use client";
-
 import { Check, ArrowRight } from "lucide-react";
-import { Reveal } from "../ui/reveal";
+import { Reveal } from "../atoms/reveal";
+import { APP_URL } from "../domain/config";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
 const WA_DEMO = "https://wa.me/529994875155?text=Hola,%20me%20gustar%C3%ADa%20una%20demo%20de%20Lab2Next";
 
 interface ContactCTAProps {

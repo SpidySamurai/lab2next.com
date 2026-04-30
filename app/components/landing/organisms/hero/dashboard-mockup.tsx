@@ -1,5 +1,3 @@
-"use client";
-
 import { MessageCircle, Search, FileText } from "lucide-react";
 
 const ORDERS = [

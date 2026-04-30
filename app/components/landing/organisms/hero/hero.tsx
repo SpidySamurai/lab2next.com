@@ -1,10 +1,7 @@
-"use client";
-
 import { Check } from "lucide-react";
-import { Reveal } from "../../ui/reveal";
+import { Reveal } from "../../atoms/reveal";
 import { DashboardMockup } from "./dashboard-mockup";
-
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+import { APP_URL } from "../../domain/config";
 
 interface HeroProps {
   trustItems: readonly string[];

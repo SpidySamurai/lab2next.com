@@ -1,4 +1,4 @@
-import { Reveal } from "./reveal";
+import { Reveal } from "../atoms/reveal";
 
 interface SectionHeaderProps {
   eyebrow: string;
