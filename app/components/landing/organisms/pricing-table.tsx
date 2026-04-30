@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { Check, Minus } from "lucide-react";
 import { Reveal } from "../atoms/reveal";
+import { Button } from "../atoms/button";
 import type { Currency, PricingPlan } from "../domain/types";
 
 interface PricingTableProps {
@@ -153,14 +154,16 @@ export function PricingTable({ plans }: PricingTableProps) {
                   </div>
                   <div className="l-plan-note-v2">{p.note}</div>
 
-                  <a
+                  <Button
+                    as="a"
                     href={p.ctaHref}
                     target={p.external ? "_blank" : undefined}
                     rel={p.external ? "noopener noreferrer" : undefined}
-                    className={`l-btn ${p.ctaStyle} l-plan-cta-v2`}
+                    intent={p.ctaIntent}
+                    className="l-plan-cta-v2"
                   >
                     {p.cta}
-                  </a>
+                  </Button>
 
                   <div className="l-plan-features-label-v2">Incluye</div>
                   <div className="l-plan-features-v2">
