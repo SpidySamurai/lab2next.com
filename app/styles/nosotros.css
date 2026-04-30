@@ -43,9 +43,6 @@
   gap: 64px;
   align-items: start;
 }
-@media (max-width: 768px) {
-  .l-nos-origen-inner { grid-template-columns: 1fr; gap: 32px; }
-}
 
 .l-nos-lead {
   font-size: 20px;

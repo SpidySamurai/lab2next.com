@@ -162,56 +162,139 @@
   img, svg { display: block; max-width: 100%; }
 }
 
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-  .l-hero-grid { grid-template-columns: 1fr; gap: 48px; }
-  .l-pricing-grid-v2 { grid-template-columns: repeat(2, 1fr); }
-  .l-pricing-grid-v3 { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
+/* ── Responsive — mobile-first ──
+   sm: 480px | md: 768px | lg: 1024px
+   Base = mobile. Min-width queries add complexity progressively.
+──────────────────────────────────── */
+
+/* ── Base (mobile): override CSS-file desktop defaults ── */
+.l-hero-grid          { grid-template-columns: 1fr; gap: 40px; }
+.l-hero-actions       { flex-direction: column; }
+.l-hero-sub           { font-size: 17px; }
+
+.l-nav-links          { display: none; }
+.l-nav-cta            { display: none; }
+.l-hamburger          { display: flex; }
+.l-mobile-backdrop    { display: block; }
+.l-mobile-menu        { display: flex; }
+
+.l-values-grid        { grid-template-columns: 1fr; }
+.l-value-card         { padding: 24px 20px; }
+.l-modules-grid       { grid-template-columns: 1fr; }
+
+.l-problem-grid       { grid-template-columns: 1fr; }
+.l-problem-card       { padding: 24px 20px; }
+
+.l-how-grid           { grid-template-columns: 1fr; }
+.l-how-line           { display: none; }
+.l-how-step           { padding: 24px 0; border-bottom: 1px solid var(--ink-200); }
+.l-how-step:last-child { border-bottom: none; }
+.l-how-step-num       { margin: 0 0 16px; }
+
+.l-purpose-grid       { grid-template-columns: 1fr; gap: 48px; }
+
+.l-testi-grid         { grid-template-columns: 1fr; gap: 16px; }
+
+.l-pricing-grid-v2    { grid-template-columns: 1fr; }
+.l-pricing-grid-v3    { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
+.l-pricing-grid-v3 > .l-reveal:first-child,
+.l-pricing-grid-v3 > .l-reveal:last-child { margin-top: 0; }
+.l-plan-card.featured { transform: none; }
+
+.l-roadmap-grid       { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+/* Roadmap: simple vertical list on mobile */
+.l-rmap-canvas        { aspect-ratio: unset; height: auto; }
+.l-rmap-svg           { display: none; }
+.l-rmap-card,
+.l-rmap-card-l,
+.l-rmap-card-r        { position: static; width: 100%; max-width: 100%; opacity: 1; transform: none; margin-bottom: 16px; }
+.l-rmap-card.visible  { transform: none; }
+.l-rmap-card.visible:hover { box-shadow: var(--shadow); transform: none; }
+
+.l-footer-grid-v2     { grid-template-columns: 1fr; }
+.l-footer-tagline     { max-width: 100%; }
+
+.l-dash-body          { grid-template-columns: 1fr; }
+.l-dash-side          { display: none; }
+.l-dash-float-1       { left: 8px; }
+.l-dash-float-2       { right: 8px; }
+
+.l-nos-origen-inner   { grid-template-columns: 1fr; gap: 32px; }
+
+/* ── sm (≥480px): narrow phones improve ── */
+@media (min-width: 480px) {
+  .l-hero-actions       { flex-direction: row; flex-wrap: wrap; }
+}
+
+/* ── md (≥768px): tablets ── */
+@media (min-width: 768px) {
+  .l-hero-sub           { font-size: 19px; }
+
+  .l-dash-body          { grid-template-columns: 196px 1fr; }
+  .l-dash-side          { display: block; }
+
+  .l-problem-grid       { grid-template-columns: repeat(2, 1fr); }
+  .l-problem-card       { padding: 32px 28px; }
+
+  .l-modules-grid       { grid-template-columns: repeat(2, 1fr); }
+
+  .l-testi-grid         { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+  .l-pricing-grid-v2    { grid-template-columns: repeat(2, 1fr); }
+
+  .l-footer-grid-v2     { grid-template-columns: 1fr 1fr; }
+  .l-footer-tagline     { max-width: 280px; }
+
+  .l-nos-origen-inner   { grid-template-columns: 200px 1fr; gap: 64px; }
+}
+
+/* ── lg (≥1024px): full desktop ── */
+@media (min-width: 1024px) {
+  .l-nav-links          { display: flex; }
+  .l-nav-cta            { display: flex; }
+  .l-hamburger          { display: none; }
+  .l-mobile-backdrop    { display: none; }
+  .l-mobile-menu        { display: none; }
+
+  .l-hero-grid          { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 64px; }
+  .l-dash-float-1       { left: -28px; }
+  .l-dash-float-2       { right: -24px; }
+
+  .l-values-grid        { grid-template-columns: repeat(3, 1fr); }
+  .l-value-card         { padding: 32px; }
+  .l-modules-grid       { grid-template-columns: repeat(3, 1fr); }
+
+  .l-problem-grid       { grid-template-columns: repeat(4, 1fr); }
+
+  .l-how-grid           { grid-template-columns: repeat(3, 1fr); }
+  .l-how-line           { display: block; }
+  .l-how-step           { padding: 0 24px; border-bottom: none; }
+  .l-how-step-num       { margin: 0 auto 24px; }
+
+  .l-purpose-grid       { grid-template-columns: 1fr 1fr; gap: 80px; }
+
+  .l-pricing-grid-v2    { grid-template-columns: repeat(4, 1fr); }
+  .l-pricing-grid-v3    { grid-template-columns: repeat(3, 1fr); max-width: none; margin-left: 0; margin-right: 0; }
   .l-pricing-grid-v3 > .l-reveal:first-child,
-  .l-pricing-grid-v3 > .l-reveal:last-child { margin-top: 0; }
-  .l-plan-card.featured { transform: none; }
-  .l-dash-float-1 { left: 8px; }
-  .l-dash-float-2 { right: 8px; }
-}
-@media (max-width: 880px) {
-  .l-nav-links { display: none; }
-  .l-nav-cta { display: none; }
-  .l-hamburger { display: flex; }
-  .l-mobile-backdrop { display: block; }
-  .l-mobile-menu { display: flex; }
-  .l-problem-grid { grid-template-columns: repeat(2, 1fr); }
-  .l-problem-stat-num { font-size: 28px; }
-  .l-values-grid { grid-template-columns: 1fr; }
-  .l-modules-grid { grid-template-columns: repeat(2, 1fr); }
-  .l-purpose-grid { grid-template-columns: 1fr; gap: 48px; }
-  .l-roadmap-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
-  /* Roadmap: switch to simple vertical list on mobile */
-  .l-rmap-canvas { aspect-ratio: unset; height: auto; }
-  .l-rmap-svg    { display: none; }
-  .l-rmap-card, .l-rmap-card-l, .l-rmap-card-r {
-    position: static;
-    width: 100%;
-    max-width: 100%;
-    opacity: 1;
-    transform: none;
-    margin-bottom: 16px;
-  }
-  .l-rmap-card.visible { transform: none; }
-  .l-how-grid { grid-template-columns: 1fr; }
-  .l-how-line { display: none; }
-  .l-how-step { padding: 24px 0; border-bottom: 1px solid var(--ink-200); }
-  .l-how-step-num { margin: 0 0 16px; }
-  .l-footer-grid-v2 { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 600px) {
-  .l-problem-grid { grid-template-columns: 1fr; }
-  .l-problem-card { padding: 24px 20px; }
-  .l-modules-grid { grid-template-columns: 1fr; }
-  .l-pricing-grid-v2 { grid-template-columns: 1fr; }
-  .l-footer-grid-v2 { grid-template-columns: 1fr; }
-  .l-container { padding: 0 20px; }
-  .l-dash-body { grid-template-columns: 1fr; }
-  .l-dash-side { display: none; }
+  .l-pricing-grid-v3 > .l-reveal:last-child { margin-top: 36px; }
+  .l-plan-card.featured { transform: translateY(-8px); }
+
+  .l-roadmap-grid       { grid-template-columns: repeat(3, 1fr); max-width: none; margin-left: 0; margin-right: 0; }
+
+  /* Roadmap: restore SVG timeline on desktop */
+  .l-rmap-canvas        { aspect-ratio: 800 / 1800; }
+  .l-rmap-svg           { display: block; }
+  .l-rmap-card,
+  .l-rmap-card-l,
+  .l-rmap-card-r        { position: absolute; opacity: 0; margin-bottom: 0; }
+  .l-rmap-card          { width: 38%; max-width: 300px; }
+  .l-rmap-card-l        { right: 58%; width: 38%; transform: translateX(-18px) translateY(-50%); }
+  .l-rmap-card-r        { left: 58%; width: 38%; transform: translateX(18px) translateY(-50%); }
+  .l-rmap-card.visible  { opacity: 1; transform: translateX(0) translateY(-50%); }
+  .l-rmap-card.visible:hover { box-shadow: var(--shadow-lg); transform: translateX(0) translateY(calc(-50% - 2px)); }
+
+  .l-footer-grid-v2     { grid-template-columns: 1.5fr repeat(3, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) {
   .l-reveal { opacity: 1; transform: none; transition: none; }
