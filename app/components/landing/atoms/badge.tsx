@@ -1,5 +1,8 @@
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/app/lib/utils";
 import type { ReactNode } from "react";
 
+// ── Badge ──────────────────────────────────────────────────
 interface BadgeProps {
   children: ReactNode;
   className?: string;
@@ -7,21 +10,32 @@ interface BadgeProps {
 
 export function Badge({ children, className }: BadgeProps) {
   return (
-    <span className={["l-module-tag", className].filter(Boolean).join(" ")}>
-      {children}
-    </span>
+    <span className={cn("l-module-tag", className)}>{children}</span>
   );
 }
 
+// ── Eyebrow ────────────────────────────────────────────────
+const eyebrowVariants = cva("l-eyebrow", {
+  variants: {
+    theme: {
+      dark: "",
+      light: "l-eyebrow-light",
+    },
+  },
+  defaultVariants: { theme: "dark" },
+});
+
+type EyebrowVariantProps = VariantProps<typeof eyebrowVariants>;
+
 interface EyebrowProps {
   children: ReactNode;
-  light?: boolean;
+  theme?: EyebrowVariantProps["theme"];
   className?: string;
 }
 
-export function Eyebrow({ children, light, className }: EyebrowProps) {
+export function Eyebrow({ children, theme, className }: EyebrowProps) {
   return (
-    <div className={["l-eyebrow", light && "l-eyebrow-light", className].filter(Boolean).join(" ")}>
+    <div className={cn(eyebrowVariants({ theme }), className)}>
       {children}
     </div>
   );
