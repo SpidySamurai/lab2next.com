@@ -36,11 +36,6 @@
 .l-plan-card.featured .l-plan-features-label-v2 { color: rgba(255,255,255,0.40); }
 .l-plan-card.featured .l-plan-feature-v2 { color: rgba(255,255,255,0.80); }
 .l-plan-card.featured .l-plan-feature-v2 svg { color: var(--teal-400); }
-.l-plan-card.featured .l-btn-primary {
-  background: var(--teal-500);
-  box-shadow: 0 4px 20px rgba(14,165,233,0.35);
-}
-.l-plan-card.featured .l-btn-primary:hover { background: var(--teal-600); }
 
 .l-plan-badge-v2 {
   position: absolute;
