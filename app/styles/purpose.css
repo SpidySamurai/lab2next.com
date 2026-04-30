@@ -1,0 +1,57 @@
+/* ── Purpose ── */
+.l-purpose { background: #F7F4EF; } /* warm paper — distinct from Pricing (ink-50 cool grey) */
+.l-purpose-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.l-purpose-headline {
+  font-size: clamp(24px, 2.8vw, 36px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--navy-900);
+  margin-bottom: 24px;
+}
+.l-purpose-body {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-600);
+  margin-bottom: 16px;
+}
+.l-purpose-body:last-child { margin-bottom: 0; }
+.l-purpose-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.l-purpose-pillar {
+  display: flex;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--ink-200);
+}
+.l-purpose-pillar:first-child { border-top: 1px solid var(--ink-200); }
+.l-purpose-pillar-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--teal-600);
+  padding-top: 3px;
+  flex-shrink: 0;
+  width: 28px;
+}
+.l-purpose-pillar-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.l-purpose-pillar-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-600);
+}
+

@@ -1,0 +1,91 @@
+/* ── How it works section ── */
+.l-how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
+.l-how-line {
+  position: absolute;
+  top: 28px; left: 8%; right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--teal-500) 0%, var(--teal-500) 33%, var(--ink-200) 33%);
+  z-index: 0;
+}
+.l-how-step {
+  position: relative;
+  z-index: 1;
+  padding: 0 24px;
+}
+.l-how-step-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--teal-500);
+  color: var(--teal-600);
+  font-size: 22px;
+  font-weight: 800;
+  display: grid; place-items: center;
+  margin: 0 auto 24px;
+}
+.l-how-step-time {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--teal-600);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.l-how-step-h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.l-how-step-p { font-size: 14px; line-height: 1.6; color: var(--ink-600); margin-bottom: 12px; }
+.l-how-step-tasks { display: flex; flex-direction: column; gap: 6px; }
+.l-how-step-task {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-700);
+}
+.l-how-step-task svg { flex-shrink: 0; color: var(--teal-500); margin-top: 2px; }
+
+
+/* ── HowItWorks scroll animation ── */
+.l-how-line {
+  overflow: hidden;
+}
+.l-how-line::after {
+  content: '';
+  position: absolute; inset: 0 auto 0 0;
+  width: var(--how-progress, 0%);
+  background: linear-gradient(90deg, var(--teal-500), var(--teal-400));
+  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  box-shadow: 0 0 12px rgba(14,165,233,0.4);
+}
+.l-how-step-state-pending { opacity: 0.45; transition: opacity 0.5s ease; }
+.l-how-step-state-active,
+.l-how-step-state-done  { opacity: 1; transition: opacity 0.5s ease; }
+.l-how-step-state-active .l-how-step-num {
+  background: var(--teal-500);
+  color: white;
+  border-color: var(--teal-500);
+  transform: scale(1.08);
+  box-shadow: 0 0 0 6px rgba(14,165,233,0.15), 0 8px 20px rgba(14,165,233,0.25);
+}
+.l-how-step-state-done .l-how-step-num {
+  background: var(--teal-500);
+  color: white;
+  border-color: var(--teal-500);
+}
+.l-how-step-state-pending .l-how-step-task { opacity: 0; transform: translateY(6px); }
+.l-how-step-state-active .l-how-step-task,
+.l-how-step-state-done .l-how-step-task  { opacity: 1; transform: translateY(0); transition: opacity 0.45s ease, transform 0.45s ease; }
+.l-how-step-state-active .l-how-step-task:nth-child(1) { transition-delay: 0.05s; }
+.l-how-step-state-active .l-how-step-task:nth-child(2) { transition-delay: 0.15s; }
+.l-how-step-state-active .l-how-step-task:nth-child(3) { transition-delay: 0.25s; }
+

@@ -40,8 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# hyperframes captures & video artifacts
-landing-capture/
 .playwright-mcp/
 
 # AI tool configs (never commit)
@@ -51,6 +49,7 @@ landing-capture/
 .augment/
 .bob/
 .claude/
+.superpowers/
 .codeartsdoer/
 .codebuddy/
 .codemaker/
