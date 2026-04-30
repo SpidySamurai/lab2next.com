@@ -15,7 +15,7 @@
 }
 
 .l-testi {
-  background: #fff;
+  background: var(--white);
   border: 1px solid var(--ink-200);
   border-radius: var(--radius-lg);
   padding: 28px 28px 24px;

@@ -53,8 +53,8 @@
   transition: all 0.15s ease;
 }
 .l-demo-form input::placeholder { color: rgba(255, 255, 255, 0.5); }
-.l-demo-form input:focus {
-  outline: none;
+.l-demo-form input:focus-visible {
+  outline: none; /* border-color change provides visible focus indicator */
   background: rgba(255, 255, 255, 0.12);
   border-color: var(--teal-400);
 }

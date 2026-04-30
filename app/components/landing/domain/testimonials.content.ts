@@ -14,7 +14,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Director de Laboratorio",
     lab: "Biogen Foundery",
     initials: "BE",
-    grad: "linear-gradient(135deg, #7C3AED, #22D3EE)",
+    grad: "linear-gradient(135deg, var(--navy-700), var(--teal-500))",
   },
   {
     quote: "Antes perdíamos horas cuadrando inventarios y caja. Ahora todo cuadra al centavo y el control de calidad es impecable.",
@@ -22,7 +22,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Jefa de Calidad",
     lab: "Laboratorios del Sureste",
     initials: "CR",
-    grad: "linear-gradient(135deg, #A78BFA, #F472B6)",
+    grad: "linear-gradient(135deg, var(--teal-600), var(--navy-800))",
   },
   {
     quote: "La velocidad con la que atendemos a los pacientes subió un 40%. La interfaz es tan intuitiva que el personal nuevo aprende el mismo día.",
@@ -30,6 +30,6 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Administrador",
     lab: "Análisis Clínicos Integrales",
     initials: "RM",
-    grad: "linear-gradient(135deg, #34D399, #7C3AED)",
+    grad: "linear-gradient(135deg, var(--green-500), var(--navy-700))",
   },
 ];

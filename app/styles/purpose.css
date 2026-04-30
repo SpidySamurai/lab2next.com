@@ -1,5 +1,5 @@
 /* ── Purpose ── */
-.l-purpose { background: #F7F4EF; } /* warm paper — distinct from Pricing (ink-50 cool grey) */
+.l-purpose { background: var(--warm-paper); } /* warm paper — distinct from Pricing (ink-50 cool grey) */
 .l-purpose-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

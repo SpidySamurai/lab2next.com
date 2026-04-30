@@ -1,4 +1,8 @@
 /* ── Chat widget ── */
+.l-chat-header {
+  background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+}
+
 .l-chat-popover {
   box-shadow: 0 24px 64px rgba(10,31,68,0.18), 0 4px 16px rgba(10,31,68,0.08);
   transition: opacity 200ms ease-out, scale 200ms ease-out;
