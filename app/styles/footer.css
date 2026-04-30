@@ -1,0 +1,63 @@
+/* ── Footer ── */
+.l-footer-v2 {
+  background: var(--navy-900);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 64px 0 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.l-footer-grid-v2 {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 48px;
+}
+.l-footer-brand .l-logo { color: white; margin-bottom: 16px; }
+.l-footer-tagline {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 280px;
+  margin-bottom: 20px;
+}
+.l-footer-col-h {
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+}
+.l-footer-col-list { display: flex; flex-direction: column; gap: 10px; list-style: none; padding: 0; margin: 0; }
+.l-footer-col-list li { font-size: 14px; }
+.l-footer-col-list li a:hover { color: white; }
+.l-footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+}
+.l-footer-bottom-links { display: flex; gap: 20px; }
+.l-footer-bottom-links a:hover { color: white; }
+
+
+/* ── Footer mini badges ── */
+.l-footer-mini-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+.l-footer-mini-badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  color: rgba(255,255,255,0.55);
+}
+

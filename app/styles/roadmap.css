@@ -1,0 +1,376 @@
+/* ── Roadmap page (timeline) ── */
+
+/* Hero */
+.l-rmap-hero {
+  position: relative;
+  background: var(--navy-900);
+  padding: 80px 0 96px;
+  overflow: hidden;
+}
+/* Dot grid texture on hero (matches main hero treatment) */
+.l-rmap-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 90% 80% at 20% 50%, black 10%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 20% 50%, black 10%, transparent 70%);
+  pointer-events: none;
+}
+.l-rmap-hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 8%  50%, rgba(14,165,233,0.12), transparent 55%),
+    radial-gradient(ellipse 40% 60% at 92% 20%, rgba(56,189,248,0.07), transparent 55%),
+    radial-gradient(ellipse 35% 55% at 50% 110%,rgba(14,165,233,0.06), transparent 50%);
+  pointer-events: none;
+}
+.l-rmap-hero-inner { position: relative; }
+.l-rmap-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.50);
+  margin-bottom: 20px;
+}
+.l-rmap-live-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green-500);
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.25);
+  animation: l-trust-pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.l-rmap-h1 {
+  font-size: clamp(38px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.l-rmap-h1-accent { color: var(--teal-400); }
+.l-rmap-lede {
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.60);
+  max-width: 540px;
+}
+
+/* ── Timeline section ── */
+.l-rmap-section {
+  background: #F7F4EF; /* warm paper */
+  padding: 64px 0 96px;
+  position: relative;
+  overflow: hidden;
+}
+/* Grain texture on warm paper */
+.l-rmap-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.9;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+/* Dot grid overlay — matches hero dot grid treatment */
+.l-rmap-section::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(10,31,68,0.07) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: linear-gradient(to bottom, black 50%, transparent 88%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 88%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Canvas: SVG + cards share the same positioned space */
+.l-rmap-canvas {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto 0;
+  /* Height matches SVG viewBox aspect ratio: 1800/800 = 225% */
+  aspect-ratio: 800 / 1800;
+}
+.l-rmap-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* SVG pulse rings for "current" node */
+.l-rmap-ring-1 {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: l-rmap-ring 2.4s ease-out 0.6s infinite;
+}
+.l-rmap-ring-2 {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: l-rmap-ring 2.4s ease-out 1.5s infinite;
+}
+@keyframes l-rmap-ring {
+  0%   { opacity: 0.7; transform: scale(0.85); }
+  100% { opacity: 0;   transform: scale(1.6);  }
+}
+
+/* ── Cards ── */
+.l-rmap-card {
+  position: absolute;
+  width: 38%;
+  max-width: 300px;
+  background: var(--white);
+  border: 1.5px solid var(--ink-200);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+
+  /* entrance animation state */
+  opacity: 0;
+  transition:
+    opacity 0.55s cubic-bezier(0.16,1,0.3,1),
+    transform 0.55s cubic-bezier(0.16,1,0.3,1),
+    box-shadow 0.2s ease;
+}
+/* Left cards slide in from the left */
+.l-rmap-card-l {
+  right: 58%;
+  transform: translateX(-18px) translateY(-50%);
+}
+/* Right cards slide in from the right */
+.l-rmap-card-r {
+  left: 58%;
+  transform: translateX(18px) translateY(-50%);
+}
+/* Visible state */
+.l-rmap-card.visible {
+  opacity: 1;
+  transform: translateX(0) translateY(-50%);
+}
+.l-rmap-card.visible:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateX(0) translateY(calc(-50% - 2px));
+}
+
+/* Card variants — left accent border for instant status hierarchy */
+.l-rmap-card-done    { border-color: rgba(5,150,105,0.28); background: #FAFFFC; border-left: 3px solid #059669; }
+.l-rmap-card-current {
+  border-color: var(--teal-500);
+  border-left: 3px solid var(--teal-500);
+  box-shadow: 0 0 0 3px rgba(14,165,233,0.14), var(--shadow);
+}
+.l-rmap-card-building { border-color: rgba(14,165,233,0.3); border-left: 3px solid var(--teal-400); }
+.l-rmap-card-planned  { background: var(--ink-50); border-color: var(--ink-200); border-left: 3px solid var(--ink-300); }
+
+/* Connector dot — inner edge points toward the path */
+.l-rmap-card-l::after,
+.l-rmap-card-r::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 4px);
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--ink-300);
+  border: 2px solid #F7F4EF; /* match section bg */
+}
+.l-rmap-card-l::after { right: -4px; }
+.l-rmap-card-r::after { left:  -4px; }
+
+/* Card content */
+.l-rmap-card-date {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+  margin-bottom: 6px;
+}
+.l-rmap-card-num {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: rgba(10,31,68,0.05);
+  pointer-events: none;
+  user-select: none;
+}
+.l-rmap-card-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--navy-900);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+/* Chips */
+.l-rmap-here-chip,
+.l-rmap-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  margin-bottom: 7px;
+}
+.l-rmap-here-chip { background: var(--teal-500); color: var(--white); }
+.l-rmap-chip-building { background: var(--teal-50);  color: var(--teal-600); }
+.l-rmap-chip-planned  { background: var(--ink-100);  color: var(--ink-500);  }
+
+/* Tags */
+.l-rmap-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.l-rmap-tag {
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--ink-200);
+  color: var(--ink-600);
+  background: var(--white);
+  line-height: 1.5;
+}
+.l-rmap-tag-done     { border-color: rgba(5,150,105,0.22); background: var(--green-50); color: var(--green-600); }
+.l-rmap-tag-current  { border-color: rgba(14,165,233,0.28); background: var(--teal-50);  color: var(--teal-600); }
+.l-rmap-tag-building { border-color: rgba(14,165,233,0.18); background: var(--white);    color: var(--ink-600);  }
+.l-rmap-tag-planned  { border-color: var(--ink-200); background: transparent; color: var(--ink-400); }
+
+/* Bottom CTA */
+.l-rmap-bottom {
+  position: relative;
+  z-index: 1;
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(10,31,68,0.10); /* warm border on paper bg */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+.l-rmap-bottom-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy-900);
+}
+.l-rmap-disclaimer {
+  font-size: 12.5px;
+  color: var(--ink-400);
+  line-height: 1.55;
+}
+.l-rmap-disclaimer a {
+  color: var(--teal-600);
+  font-weight: 600;
+}
+.l-rmap-disclaimer a:hover { color: var(--teal-500); }
+
+
+/* ── Roadmap ── */
+.l-roadmap { background: var(--white); }
+.l-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.l-roadmap-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--ink-200);
+  padding: 28px;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.l-roadmap-live {
+  border-color: var(--green-600);
+  box-shadow: 0 0 0 1px rgba(5,150,105,0.08), var(--shadow-sm);
+}
+.l-roadmap-building {
+  border-color: var(--teal-500);
+  box-shadow: 0 0 0 1px rgba(14,165,233,0.08), var(--shadow-sm);
+}
+.l-roadmap-planned {
+  border-color: var(--ink-200);
+  background: var(--ink-50);
+}
+.l-roadmap-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.l-roadmap-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.l-roadmap-period {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-400);
+  letter-spacing: 0.03em;
+}
+.l-roadmap-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--navy-900);
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+.l-roadmap-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.l-roadmap-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--ink-700);
+  line-height: 1.45;
+}
+.l-roadmap-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.l-roadmap-link {
+  color: var(--teal-600);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.l-roadmap-link:hover { color: var(--teal-500); }
+
