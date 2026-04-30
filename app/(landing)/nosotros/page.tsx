@@ -5,6 +5,8 @@ import { Section } from "../../components/landing/layout/section";
 import { Container } from "../../components/landing/layout/container";
 import { SectionHeader } from "../../components/landing/molecules/section-header";
 import { PersonCard } from "../../components/landing/molecules/person-card";
+import { Button, buttonVariants } from "../../components/landing/atoms/button";
+import { cn } from "../../lib/utils";
 
 export const metadata: Metadata = {
   title: "Nosotros — Lab2Next",
@@ -126,10 +128,10 @@ export default function NosotrosPage() {
             Empieza gratis. Sin tarjeta, sin contrato, sin IT.
           </p>
           <div className="mt-2 flex flex-wrap justify-center gap-3">
-            <a href={`${APP_URL}/register`} className="l-btn l-btn-teal l-btn-lg">
+            <Button as="a" href={`${APP_URL}/register`} intent="teal" size="lg">
               Crear cuenta gratis
-            </a>
-            <Link href="/roadmap" className="l-btn l-btn-ghost-white l-btn-lg">
+            </Button>
+            <Link href="/roadmap" className={cn(buttonVariants({ intent: "ghost-white", size: "lg" }))}>
               Ver roadmap →
             </Link>
           </div>
