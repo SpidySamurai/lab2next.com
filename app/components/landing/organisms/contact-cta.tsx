@@ -1,5 +1,6 @@
 import { Check, ArrowRight } from "lucide-react";
 import { Reveal } from "../atoms/reveal";
+import { Button } from "../atoms/button";
 import { APP_URL } from "../domain/config";
 
 const WA_DEMO = "https://wa.me/529994875155?text=Hola,%20me%20gustar%C3%ADa%20una%20demo%20de%20Lab2Next";
@@ -21,18 +22,20 @@ export function ContactCTA({ guarantees }: ContactCTAProps) {
             Sin instalar nada, sin esperar a nadie.
           </p>
           <div className="l-final-cta-actions">
-            <a href={`${APP_URL}/register`} className="l-btn l-btn-teal l-btn-lg">
+            <Button as="a" href={`${APP_URL}/register`} intent="teal" size="lg">
               Crear cuenta gratis
               <ArrowRight size={18} />
-            </a>
-            <a
+            </Button>
+            <Button
+              as="a"
               href={WA_DEMO}
               target="_blank"
               rel="noopener noreferrer"
-              className="l-btn l-btn-ghost-white l-btn-lg"
+              intent="ghost-white"
+              size="lg"
             >
               Prefiero una demo guiada
-            </a>
+            </Button>
           </div>
           <div className="l-micro-guarantees">
             {guarantees.map((g) => (

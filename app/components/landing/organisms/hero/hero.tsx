@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { Reveal } from "../../atoms/reveal";
+import { Button } from "../../atoms/button";
 import { DashboardMockup } from "./dashboard-mockup";
 import { APP_URL } from "../../domain/config";
 
@@ -37,12 +38,12 @@ export function Hero({ trustItems }: HeroProps) {
 
           <Reveal delay={3}>
             <div className="l-hero-actions">
-              <a href={`${APP_URL}/register`} className="l-btn l-btn-primary l-btn-lg">
+              <Button as="a" href={`${APP_URL}/register`} intent="primary" size="lg">
                 Crear cuenta gratis
-              </a>
-              <a href="#modulos" className="l-btn l-btn-secondary l-btn-lg">
+              </Button>
+              <Button as="a" href="#modulos" intent="secondary" size="lg">
                 Ver el sistema
-              </a>
+              </Button>
             </div>
           </Reveal>
 
