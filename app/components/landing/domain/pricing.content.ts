@@ -15,7 +15,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     note: "Hasta 500 órdenes/mes · 1 sucursal · 5 usuarios",
     cta: "Crear cuenta gratis",
     ctaHref: `${APP_URL}/register`,
-    ctaStyle: "l-btn-secondary",
+    ctaIntent: "secondary",
     external: false,
     features: [
       { text: "Gestión de órdenes y pacientes", included: true },
@@ -41,7 +41,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     note: "Hasta 1,500 órdenes/mes · hasta 2 sucursales",
     cta: "Crear cuenta gratis",
     ctaHref: `${APP_URL}/register`,
-    ctaStyle: "l-btn-primary",
+    ctaIntent: "primary",
     external: false,
     featured: true,
     badge: "Precio fundador",
@@ -62,7 +62,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     note: "Volumen ilimitado · sucursales ilimitadas",
     cta: "Hablar con ventas",
     ctaHref: WA_DEMO,
-    ctaStyle: "l-btn-secondary",
+    ctaIntent: "secondary",
     external: true,
     features: [
       { text: "Todo lo del plan FOUNDER, más:", included: true },
