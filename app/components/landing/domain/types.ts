@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import type { ButtonIntent } from "../atoms/button";
 
 export interface StatPart {
   text: string;
@@ -49,7 +50,7 @@ export interface PricingPlan {
   note: string;
   cta: string;
   ctaHref: string;
-  ctaStyle: string;
+  ctaIntent: ButtonIntent;
   external?: boolean;
   featured?: boolean;
   badge?: string;
