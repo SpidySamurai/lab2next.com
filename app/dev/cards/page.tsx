@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import { Zap, ClipboardList, MessageCircle, FlaskConical, Bell, BarChart2 } from "lucide-react";
 import { StatCard } from "../../components/landing/molecules/stat-card";
-import { FeatureCard } from "../../components/landing/molecules/feature-card";
+import { ModuleCard } from "../../components/landing/molecules/module-card";
+import { ValueCard } from "../../components/landing/molecules/value-card";
 import { PersonCard } from "../../components/landing/molecules/person-card";
 import { Section } from "../../components/landing/layout/section";
 import { Container } from "../../components/landing/layout/container";
@@ -41,69 +42,63 @@ export default function DevCardsPage() {
         </Container>
       </Section>
 
-      {/* ── FeatureCard — module variant ── */}
+      {/* ── ModuleCard ── */}
       <Section bg="gray">
         <Container>
-          <SectionLabel title='FeatureCard variant="module"' path="molecules/feature-card.tsx" desc="Ícono + título + body + tags. Usado en Modules." />
+          <SectionLabel title="ModuleCard" path="molecules/module-card.tsx" desc="Ícono + título + body + tags. Usado en Modules." />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <FeatureCard
+            <ModuleCard
               icon={ClipboardList}
               title="Gestión de órdenes y pacientes"
               body="Captura de órdenes con autocompletado de catálogo, expediente clínico digital e historial completo."
               tags={["Pacientes", "Órdenes", "Catálogo"]}
-              variant="module"
               delay={0}
             />
-            <FeatureCard
+            <ModuleCard
               icon={MessageCircle}
               title="Portal de resultados por WhatsApp"
               body="El staff envía el enlace al paciente por WhatsApp en un clic. Acceso seguro con QR."
               tags={["WhatsApp", "QR", "Portal web"]}
-              variant="module"
               delay={1}
             />
-            <FeatureCard
+            <ModuleCard
               icon={Zap}
               title="Operando el mismo día"
               body="Sin implementación, sin técnicos, sin esperar a nadie. Primer orden en menos de una hora."
               tags={["Setup rápido", "Sin IT"]}
-              variant="module"
               delay={2}
             />
           </div>
         </Container>
       </Section>
 
-      {/* ── FeatureCard — value variant ── */}
+      {/* ── ValueCard ── */}
       <Section bg="white">
         <Container>
-          <SectionLabel title='FeatureCard variant="value"' path="molecules/feature-card.tsx" desc="Número + ícono + título + body + puntos. Usado en Values." />
+          <SectionLabel title="ValueCard" path="molecules/value-card.tsx" desc="Número + ícono + título + body + puntos. Usado en Values." />
           <div className="grid gap-5 lg:grid-cols-3">
-            <FeatureCard
+            <ValueCard
               icon={Zap}
               title="Operando el mismo día"
               body="Sin implementación, sin técnicos. Te registras y recibes tu primera orden en menos de una hora."
               points={["Catálogo con 155+ exámenes listo", "Configuración guiada", "Primera orden en < 1 hora"]}
               num="01"
-              variant="value"
               delay={0}
             />
-            <FeatureCard
+            <ValueCard
               icon={MessageCircle}
               title="Portal de resultados por WhatsApp"
               body="El paciente recibe sus resultados por WhatsApp con QR firmado digitalmente."
               points={["Sin imprimir", "Sin que regresen por su sobre", "Sin llamadas"]}
               num="02"
-              variant="value"
               delay={1}
             />
-            <FeatureCard
+            <ValueCard
               icon={ClipboardList}
               title="Control total del laboratorio"
               body="Finanzas, inventario, calidad y sucursales en un solo lugar."
               points={["Dashboard en tiempo real", "Multi-sucursal", "Reportes automáticos"]}
               num="03"
-              variant="value"
               delay={2}
             />
           </div>

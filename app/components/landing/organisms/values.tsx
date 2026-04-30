@@ -1,11 +1,11 @@
 import { SectionHeader } from "../molecules/section-header";
-import { FeatureCard } from "../molecules/feature-card";
+import { ValueCard } from "../molecules/value-card";
 import { Section } from "../layout/section";
 import { Container } from "../layout/container";
-import type { ValueCard } from "../domain/types";
+import type { ValueCard as ValueCardData } from "../domain/types";
 
 interface ValuesProps {
-  cards: ValueCard[];
+  cards: ValueCardData[];
 }
 
 export function Values({ cards }: ValuesProps) {
@@ -19,7 +19,7 @@ export function Values({ cards }: ValuesProps) {
         />
         <div className="l-values-grid">
           {cards.map((c, i) => (
-            <FeatureCard
+            <ValueCard
               key={c.num}
               icon={c.icon}
               title={c.title}
@@ -27,7 +27,6 @@ export function Values({ cards }: ValuesProps) {
               points={c.points}
               num={c.num}
               delay={i}
-              variant="value"
             />
           ))}
         </div>
