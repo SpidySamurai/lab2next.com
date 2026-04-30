@@ -82,7 +82,7 @@ export default function NosotrosPage() {
           <div className="mt-10 grid grid-cols-3 gap-x-4 gap-y-2 border-t border-navy-900/10 pt-10 sm:flex sm:flex-wrap sm:gap-x-10 sm:gap-y-4">
             {STATS.map((s) => (
               <div key={s.n} className="flex flex-col gap-1">
-                <span className="text-2xl font-extrabold leading-none tracking-tight text-navy-900 sm:text-4xl">
+                <span className="text-3xl font-extrabold leading-none tracking-tight text-navy-900 sm:text-4xl">
                   {s.n}
                 </span>
                 <span className="whitespace-pre-line text-[13px] leading-snug text-ink-500">
