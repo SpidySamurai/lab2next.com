@@ -1,0 +1,55 @@
+/* ── Legal pages (aviso-de-privacidad, terminos) ── */
+
+.prose-legal {
+  color: var(--ink-700);
+  font-size: 15px;
+  line-height: 1.75;
+  max-width: 72ch;
+}
+
+.prose-legal h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.prose-legal h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-legal p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.prose-legal ul,
+.prose-legal ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose-legal li {
+  margin-bottom: 0.4rem;
+}
+
+.prose-legal a {
+  color: var(--teal-600);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-legal a:hover {
+  color: var(--teal-700);
+}
+
+.prose-legal strong {
+  font-weight: 600;
+  color: var(--ink-900);
+}
