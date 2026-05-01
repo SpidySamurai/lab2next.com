@@ -22,6 +22,7 @@
 @import "./styles/nosotros.css";
 @import "./styles/chat.css";
 @import "./styles/legal.css";
+@import "./styles/colabora.css";
 
 /* ─────────────────────────────────────────────────────────
    Lab2Next design system — Tailwind v4 @theme
@@ -222,6 +223,7 @@
 .l-rmap-card.visible:hover { box-shadow: var(--shadow); transform: none; }
 
 .l-footer-grid-v2     { grid-template-columns: 1fr; }
+.l-colabora-grid      { grid-template-columns: 1fr; }
 .l-footer-tagline     { max-width: 100%; }
 
 .l-dash-body          { grid-template-columns: 1fr; }
@@ -266,6 +268,10 @@
 
   .l-modules-grid       { grid-template-columns: repeat(2, 1fr); }
 
+  .l-colabora-grid                              { grid-template-columns: repeat(4, 1fr); }
+  .l-colabora-grid > .l-reveal                  { grid-column: span 2; }
+  .l-colabora-grid > .l-reveal:nth-child(5)     { grid-column: 2 / 4; }
+
   .l-testi-grid         { grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
   .l-pricing-grid-v2    { grid-template-columns: repeat(2, 1fr); }
@@ -295,6 +301,11 @@
   .l-values-grid        { grid-template-columns: repeat(3, 1fr); }
   .l-value-card         { padding: 32px; }
   .l-modules-grid       { grid-template-columns: repeat(3, 1fr); }
+
+  .l-colabora-grid                              { grid-template-columns: repeat(6, 1fr); }
+  .l-colabora-grid > .l-reveal                  { grid-column: span 2; }
+  .l-colabora-grid > .l-reveal:nth-child(4)     { grid-column: 2 / 4; }
+  .l-colabora-grid > .l-reveal:nth-child(5)     { grid-column: 4 / 6; }
 
   .l-problem-grid       { grid-template-columns: repeat(4, 1fr); }
 
