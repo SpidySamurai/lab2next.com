@@ -36,13 +36,15 @@ const CARDS = [
 
 export function ColaboraPreview() {
   return (
-    <Section bg="paper" id="colabora">
+    <Section bg="dark" id="colabora">
       <Container>
-        <SectionHeader
-          eyebrow="Comunidad"
-          title="Construye Lab2Next con nosotros"
-          lede="Buscamos laboratorios que quieran mejorar la plataforma desde adentro."
-        />
+        <div className="l-colabora-dark-header">
+          <SectionHeader
+            eyebrow="Comunidad"
+            title="Construye Lab2Next con nosotros"
+            lede="Buscamos laboratorios que quieran mejorar la plataforma desde adentro."
+          />
+        </div>
         <div className="l-colabora-grid">
           {CARDS.map((c, i) => (
             <ModuleCard

@@ -1,4 +1,9 @@
 /* ── Colabora Preview (landing section) ── */
+.l-colabora-dark-header .l-section-title { color: var(--white); }
+.l-colabora-dark-header .l-section-lede  { color: rgba(255,255,255,0.72); }
+.l-colabora-dark-header .l-eyebrow       { color: var(--teal-400); }
+.l-colabora-dark-header .l-eyebrow::before { background: var(--teal-400); }
+
 .l-colabora-grid {
   display: grid;
   gap: 24px;
