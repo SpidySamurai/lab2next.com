@@ -1,37 +1,24 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
-import { Check, Minus } from "lucide-react";
+import { Check, Minus, TrendingUp } from "lucide-react";
 import { Reveal } from "../atoms/reveal";
 import { Button } from "../atoms/button";
-import type { Currency, PricingPlan } from "../domain/types";
+import type { PricingPlan } from "../domain/types";
 
 interface PricingTableProps {
   plans: PricingPlan[];
 }
 
-const CURRENCIES: Currency[] = ["MXN", "USD", "COP"];
-const CURRENCY_LABEL: Record<Currency, string> = {
-  MXN: "MXN/mes",
-  USD: "USD/mes",
-  COP: "COP/mes",
-};
-
-function formatAmount(amount: number, currency: Currency): string {
-  if (currency === "COP") return amount.toLocaleString("es-CO");
-  return amount.toString();
-}
+const CURRENCY = "MXN";
+const PERIOD_LABEL = "MXN/mes";
 
 export function PricingTable({ plans }: PricingTableProps) {
   const [annual, setAnnual] = useState(false);
-  const [currency, setCurrency] = useState<Currency>("MXN");
 
   const monthlyRef = useRef<HTMLButtonElement>(null);
   const yearlyRef = useRef<HTMLButtonElement>(null);
   const [thumbStyle, setThumbStyle] = useState<{ left: number; width: number }>({ left: 4, width: 90 });
-
-  const currencyBtnRefs = useRef<Record<Currency, HTMLButtonElement | null>>({ MXN: null, USD: null, COP: null });
-  const [currThumb, setCurrThumb] = useState<{ left: number; width: number }>({ left: 4, width: 60 });
 
   useLayoutEffect(() => {
     const el = annual ? yearlyRef.current : monthlyRef.current;
@@ -41,15 +28,6 @@ export function PricingTable({ plans }: PricingTableProps) {
       setThumbStyle({ left: r.left - p.left, width: r.width });
     }
   }, [annual]);
-
-  useLayoutEffect(() => {
-    const el = currencyBtnRefs.current[currency];
-    if (el) {
-      const p = el.parentElement!.getBoundingClientRect();
-      const r = el.getBoundingClientRect();
-      setCurrThumb({ left: r.left - p.left, width: r.width });
-    }
-  }, [currency]);
 
   return (
     <section className="l-section l-pricing-v2" id="precios">
@@ -87,21 +65,6 @@ export function PricingTable({ plans }: PricingTableProps) {
               </button>
             </div>
 
-            {/* Currency toggle */}
-            <div className="l-pricing-toggle l-currency-toggle">
-              <span className="l-pricing-toggle-thumb l-currency-thumb" style={{ left: currThumb.left, width: currThumb.width }} />
-              {CURRENCIES.map((c) => (
-                <button
-                  key={c}
-                  ref={(el) => { currencyBtnRefs.current[c] = el; }}
-                  className={`l-pricing-toggle-btn l-currency-btn ${currency === c ? "active" : ""}`}
-                  onClick={() => setCurrency(c)}
-                >
-                  {c}
-                </button>
-              ))}
-            </div>
-
             <p className="l-pricing-disclaimer">
               Precios en consolidación — sujetos a cambio con aviso previo de al menos 30 días.
               Los clientes activos siempre conservan su tarifa contratada.
@@ -111,7 +74,7 @@ export function PricingTable({ plans }: PricingTableProps) {
 
         <div className="l-pricing-grid-v3">
           {plans.map((p, i) => {
-            const priceEntry = p.prices?.[currency] ?? p.prices?.MXN;
+            const priceEntry = p.prices?.[CURRENCY] ?? p.prices?.MXN;
             const amount = annual ? priceEntry?.yearly : priceEntry?.monthly;
 
             return (
@@ -146,9 +109,9 @@ export function PricingTable({ plans }: PricingTableProps) {
                       <>
                         <span className="l-plan-currency-v2">$</span>
                         <span className="l-plan-amount-v2">
-                          {amount != null ? formatAmount(amount, currency) : "—"}
+                          {amount != null ? amount.toLocaleString("es-MX") : "—"}
                         </span>
-                        <span className="l-plan-period-v2">{CURRENCY_LABEL[currency]}</span>
+                        <span className="l-plan-period-v2">{PERIOD_LABEL}</span>
                       </>
                     )}
                   </div>
@@ -179,6 +142,19 @@ export function PricingTable({ plans }: PricingTableProps) {
             );
           })}
         </div>
+
+        <Reveal>
+          <div className="l-pricing-growth-note">
+            <div className="l-pricing-growth-note-icon">
+              <TrendingUp size={18} />
+            </div>
+            <p>
+              <strong>Estamos trabajando en algo diferente.</strong> No te limitamos — te ayudamos a llevar tu operación.
+              Si creces en volumen de exámenes, te acompañamos con apoyo directo y
+              <strong> precio preferencial</strong>, sin necesidad de cambiar de plan.
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

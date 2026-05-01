@@ -2,7 +2,6 @@ import { MessageSquare, Lightbulb, FlaskConical, Users, BadgePercent, ArrowRight
 import { Section } from "../layout/section";
 import { Container } from "../layout/container";
 import { SectionHeader } from "../molecules/section-header";
-import { ModuleCard } from "../molecules/module-card";
 import { Button } from "../atoms/button";
 import { Reveal } from "../atoms/reveal";
 
@@ -38,31 +37,40 @@ export function ColaboraPreview() {
   return (
     <Section bg="dark" id="colabora">
       <Container>
-        <div className="l-colabora-dark-header">
-          <SectionHeader
-            eyebrow="Comunidad"
-            title="Construye Lab2Next con nosotros"
-            lede="Buscamos laboratorios que quieran mejorar la plataforma desde adentro."
-          />
-        </div>
-        <div className="l-colabora-grid">
-          {CARDS.map((c, i) => (
-            <ModuleCard
-              key={c.title}
-              icon={c.icon}
-              title={c.title}
-              body={c.body}
-              delay={i % 3}
+        <div className="l-colabora-editorial">
+          {/* Left: header + CTA */}
+          <div className="l-colabora-dark-header">
+            <SectionHeader
+              eyebrow="Comunidad"
+              title="Construye Lab2Next con nosotros"
+              lede="Buscamos laboratorios que quieran mejorar la plataforma desde adentro."
             />
-          ))}
-        </div>
-        <div className="l-colabora-cta">
-          <Reveal>
-            <Button as="a" href="/colabora" intent="teal" size="lg">
-              Quiero colaborar
-              <ArrowRight size={18} />
-            </Button>
-          </Reveal>
+            <div className="l-colabora-editorial-cta">
+              <Reveal>
+                <Button as="a" href="/colabora" intent="teal" size="lg">
+                  Quiero colaborar
+                  <ArrowRight size={18} />
+                </Button>
+              </Reveal>
+            </div>
+          </div>
+
+          {/* Right: compact vertical list */}
+          <ul className="l-colabora-list">
+            {CARDS.map((c, i) => (
+              <Reveal key={c.title} delay={i} threshold={0.05}>
+                <li className="l-colabora-list-item">
+                  <div className="l-colabora-list-icon">
+                    <c.icon size={17} />
+                  </div>
+                  <div className="l-colabora-list-text">
+                    <span className="l-colabora-list-title">{c.title}</span>
+                    <span className="l-colabora-list-body">{c.body}</span>
+                  </div>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
         </div>
       </Container>
     </Section>

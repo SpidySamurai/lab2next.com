@@ -4,8 +4,6 @@ import { ColaboraPreview } from "../../components/landing/organisms/colabora-pre
 import { APP_URL } from "../../components/landing/domain/config";
 import { Section } from "../../components/landing/layout/section";
 import { Container } from "../../components/landing/layout/container";
-import { SectionHeader } from "../../components/landing/molecules/section-header";
-import { PersonCard } from "../../components/landing/molecules/person-card";
 import { Button, buttonVariants } from "../../components/landing/atoms/button";
 import { cn } from "../../lib/utils";
 
@@ -15,21 +13,12 @@ export const metadata: Metadata = {
     "Conoce al equipo detrás de Lab2Next. Construimos el sistema que los laboratorios clínicos independientes en LATAM merecían desde hace años.",
 };
 
-// PLACEHOLDER team data — replace name/role/bio/initials/src before launch
-const TEAM = [
-  {
-    initials: "??",
-    name: "Nombre Fundador",
-    role: "CEO & Co-fundador",
-    bio: "Descripción breve del fundador: experiencia relevante, por qué construyó esto.",
-  },
-  {
-    initials: "??",
-    name: "Nombre Co-fundador",
-    role: "CTO & Co-fundador",
-    bio: "Descripción breve del co-fundador: experiencia en tecnología y salud.",
-  },
-];
+const FOUNDER = {
+  initials: "JC",
+  name: "Javier Fernando Chi Ortíz",
+  role: "Arquitecto de Software & IA",
+  bio: "Construyó Lab2Next desde cero después de ver de cerca la operación diaria de un laboratorio clínico independiente. Con años de experiencia en arquitectura de sistemas y aplicaciones de inteligencia artificial, diseñó una plataforma que da a cada laboratorio la misma capacidad tecnológica que las grandes cadenas, sin IT interno.",
+};
 
 const STATS = [
   { n: "+2 000", label: "laboratorios independientes\nsolo en México" },
@@ -57,36 +46,39 @@ export default function NosotrosPage() {
       <Section bg="paper">
         <Container>
           <span className="l-eyebrow">El origen</span>
-          <div className="mt-6 grid gap-x-16 gap-y-6 lg:grid-cols-2">
-            <p className="text-xl font-medium leading-relaxed text-navy-900">
-              Vimos de cerca cómo un laboratorio clínico independiente operaba
-              con cuadernos, hojas de Excel y WhatsApp manual. El director llegaba
-              a las 7am, recibía órdenes en papel, y a las 11pm todavía contestaba
-              mensajes de pacientes preguntando por sus resultados.
+
+          {/* Lead — full-width hook */}
+          <p className="mt-8 max-w-4xl text-[1.6rem] font-bold leading-[1.25] tracking-tight text-navy-900 sm:text-[2rem]">
+            Vimos de cerca cómo un laboratorio clínico independiente operaba
+            con cuadernos, hojas de Excel y WhatsApp manual. El director llegaba
+            a las 7am, recibía órdenes en papel, y a las 11pm todavía contestaba
+            mensajes de pacientes preguntando por sus resultados.
+          </p>
+
+          {/* Body — 2-col context */}
+          <div className="mt-10 grid gap-x-14 gap-y-5 border-t border-navy-900/10 pt-10 text-[15px] leading-[1.8] text-ink-600 lg:grid-cols-2">
+            <p>
+              No era un problema de disciplina ni de presupuesto. Era un problema
+              de acceso. Los grandes laboratorios tienen departamentos de TI,
+              sistemas integrados y equipos dedicados. El laboratorio independiente
+              tiene un director que también es técnico, recepcionista y gerente.
             </p>
-            <div className="flex flex-col gap-4 text-base leading-[1.75] text-ink-700">
-              <p>
-                No era un problema de disciplina ni de presupuesto. Era un problema
-                de acceso. Los grandes laboratorios tienen departamentos de TI,
-                sistemas integrados y equipos dedicados. El laboratorio independiente
-                tiene un director que también es técnico, recepcionista y gerente.
-              </p>
-              <p>
-                Lab2Next nació de una pregunta simple: ¿por qué el laboratorio de
-                la colonia no puede tener la misma tecnología que los grandes? No
-                hay razón técnica. Solo había falta de voluntad para construirlo.
-                Nosotros decidimos construirlo.
-              </p>
-            </div>
+            <p>
+              Lab2Next nació de una pregunta simple: ¿por qué el laboratorio de
+              la colonia no puede tener la misma tecnología que los grandes? No
+              hay razón técnica. Solo había falta de voluntad para construirlo.
+              Nosotros decidimos construirlo.
+            </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-x-4 gap-y-2 border-t border-navy-900/10 pt-10 sm:flex sm:flex-wrap sm:gap-x-10 sm:gap-y-4">
+          {/* Stats strip */}
+          <div className="mt-14 grid grid-cols-3 divide-x divide-navy-900/10 border-t border-navy-900/10 pt-10">
             {STATS.map((s) => (
-              <div key={s.n} className="flex flex-col gap-1">
-                <span className="text-3xl font-extrabold leading-none tracking-tight text-navy-900 sm:text-4xl">
+              <div key={s.n} className="flex flex-col gap-2 px-6 first:pl-0">
+                <span className="text-4xl font-extrabold leading-none tracking-tight text-navy-900 sm:text-5xl">
                   {s.n}
                 </span>
-                <span className="whitespace-pre-line text-[13px] leading-snug text-ink-500">
+                <span className="whitespace-pre-line text-sm leading-snug text-ink-500">
                   {s.label}
                 </span>
               </div>
@@ -110,11 +102,23 @@ export default function NosotrosPage() {
       {/* ── Equipo ── */}
       <Section bg="gray">
         <Container>
-          <SectionHeader eyebrow="El equipo" title="Las personas detrás del sistema." />
-          <div className="grid gap-6 sm:grid-cols-2">
-            {TEAM.map((m) => (
-              <PersonCard key={m.name} {...m} />
-            ))}
+          <span className="l-eyebrow">La persona detrás del sistema</span>
+          <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
+            {/* Image placeholder — swap <img> src when photo ready */}
+            <div className="l-founder-photo" aria-hidden="true">
+              <span>Foto</span>
+            </div>
+            <div className="flex flex-col gap-3">
+              <p className="text-2xl font-extrabold tracking-tight text-navy-900">
+                {FOUNDER.name}
+              </p>
+              <p className="text-sm font-semibold uppercase tracking-widest text-teal-600">
+                {FOUNDER.role}
+              </p>
+              <p className="mt-2 max-w-prose text-base leading-relaxed text-ink-600">
+                {FOUNDER.bio}
+              </p>
+            </div>
           </div>
         </Container>
       </Section>
