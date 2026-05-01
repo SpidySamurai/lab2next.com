@@ -24,8 +24,8 @@
   background: var(--navy-900);
   border-color: var(--navy-700);
   border-width: 1px;
-  box-shadow: var(--shadow-xl), 0 0 0 1px var(--navy-700), 0 0 40px rgba(14,165,233,0.12);
-  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl), 0 0 0 1px var(--navy-700), 0 0 48px rgba(14,165,233,0.18);
+  transform: translateY(-20px);
 }
 .l-plan-card.featured .l-plan-name-v2 { color: rgba(255,255,255,0.55); }
 .l-plan-card.featured .l-plan-tagline-v2 { color: rgba(255,255,255,0.50); }
@@ -223,10 +223,46 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 48px;
-  align-items: start;
+  align-items: stretch;
 }
-.l-pricing-grid-v3 > .l-reveal:first-child,
-.l-pricing-grid-v3 > .l-reveal:last-child {
-  margin-top: 36px;
+.l-pricing-grid-v3 > .l-reveal { display: flex; flex-direction: column; }
+/* Staircase: BASIC lowest → FOUNDER peak → ENTERPRISE mid */
+.l-pricing-grid-v3 > .l-reveal:first-child  { margin-top: 80px; }
+.l-pricing-grid-v3 > .l-reveal:last-child   { margin-top: 40px; }
+
+/* Cards lean outward from FOUNDER */
+.l-pricing-grid-v3 > .l-reveal:first-child .l-plan-card  { transform: rotate(-1.5deg); transform-origin: bottom center; }
+.l-pricing-grid-v3 > .l-reveal:last-child  .l-plan-card  { transform: rotate(1.5deg);  transform-origin: bottom center; }
+.l-pricing-grid-v3 > .l-reveal:first-child .l-plan-card:hover { transform: rotate(-0.5deg); }
+.l-pricing-grid-v3 > .l-reveal:last-child  .l-plan-card:hover { transform: rotate(0.5deg); }
+
+/* Growth philosophy callout */
+.l-pricing-growth-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 40px;
+  padding: 20px 24px;
+  border-radius: var(--radius-lg);
+  background: rgba(14, 165, 233, 0.06);
+  border: 1px solid rgba(14, 165, 233, 0.18);
 }
+.l-pricing-growth-note-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(14, 165, 233, 0.12);
+  color: var(--teal-600);
+  margin-top: 1px;
+}
+.l-pricing-growth-note p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-600);
+}
+.l-pricing-growth-note strong { color: var(--navy-900); font-weight: 600; }
 

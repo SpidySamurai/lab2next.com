@@ -37,37 +37,37 @@ const PATH_D = [
 const MILESTONES: Milestone[] = [
   {
     date: "Ene 2025", title: "Primera orden digital",
-    status: "done", side: "left", cx: 200, cy: 200, trigger: 0.09,
+    status: "done", side: "left", cx: 200, cy: 200, trigger: 0.02,
     tags: ["Gestión de órdenes", "Registro de pacientes", "Portal con QR"],
   },
   {
     date: "Mar 2025", title: "WhatsApp nativo",
-    status: "done", side: "right", cx: 575, cy: 430, trigger: 0.22,
+    status: "done", side: "right", cx: 575, cy: 430, trigger: 0.08,
     tags: ["Resultados por WhatsApp", "Firma digital verificable", "Acceso sin instalar nada"],
   },
   {
     date: "Abr 2025", title: "Catálogo y operación",
-    status: "done", side: "left", cx: 250, cy: 660, trigger: 0.35,
+    status: "done", side: "left", cx: 250, cy: 660, trigger: 0.17,
     tags: ["155+ exámenes preconfigurados", "Paquetes personalizados", "Médicos referidores"],
   },
   {
     date: "Hoy", title: "Ecosistema completo",
-    status: "current", side: "right", cx: 530, cy: 900, trigger: 0.48,
+    status: "current", side: "right", cx: 530, cy: 900, trigger: 0.27,
     tags: ["Multi-sucursal", "Dashboard en tiempo real", "Plan Founder disponible"],
   },
   {
     date: "Q3 2025", title: "Agenda y seguimiento",
-    status: "building", side: "left", cx: 295, cy: 1140, trigger: 0.61,
+    status: "building", side: "left", cx: 295, cy: 1140, trigger: 0.38,
     tags: ["Citas con confirmación automática", "Portal para médicos", "Alertas de valores críticos"],
   },
   {
     date: "Q4 2025", title: "Analítica avanzada",
-    status: "planned", side: "right", cx: 485, cy: 1375, trigger: 0.74,
+    status: "planned", side: "right", cx: 485, cy: 1375, trigger: 0.50,
     tags: ["Reportes exportables", "Auditorías de acceso", "Tiempos de entrega"],
   },
   {
     date: "2026", title: "Plataforma abierta",
-    status: "planned", side: "left", cx: 340, cy: 1605, trigger: 0.87,
+    status: "planned", side: "left", cx: 340, cy: 1605, trigger: 0.62,
     tags: ["API de integración", "App móvil", "White label", "CFDI"],
   },
 ];
@@ -79,6 +79,26 @@ const NODE_ACTIVE: Record<Status, { fill: string; stroke: string }> = {
   planned:  { fill: "#F1F5F9", stroke: "#94A3B8" },
 };
 const NODE_IDLE = { fill: "#F8FAFC", stroke: "#CBD5E1" };
+
+// Maps scrollP → line draw fraction so the path tip reaches each node
+// exactly when its card activates. Points: [scrollP, cy/SVG_H].
+const LINE_MAP: [number, number][] = [
+  [0,    0    ],
+  [0.02, 0.111], [0.08, 0.239], [0.17, 0.367],
+  [0.27, 0.500], [0.38, 0.633], [0.50, 0.764],
+  [0.62, 0.892], [1.0,  1.0  ],
+];
+
+function mapLineP(p: number): number {
+  if (p <= 0) return 0;
+  if (p >= LINE_MAP[LINE_MAP.length - 1][0]) return 1;
+  for (let i = 0; i < LINE_MAP.length - 1; i++) {
+    const [p0, f0] = LINE_MAP[i];
+    const [p1, f1] = LINE_MAP[i + 1];
+    if (p >= p0 && p <= p1) return f0 + ((p - p0) / (p1 - p0)) * (f1 - f0);
+  }
+  return 1;
+}
 
 const CHIP_LABEL: Partial<Record<Status, string>> = {
   building: "En desarrollo",
@@ -123,7 +143,7 @@ export function RoadmapClient() {
       const viewportMid = window.innerHeight * 0.38;
       const p = Math.max(0, Math.min(1, (viewportMid - rect.top) / canvasH));
 
-      path.style.strokeDashoffset = `${total * (1 - p)}`;
+      path.style.strokeDashoffset = `${total * (1 - mapLineP(p))}`;
 
       MILESTONES.forEach((m, i) => {
         const active = p >= m.trigger;

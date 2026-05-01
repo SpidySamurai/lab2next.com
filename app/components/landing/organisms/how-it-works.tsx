@@ -26,8 +26,7 @@ export function HowItWorks({ steps }: HowItWorksProps) {
 
     // Thresholds: fraction of full scroll travel at which each step activates.
     // Travel = viewportH (section entering) + gridRect.height (section crossing).
-    // Steps activate at 15 / 42 / 68 % — all fire while section is comfortably in view.
-    const THRESHOLDS = [0.15, 0.42, 0.68];
+    const THRESHOLDS = [0.08, 0.22, 0.38];
     // Progress-bar anchor points that match each step threshold
     const BAR_PTS    = [0, 50, 100];
 

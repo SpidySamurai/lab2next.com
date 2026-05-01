@@ -12,32 +12,38 @@ interface NavbarProps {
   links: NavLink[];
 }
 
-function NavItem({ link, onClick }: { link: NavLink; onClick?: () => void }) {
+function NavItem({
+  link,
+  onClick,
+  activeHash,
+}: {
+  link: NavLink;
+  onClick?: () => void;
+  activeHash: string;
+}) {
   const pathname = usePathname();
-  const isPage   = !link.href.includes("#");
-  const isActive = isPage && pathname === link.href;
+  const isPage = !link.href.includes("#");
+  const hash = link.href.split("#")[1] ?? "";
+  const isActive = isPage ? pathname === link.href : activeHash === hash;
 
   if (isPage) {
     return (
-      <Link
-        href={link.href}
-        className={`l-nav-link${isActive ? " active" : ""}`}
-        onClick={onClick}
-      >
+      <Link href={link.href} className={`l-nav-link${isActive ? " active" : ""}`} onClick={onClick}>
         {link.label}
       </Link>
     );
   }
   return (
-    <a href={link.href} className="l-nav-link" onClick={onClick}>
+    <a href={link.href} className={`l-nav-link${isActive ? " active" : ""}`} onClick={onClick}>
       {link.label}
     </a>
   );
 }
 
 export function Navbar({ links }: NavbarProps) {
-  const [scrolled, setScrolled]   = useState(false);
+  const [scrolled, setScrolled]     = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeHash, setActiveHash] = useState("");
   const drawerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -46,6 +52,27 @@ export function Navbar({ links }: NavbarProps) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const hashes = links.filter((l) => l.href.includes("#")).map((l) => l.href.split("#")[1]);
+    const sections = hashes
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveHash(entry.target.id);
+        }
+      },
+      { rootMargin: "-80px 0px -55% 0px", threshold: 0 },
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, [links]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -94,7 +121,7 @@ export function Navbar({ links }: NavbarProps) {
 
           <nav className="l-nav-links" aria-label="Navegación principal">
             {links.map((l) => (
-              <NavItem key={l.href} link={l} />
+              <NavItem key={l.href} link={l} activeHash={activeHash} />
             ))}
           </nav>
 
@@ -147,7 +174,7 @@ export function Navbar({ links }: NavbarProps) {
 
         <nav className="l-mobile-links" aria-label="Navegación móvil">
           {links.map((l) => (
-            <NavItem key={l.href} link={l} onClick={close} />
+            <NavItem key={l.href} link={l} activeHash={activeHash} onClick={close} />
           ))}
         </nav>
 

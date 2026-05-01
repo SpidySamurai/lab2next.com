@@ -137,7 +137,7 @@
 /* Reset — inside @layer base so Tailwind utilities can override */
 @layer base {
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
   /* Global keyboard focus ring — applies to all interactive elements unless suppressed */
   :focus-visible {
