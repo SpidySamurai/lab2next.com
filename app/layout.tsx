@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: "/og.png",
+        url: "/images/og.png",
         width: 1200,
         height: 630,
         alt: "Lab2Next — LIS para laboratorios clínicos en México",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og.png"],
+    images: ["/images/og.png"],
   },
   robots: {
     index: true,
