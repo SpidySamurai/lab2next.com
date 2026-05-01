@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ColaboraPreview } from "../../components/landing/organisms/colabora-preview";
 import { APP_URL } from "../../components/landing/domain/config";
 import { Section } from "../../components/landing/layout/section";
 import { Container } from "../../components/landing/layout/container";
@@ -117,6 +118,9 @@ export default function NosotrosPage() {
           </div>
         </Container>
       </Section>
+
+      {/* ── Colabora ── */}
+      <ColaboraPreview />
 
       {/* ── CTA ── */}
       <Section bg="dark">
