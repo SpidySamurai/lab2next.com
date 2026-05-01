@@ -24,7 +24,7 @@ function NavItem({
   const pathname = usePathname();
   const isPage = !link.href.includes("#");
   const hash = link.href.split("#")[1] ?? "";
-  const isActive = isPage ? pathname === link.href : activeHash === hash;
+  const isActive = isPage ? pathname === link.href : pathname === "/" && activeHash === hash;
 
   if (isPage) {
     return (
@@ -45,6 +45,7 @@ export function Navbar({ links }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("");
   const drawerRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -52,6 +53,8 @@ export function Navbar({ links }: NavbarProps) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => { setActiveHash(""); }, [pathname]);
 
   useEffect(() => {
     const hashes = links.filter((l) => l.href.includes("#")).map((l) => l.href.split("#")[1]);
