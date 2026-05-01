@@ -18,7 +18,15 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
   return <Link href={href}>{children}</Link>;
 }
 
+const HIDDEN_IN_PROD = ["/aviso-de-privacidad", "/terminos"];
+const isProd = process.env.NODE_ENV === "production";
+
 export function Footer({ columns, miniBadges }: FooterProps) {
+  const visibleColumns = columns.map((col) => ({
+    ...col,
+    items: isProd ? col.items.filter((item) => !HIDDEN_IN_PROD.includes(item.href)) : col.items,
+  }));
+
   return (
     <footer className="l-footer-v2">
       <div className="l-container">
@@ -40,7 +48,7 @@ export function Footer({ columns, miniBadges }: FooterProps) {
             </div>
           </div>
 
-          {columns.map((col) => (
+          {visibleColumns.map((col) => (
             <div key={col.h}>
               <div className="l-footer-col-h">{col.h}</div>
               <ul className="l-footer-col-list">
@@ -58,10 +66,12 @@ export function Footer({ columns, miniBadges }: FooterProps) {
           <span>
             © {new Date().getFullYear()} Lab2Next — Hecho en México para laboratorios de México y el mundo.
           </span>
-          <div className="l-footer-bottom-links">
-            <Link href="/aviso-de-privacidad">Privacidad</Link>
-            <Link href="/terminos">Términos</Link>
-          </div>
+          {!isProd && (
+            <div className="l-footer-bottom-links">
+              <Link href="/aviso-de-privacidad">Privacidad</Link>
+              <Link href="/terminos">Términos</Link>
+            </div>
+          )}
         </div>
       </div>
     </footer>

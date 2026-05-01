@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Section } from "../../components/landing/layout/section";
 import { Container } from "../../components/landing/layout/container";
@@ -12,6 +13,7 @@ const LAST_UPDATE = "30 de abril de 2025";
 const CONTACT_EMAIL = "legal@lab2next.com";
 
 export default function TerminosPage() {
+  if (process.env.NODE_ENV === "production") notFound();
   return (
     <>
       <header className="l-page-hero">

@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Section } from "../../components/landing/layout/section";
 import { Container } from "../../components/landing/layout/container";
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 const LAST_UPDATE = "30 de abril de 2025";
 
 export default function AvisoPrivacidadPage() {
+  if (process.env.NODE_ENV === "production") notFound();
   return (
     <>
       <header className="l-page-hero">
