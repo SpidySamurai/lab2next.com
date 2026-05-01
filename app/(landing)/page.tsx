@@ -4,11 +4,9 @@ import { Problem } from "../components/landing/organisms/problem";
 import { Values } from "../components/landing/organisms/values";
 import { Modules } from "../components/landing/organisms/modules";
 import { HowItWorks } from "../components/landing/organisms/how-it-works";
-import { Purpose } from "../components/landing/organisms/purpose";
 import { PricingTable } from "../components/landing/organisms/pricing-table";
 import { FAQ } from "../components/landing/organisms/faq";
 import { ContactCTA } from "../components/landing/organisms/contact-cta";
-import { ColaboraPreview } from "../components/landing/organisms/colabora-preview";
 
 import { HERO_TRUST_ITEMS, TRUST_BAR_BADGES, CONTACT_CTA_GUARANTEES } from "../components/landing/domain/hero.content";
 import { PROBLEM_CARDS } from "../components/landing/domain/problem.content";
@@ -30,11 +28,9 @@ export default function Home() {
       <Modules cards={MODULE_CARDS} />
       <HowItWorks steps={HOW_IT_WORKS_STEPS} />
       {/* <Testimonials items={TESTIMONIALS} /> */}{/* ACTIVATE when real testimonials ready */}
-      <Purpose />
       <PricingTable plans={PRICING_PLANS} />
       <FAQ items={FAQ_ITEMS} />
       <ContactCTA guarantees={CONTACT_CTA_GUARANTEES} />
-      <ColaboraPreview />
     </>
   );
 }
