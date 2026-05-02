@@ -81,7 +81,7 @@ export default function DevCardsPage() {
               icon={Zap}
               title="Operando el mismo día"
               body="Sin implementación, sin técnicos. Te registras y recibes tu primera orden en menos de una hora."
-              points={["Catálogo con 155+ exámenes listo", "Configuración guiada", "Primera orden en < 1 hora"]}
+              points={["Catálogo con más de 155+ exámenes listo", "Configuración guiada", "Primera orden en < 1 hora"]}
               num="01"
               delay={0}
             />

@@ -25,7 +25,7 @@ const PHASES: RoadmapPhase[] = [
       { text: "Gestión de órdenes y pacientes" },
       { text: "Portal de resultados con QR firmado digitalmente" },
       { text: "Envío de resultados por WhatsApp" },
-      { text: "Catálogo con 155+ exámenes preconfigurado" },
+      { text: "Catálogo con más de 155 exámenes preconfigurado" },
       { text: "Múltiples sucursales y usuarios" },
       { text: "Dashboard operativo en tiempo real" },
     ],
