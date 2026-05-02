@@ -48,7 +48,7 @@ const MILESTONES: Milestone[] = [
   {
     date: "Abr 2025", title: "Catálogo y operación",
     status: "done", side: "left", cx: 250, cy: 660, trigger: 0.17,
-    tags: ["155+ exámenes preconfigurados", "Paquetes personalizados", "Médicos referidores"],
+    tags: ["Más de 155 exámenes preconfigurados", "Paquetes personalizados", "Médicos referidores"],
   },
   {
     date: "Hoy", title: "Ecosistema completo",
