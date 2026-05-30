@@ -78,10 +78,11 @@ export const PRICING_PLANS: PricingPlan[] = [
     name: "PREMIUM",
     tagline: "Para laboratorios en crecimiento con mayor volumen y múltiples sucursales.",
     prices: {
-      MXN: { monthly: 1350,    yearly: 1080   },
+      // PREMIUM = precio LIVE de producción ($1.200 MXN). Pendiente repricing por costo/margen.
+      MXN: { monthly: 1200,    yearly: 960    },
       // TODO: confirmar FX USD/COP de PREMIUM con Javier — valores estimados por proporción vs BASIC/FOUNDER
-      USD: { monthly: 73,      yearly: 58     },
-      COP: { monthly: 309000,  yearly: 247000 },
+      USD: { monthly: 65,      yearly: 52     },
+      COP: { monthly: 274000,  yearly: 219000 },
     },
     note: "Hasta 2.500 exámenes/mes · hasta 5 sucursales · hasta 30 usuarios",
     cta: "Crear cuenta gratis",
