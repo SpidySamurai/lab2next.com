@@ -1,3 +1,4 @@
+// Feature lists mirror app SSOT features/billing/domain/plan-feature-matrix.ts — keep in sync. 'Próximamente' = advertised, not yet built/gated.
 import type { PricingPlan } from "./types";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
@@ -20,6 +21,9 @@ export const PRICING_PLANS: PricingPlan[] = [
     features: [
       { text: "Gestión de órdenes y pacientes", included: true },
       { text: "Catálogo editable con tus precios", included: true },
+      { text: "Paquetes de exámenes", included: true },
+      { text: "Médicos referidores", included: true },
+      { text: "Agenda de citas", included: true },
       { text: "Portal de resultados con QR", included: false },
       { text: "WhatsApp: envío de enlace en 1 clic", included: false },
       { text: "Reportes financieros", included: false },
@@ -43,10 +47,9 @@ export const PRICING_PLANS: PricingPlan[] = [
       { text: "Todo lo del plan FREE, más:", included: true },
       { text: "Portal de resultados con QR", included: true },
       { text: "WhatsApp: envío de enlace en 1 clic", included: true },
-      { text: "Paquetes de exámenes", included: true },
-      { text: "Médicos referidores", included: true },
       { text: "Hasta 5 usuarios", included: true },
-      { text: "Soporte por email", included: true },
+      { text: "Reportes financieros", included: false },
+      { text: "PDF de resultados avanzado", included: false },
     ],
   },
   {
@@ -67,11 +70,10 @@ export const PRICING_PLANS: PricingPlan[] = [
     spotsLeft: 15,
     features: [
       { text: "Todo lo del plan BASIC, más:", included: true },
-      { text: "Agenda de citas", included: true },
       { text: "Reportes financieros", included: true },
       { text: "PDF de resultados avanzado", included: true },
-      { text: "Chat de soporte prioritario", included: true },
       { text: "Hasta 15 usuarios", included: true },
+      { text: "Chat de soporte prioritario (Próximamente)", included: false },
     ],
   },
   {
@@ -94,6 +96,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       { text: "Mayor volumen de exámenes", included: true },
       { text: "Hasta 5 sucursales", included: true },
       { text: "Hasta 30 usuarios", included: true },
+      { text: "White label (Próximamente)", included: false },
     ],
   },
   {
@@ -108,10 +111,10 @@ export const PRICING_PLANS: PricingPlan[] = [
     features: [
       { text: "Todo lo del plan PREMIUM, más:", included: true },
       { text: "Sucursales y usuarios sin límite", included: true },
-      { text: "API de integración", included: true },
-      { text: "White label", included: true },
       { text: "SLA personalizado", included: true },
       { text: "Gestor de cuenta dedicado", included: true },
+      { text: "API de integración (Próximamente)", included: false },
+      { text: "Auditoría avanzada (Próximamente)", included: false },
     ],
   },
 ];
