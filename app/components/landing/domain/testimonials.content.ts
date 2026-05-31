@@ -17,7 +17,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     grad: "linear-gradient(135deg, var(--navy-700), var(--teal-500))",
   },
   {
-    quote: "Antes perdíamos horas cuadrando inventarios y caja. Ahora todo cuadra al centavo y el control de calidad es impecable.",
+    quote: "Antes perdíamos horas archivando sobres y atendiendo llamadas por resultados. Ahora el paciente los recibe por WhatsApp y mi equipo se enfoca en el análisis.",
     name: "Dra. Carmen R.",
     role: "Jefa de Calidad",
     lab: "Laboratorios del Sureste",

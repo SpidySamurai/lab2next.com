@@ -37,7 +37,7 @@ export function DashboardMockup() {
               </div>
             ))}
             <div className="l-dash-side-label" style={{ marginTop: 12 }}>Administración</div>
-            <div className="l-dash-nav-item">Facturación</div>
+            <div className="l-dash-nav-item">Sucursales</div>
             <div className="l-dash-nav-item">Reportes</div>
           </div>
 
@@ -65,7 +65,7 @@ export function DashboardMockup() {
                 <div className="l-dash-kpi-delta">−42 min</div>
               </div>
               <div className="l-dash-kpi">
-                <div className="l-dash-kpi-label">Facturado</div>
+                <div className="l-dash-kpi-label">Ingresos</div>
                 <div className="l-dash-kpi-value">$48,290</div>
                 <div className="l-dash-kpi-delta" style={{ color: "var(--green-600)" }}>+24%</div>
               </div>

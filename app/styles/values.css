@@ -120,3 +120,19 @@
   font-family: var(--font-mono);
 }
 
+/* "Próximamente" badge for roadmap modules not yet shipped */
+.l-module-card-soon { opacity: 0.92; }
+.l-module-soon-badge {
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: middle;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--teal-600);
+  background: var(--teal-50);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+}
+

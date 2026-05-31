@@ -9,7 +9,7 @@ export const HOW_IT_WORKS_STEPS: HowItWorksStep[] = [
     tasks: [
       "Registro con email — sin tarjeta",
       "Verificación en segundos",
-      "Catálogo de +200 exámenes listo",
+      "Catálogo con más de 155 exámenes listo",
     ],
   },
   {

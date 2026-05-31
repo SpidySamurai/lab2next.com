@@ -29,6 +29,12 @@ export function PricingTable({ plans }: PricingTableProps) {
     }
   }, [annual]);
 
+  // FREE (entry) and ENTERPRISE (custom) render as slim strips, not full cards —
+  // the 3 decision plans (BASIC/FOUNDER/PREMIUM) carry the grid.
+  const free = plans.find((p) => p.name === "FREE");
+  const enterprise = plans.find((p) => p.name === "ENTERPRISE");
+  const corePlans = plans.filter((p) => p.name !== "FREE" && p.name !== "ENTERPRISE");
+
   return (
     <section className="l-section l-pricing-v2" id="precios">
       <div className="l-container">
@@ -72,8 +78,29 @@ export function PricingTable({ plans }: PricingTableProps) {
           </div>
         </Reveal>
 
+        {free && (
+          <Reveal>
+            <div className="l-pricing-strip l-pricing-strip-free">
+              <div className="l-pricing-strip-text">
+                <span className="l-pricing-strip-title">Empieza gratis</span>
+                <span className="l-pricing-strip-note">
+                  Plan <strong>FREE</strong> — {free.note}
+                </span>
+              </div>
+              <Button
+                as="a"
+                href={free.ctaHref}
+                intent="ghost"
+                className="l-pricing-strip-cta"
+              >
+                {free.cta}
+              </Button>
+            </div>
+          </Reveal>
+        )}
+
         <div className="l-pricing-grid-v3">
-          {plans.map((p, i) => {
+          {corePlans.map((p, i) => {
             const priceEntry = p.prices?.[CURRENCY] ?? p.prices?.MXN;
             const amount = annual ? priceEntry?.yearly : priceEntry?.monthly;
 
@@ -142,6 +169,29 @@ export function PricingTable({ plans }: PricingTableProps) {
             );
           })}
         </div>
+
+        {enterprise && (
+          <Reveal>
+            <div className="l-pricing-strip l-pricing-strip-enterprise">
+              <div className="l-pricing-strip-text">
+                <span className="l-pricing-strip-title">
+                  {enterprise.name} — a medida
+                </span>
+                <span className="l-pricing-strip-note">{enterprise.tagline}</span>
+              </div>
+              <Button
+                as="a"
+                href={enterprise.ctaHref}
+                target={enterprise.external ? "_blank" : undefined}
+                rel={enterprise.external ? "noopener noreferrer" : undefined}
+                intent={enterprise.ctaIntent}
+                className="l-pricing-strip-cta"
+              >
+                {enterprise.cta}
+              </Button>
+            </div>
+          </Reveal>
+        )}
 
         <Reveal>
           <div className="l-pricing-growth-note">

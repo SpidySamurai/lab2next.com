@@ -72,7 +72,7 @@ export default async function OGImage() {
             {[
               { label: "Órdenes hoy", value: "142" },
               { label: "Tiempo prom.", value: "3h 24m" },
-              { label: "Facturado", value: "$48,290" },
+              { label: "Ingresos", value: "$48,290" },
             ].map((kpi) => (
               <div
                 key={kpi.label}

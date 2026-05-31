@@ -14,10 +14,6 @@ export const FAQ_ITEMS: FaqItem[] = [
     a: "Cuando los resultados de una orden están listos, el staff envía el enlace al paciente desde la orden con un solo clic. El paciente recibe el mensaje de WhatsApp y accede a su portal seguro con código QR — sin instalar ninguna app.",
   },
   {
-    q: "¿Pueden migrar la información de mi sistema actual?",
-    a: "Sí. Podemos ayudarte a migrar tu base de pacientes, catálogo de estudios y precios desde Excel, Access o exportaciones de otros sistemas. El alcance lo definimos juntos antes de contratar.",
-  },
-  {
     q: "¿Cuánto tiempo necesita mi equipo para aprender el sistema?",
     a: "La interfaz está pensada para personal de laboratorio, no programadores. La mayoría del equipo opera con autonomía desde el primer día. Tienes tutoriales en la plataforma y soporte en español si te atascas.",
   },

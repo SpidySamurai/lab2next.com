@@ -25,6 +25,7 @@ export function Modules({ cards }: ModulesProps) {
               title={m.title}
               body={m.body}
               tags={m.tags}
+              soon={m.soon}
               delay={i % 3}
             />
           ))}

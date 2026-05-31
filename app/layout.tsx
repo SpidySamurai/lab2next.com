@@ -19,7 +19,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lab2next.com";
 
 const title = "Lab2Next — LIS para laboratorios clínicos en México";
 const description =
-  "Sistema de información clínica (LIS) en la nube para laboratorios independientes en México. Órdenes, portal de resultados por WhatsApp, agenda de citas, facturación CFDI 4.0 y dashboard operativo en una sola plataforma.";
+  "Sistema de información clínica (LIS) en la nube para laboratorios independientes en México. Órdenes, portal de resultados por WhatsApp, agenda de citas y dashboard operativo en una sola plataforma.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
