@@ -46,8 +46,9 @@ export default function TerminosPage() {
             <p>
               Lab2Next es un sistema de información clínica en la nube diseñado para
               laboratorios clínicos independientes. Incluye gestión de órdenes, pacientes,
-              resultados, facturación, inventario y comunicación con pacientes vía WhatsApp y
-              correo electrónico.
+              resultados, agenda de citas, reportes operativos y comunicación con pacientes vía
+              WhatsApp y correo electrónico. Otros módulos (facturación CFDI, inventario) podrán
+              incorporarse progresivamente.
             </p>
 
             <h2>3. Registro y cuenta</h2>

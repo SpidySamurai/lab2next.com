@@ -25,6 +25,8 @@ export interface ModuleCard {
   title: string;
   body: string;
   tags: string[];
+  /** Advertised on the roadmap but not yet shipped — renders a "Próximamente" badge */
+  soon?: boolean;
 }
 
 export interface HowItWorksStep {

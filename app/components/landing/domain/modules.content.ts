@@ -1,4 +1,4 @@
-import { ClipboardList, MessageCircle, Calendar, FlaskConical, BarChart2, UserCheck } from "lucide-react";
+import { ClipboardList, MessageCircle, Calendar, FlaskConical, BarChart2, UserCheck, FileText, Package } from "lucide-react";
 import type { ModuleCard } from "./types";
 
 export const MODULE_CARDS: ModuleCard[] = [
@@ -37,5 +37,19 @@ export const MODULE_CARDS: ModuleCard[] = [
     title: "Médicos referidores",
     body: "Catálogo de médicos referidores vinculado a cada orden. Trazabilidad completa de quién solicita qué estudio en tu laboratorio.",
     tags: ["Médicos", "Referidores", "Trazabilidad"],
+  },
+  {
+    icon: FileText,
+    title: "Facturación CFDI 4.0",
+    body: "Emite facturas timbradas ante el SAT desde la misma orden, sin armarlas en Word. Datos fiscales por sucursal y cancelaciones controladas.",
+    tags: ["CFDI 4.0", "SAT", "Timbrado"],
+    soon: true,
+  },
+  {
+    icon: Package,
+    title: "Control de inventario",
+    body: "Controla reactivos e insumos con descuento automático por examen, alertas de stock mínimo y costeo por estudio.",
+    tags: ["Insumos", "Reactivos", "Stock"],
+    soon: true,
   },
 ];

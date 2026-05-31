@@ -266,3 +266,31 @@
 }
 .l-pricing-growth-note strong { color: var(--navy-900); font-weight: 600; }
 
+/* Pricing strips — FREE (entry) + ENTERPRISE (custom), de-emphasized vs the 3 decision cards */
+.l-pricing-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--ink-200);
+  background: var(--ink-50);
+}
+.l-pricing-strip-free { margin-bottom: 4px; }
+.l-pricing-strip-enterprise {
+  margin-top: 28px;
+  border-color: rgba(14, 165, 233, 0.22);
+  background: rgba(14, 165, 233, 0.05);
+}
+.l-pricing-strip-text { display: flex; flex-direction: column; gap: 2px; }
+.l-pricing-strip-title { font-size: 15px; font-weight: 700; color: var(--navy-900); }
+.l-pricing-strip-note { font-size: 13px; color: var(--ink-600); }
+.l-pricing-strip-note strong { color: var(--navy-900); font-weight: 600; }
+.l-pricing-strip-cta { flex-shrink: 0; }
+@media (max-width: 560px) {
+  .l-pricing-strip { flex-direction: column; align-items: flex-start; }
+  .l-pricing-strip-cta { width: 100%; }
+}
+
