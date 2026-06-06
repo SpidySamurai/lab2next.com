@@ -51,24 +51,24 @@ const MILESTONES: Milestone[] = [
     tags: ["Más de 155 exámenes preconfigurados", "Paquetes personalizados", "Médicos referidores"],
   },
   {
-    date: "Hoy", title: "Ecosistema completo",
-    status: "current", side: "right", cx: 530, cy: 900, trigger: 0.27,
-    tags: ["Multi-sucursal", "Dashboard en tiempo real", "Plan Founder disponible"],
+    date: "Inicios 2026", title: "Planes y diseñador de PDF",
+    status: "done", side: "right", cx: 530, cy: 900, trigger: 0.27,
+    tags: ["Multi-sucursal y dashboard en tiempo real", "Plan Founder y nuevos paquetes", "Diseñador de PDF avanzado"],
   },
   {
-    date: "Q3 2025", title: "Agenda y seguimiento",
-    status: "building", side: "left", cx: 295, cy: 1140, trigger: 0.38,
-    tags: ["Citas con confirmación automática", "Portal para médicos", "Alertas de valores críticos"],
+    date: "Hoy", title: "Finanzas, ventas e inventario",
+    status: "current", side: "left", cx: 295, cy: 1140, trigger: 0.38,
+    tags: ["Caja, cobros y honorarios médicos", "Control de inventario", "Reportes financieros"],
   },
   {
-    date: "Q4 2025", title: "Analítica avanzada",
-    status: "planned", side: "right", cx: 485, cy: 1375, trigger: 0.50,
-    tags: ["Reportes exportables", "Auditorías de acceso", "Tiempos de entrega"],
+    date: "2026 · 2do semestre", title: "Etiquetas y facturación",
+    status: "building", side: "right", cx: 485, cy: 1375, trigger: 0.50,
+    tags: ["Impresión de etiquetas", "Facturación CFDI 4.0", "Recepción de muestras"],
   },
   {
-    date: "2026", title: "Plataforma abierta",
+    date: "2026 · 2027", title: "Interfaces y movilidad",
     status: "planned", side: "left", cx: 340, cy: 1605, trigger: 0.62,
-    tags: ["API de integración", "App móvil", "White label", "CFDI"],
+    tags: ["Interfaces con analizadores", "App móvil", "API de integración"],
   },
 ];
 
@@ -175,7 +175,7 @@ export function RoadmapClient() {
         <div className="l-container l-rmap-hero-inner">
           <div className="l-rmap-eyebrow">
             <span className="l-rmap-live-dot" />
-            Roadmap público · Actualizado abr 2026
+            Roadmap público · Actualizado jun 2026
           </div>
           <h1 className="l-rmap-h1">
             El camino<br />
@@ -268,7 +268,7 @@ export function RoadmapClient() {
               Sugerir por WhatsApp
             </Button>
             <p className="l-rmap-disclaimer">
-              Roadmap orientativo — no contractual.{" · "}
+              Roadmap orientativo, no contractual.{" · "}
               <Link href="/">← Inicio</Link>
             </p>
           </div>

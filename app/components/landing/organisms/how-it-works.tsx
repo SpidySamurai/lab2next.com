@@ -73,7 +73,7 @@ export function HowItWorks({ steps }: HowItWorksProps) {
         <div className="l-section-head">
           <div className="l-eyebrow">Cómo funciona</div>
           <h2 className="l-section-title">
-            De crear tu cuenta a recibir tu primera orden — en menos de una hora.
+            De crear tu cuenta a recibir tu primera orden, en menos de una hora.
           </h2>
           <p className="l-section-lede">
             Lab2Next es self-serve. Te registras, configuras y operas.

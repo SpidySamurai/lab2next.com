@@ -113,6 +113,14 @@ export function DashboardMockup() {
           <div className="l-dash-float-value">García Ruiz, M.</div>
         </div>
       </div>
+
+      {/* Técnico anclado al mock (desktop) */}
+      <img
+        src="/images/lab-hero-tech.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-2 z-20 hidden w-[12rem] object-contain drop-shadow-2xl lg:block"
+      />
     </div>
   );
 }

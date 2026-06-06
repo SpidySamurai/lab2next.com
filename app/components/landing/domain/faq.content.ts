@@ -7,11 +7,11 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: "¿Tienen prueba gratuita?",
-    a: "Sí. Creas tu cuenta sin tarjeta de crédito y tienes 14 días de prueba completa. Si decides quedarte, eliges tu plan y listo. Si no, exportas tus datos y se acabó — sin penalizaciones ni letras chicas.",
+    a: "Sí. Creas tu cuenta sin tarjeta de crédito y tienes 14 días de prueba completa. Si decides quedarte, eliges tu plan y listo. Si no, exportas tus datos y se acabó, sin penalizaciones ni letras chicas.",
   },
   {
     q: "¿Cómo funciona el portal de resultados por WhatsApp?",
-    a: "Cuando los resultados de una orden están listos, el staff envía el enlace al paciente desde la orden con un solo clic. El paciente recibe el mensaje de WhatsApp y accede a su portal seguro con código QR — sin instalar ninguna app.",
+    a: "Cuando los resultados de una orden están listos, el staff envía el enlace al paciente desde la orden con un solo clic. El paciente recibe el mensaje de WhatsApp y accede a su portal seguro con código QR, sin instalar ninguna app.",
   },
   {
     q: "¿Cuánto tiempo necesita mi equipo para aprender el sistema?",

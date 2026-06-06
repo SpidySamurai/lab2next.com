@@ -4,7 +4,7 @@ import { Section } from "../../components/landing/layout/section";
 import { Container } from "../../components/landing/layout/container";
 
 export const metadata: Metadata = {
-  title: "Aviso de Privacidad — Lab2Next",
+  title: "Aviso de Privacidad · Lab2Next",
   description:
     "Aviso de privacidad integral de Lab2Next conforme a la LFPDPPP y su Reglamento.",
 };

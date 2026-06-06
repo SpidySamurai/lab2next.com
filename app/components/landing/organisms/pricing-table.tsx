@@ -34,6 +34,87 @@ export function PricingTable({ plans }: PricingTableProps) {
   const free = plans.find((p) => p.name === "FREE");
   const enterprise = plans.find((p) => p.name === "ENTERPRISE");
   const corePlans = plans.filter((p) => p.name !== "FREE" && p.name !== "ENTERPRISE");
+  // 3 disponibles arriba (con staircase/rotación), 2 "Próximamente" centradas abajo.
+  const topPlans = corePlans.filter((p) => !p.soon);
+  const soonPlans = corePlans.filter((p) => p.soon);
+
+  const renderCard = (p: PricingPlan, i: number) => {
+    const priceEntry = p.prices?.[CURRENCY] ?? p.prices?.MXN;
+    const amount = annual ? priceEntry?.yearly : priceEntry?.monthly;
+
+    return (
+      <Reveal key={p.name} delay={i} threshold={0.05}>
+        <div className={`l-plan-card ${p.featured ? "featured" : ""}`}>
+          {p.badge && <div className="l-plan-badge-v2">{p.badge}</div>}
+
+          {p.spotsLeft != null && (
+            <div className="l-plan-spots">
+              <div className="l-plan-spots-row">
+                <span className="l-plan-spots-label">
+                  <span className="l-plan-spots-dot" />
+                  {p.spotsLeft} cupos restantes de 20
+                </span>
+              </div>
+              <div className="l-plan-spots-bar">
+                <div
+                  className="l-plan-spots-fill"
+                  style={{ width: `${(p.spotsLeft / 20) * 100}%` }}
+                />
+              </div>
+            </div>
+          )}
+
+          <div className="l-plan-name-v2">{p.displayName ?? p.name}</div>
+          <div className="l-plan-tagline-v2">{p.tagline}</div>
+
+          <div className="l-plan-price-v2">
+            {p.priceCustom ? (
+              <span className="l-plan-custom-v2">A medida</span>
+            ) : (
+              <>
+                <span className="l-plan-currency-v2">$</span>
+                <span className="l-plan-amount-v2">
+                  {amount != null ? amount.toLocaleString("es-MX") : "—"}
+                </span>
+                <span className="l-plan-period-v2">{PERIOD_LABEL}</span>
+              </>
+            )}
+          </div>
+          <div className="l-plan-note-v2">{p.note}</div>
+
+          {p.soon ? (
+            <span
+              className="l-plan-cta-v2 opacity-60 cursor-not-allowed"
+              aria-disabled="true"
+            >
+              {p.cta}
+            </span>
+          ) : (
+            <Button
+              as="a"
+              href={p.ctaHref}
+              target={p.external ? "_blank" : undefined}
+              rel={p.external ? "noopener noreferrer" : undefined}
+              intent={p.ctaIntent}
+              className="l-plan-cta-v2"
+            >
+              {p.cta}
+            </Button>
+          )}
+
+          <div className="l-plan-features-label-v2">Incluye</div>
+          <div className="l-plan-features-v2">
+            {p.features.map((f) => (
+              <div key={f.text} className={`l-plan-feature-v2 ${!f.included ? "muted" : ""}`}>
+                {f.included ? <Check size={14} /> : <Minus size={14} />}
+                <span>{f.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+    );
+  };
 
   return (
     <section className="l-section l-pricing-v2" id="precios">
@@ -72,7 +153,7 @@ export function PricingTable({ plans }: PricingTableProps) {
             </div>
 
             <p className="l-pricing-disclaimer">
-              Precios en consolidación — sujetos a cambio con aviso previo de al menos 30 días.
+              Precios en consolidación, sujetos a cambio con aviso previo de al menos 30 días.
               Los clientes activos siempre conservan su tarifa contratada.
             </p>
           </div>
@@ -84,7 +165,7 @@ export function PricingTable({ plans }: PricingTableProps) {
               <div className="l-pricing-strip-text">
                 <span className="l-pricing-strip-title">Empieza gratis</span>
                 <span className="l-pricing-strip-note">
-                  Plan <strong>FREE</strong> — {free.note}
+                  Plan <strong>{free.displayName ?? "Free"}</strong>, {free.note}
                 </span>
               </div>
               <Button
@@ -100,82 +181,21 @@ export function PricingTable({ plans }: PricingTableProps) {
         )}
 
         <div className="l-pricing-grid-v3">
-          {corePlans.map((p, i) => {
-            const priceEntry = p.prices?.[CURRENCY] ?? p.prices?.MXN;
-            const amount = annual ? priceEntry?.yearly : priceEntry?.monthly;
-
-            return (
-              <Reveal key={p.name} delay={i} threshold={0.05}>
-                <div className={`l-plan-card ${p.featured ? "featured" : ""}`}>
-                  {p.badge && <div className="l-plan-badge-v2">{p.badge}</div>}
-
-                  {p.spotsLeft != null && (
-                    <div className="l-plan-spots">
-                      <div className="l-plan-spots-row">
-                        <span className="l-plan-spots-label">
-                          <span className="l-plan-spots-dot" />
-                          {p.spotsLeft} cupos restantes de 20
-                        </span>
-                      </div>
-                      <div className="l-plan-spots-bar">
-                        <div
-                          className="l-plan-spots-fill"
-                          style={{ width: `${(p.spotsLeft / 20) * 100}%` }}
-                        />
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="l-plan-name-v2">{p.name}</div>
-                  <div className="l-plan-tagline-v2">{p.tagline}</div>
-
-                  <div className="l-plan-price-v2">
-                    {p.priceCustom ? (
-                      <span className="l-plan-custom-v2">A medida</span>
-                    ) : (
-                      <>
-                        <span className="l-plan-currency-v2">$</span>
-                        <span className="l-plan-amount-v2">
-                          {amount != null ? amount.toLocaleString("es-MX") : "—"}
-                        </span>
-                        <span className="l-plan-period-v2">{PERIOD_LABEL}</span>
-                      </>
-                    )}
-                  </div>
-                  <div className="l-plan-note-v2">{p.note}</div>
-
-                  <Button
-                    as="a"
-                    href={p.ctaHref}
-                    target={p.external ? "_blank" : undefined}
-                    rel={p.external ? "noopener noreferrer" : undefined}
-                    intent={p.ctaIntent}
-                    className="l-plan-cta-v2"
-                  >
-                    {p.cta}
-                  </Button>
-
-                  <div className="l-plan-features-label-v2">Incluye</div>
-                  <div className="l-plan-features-v2">
-                    {p.features.map((f) => (
-                      <div key={f.text} className={`l-plan-feature-v2 ${!f.included ? "muted" : ""}`}>
-                        {f.included ? <Check size={14} /> : <Minus size={14} />}
-                        <span>{f.text}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
+          {topPlans.map((p, i) => renderCard(p, i))}
         </div>
+
+        {soonPlans.length > 0 && (
+          <div className="l-pricing-grid-soon">
+            {soonPlans.map((p, i) => renderCard(p, i))}
+          </div>
+        )}
 
         {enterprise && (
           <Reveal>
             <div className="l-pricing-strip l-pricing-strip-enterprise">
               <div className="l-pricing-strip-text">
                 <span className="l-pricing-strip-title">
-                  {enterprise.name} — a medida
+                  {enterprise.displayName ?? enterprise.name} · a medida
                 </span>
                 <span className="l-pricing-strip-note">{enterprise.tagline}</span>
               </div>
@@ -199,7 +219,7 @@ export function PricingTable({ plans }: PricingTableProps) {
               <TrendingUp size={18} />
             </div>
             <p>
-              <strong>Estamos trabajando en algo diferente.</strong> No te limitamos — te ayudamos a llevar tu operación.
+              <strong>Estamos trabajando en algo diferente.</strong> No te limitamos, te ayudamos a llevar tu operación.
               Si creces en volumen de exámenes, te acompañamos con apoyo directo y
               <strong> precio preferencial</strong>, sin necesidad de cambiar de plan.
             </p>

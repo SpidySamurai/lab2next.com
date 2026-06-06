@@ -2,8 +2,8 @@ import type { ProblemCard } from "./types";
 
 export const PROBLEM_CARDS: ProblemCard[] = [
   {
-    title: "Resultados en papel",
-    body: "El paciente regresa por su sobre. Tu personal imprime, archiva, busca expedientes. El tiempo se va en logística, no en análisis.",
+    title: "Entrega manual de resultados",
+    body: "El paciente regresa por su sobre impreso. Tu personal imprime, archiva y busca expedientes. El tiempo se va en logística, no en análisis.",
     stat: [{ text: "Hasta " }, { text: "2 horas/día", bold: true }, { text: " en entrega manual" }],
   },
   {

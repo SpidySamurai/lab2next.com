@@ -64,7 +64,7 @@ export function Footer({ columns, miniBadges }: FooterProps) {
 
         <div className="l-footer-bottom">
           <span>
-            © {new Date().getFullYear()} Lab2Next — Hecho en México para laboratorios de México y el mundo.
+            © {new Date().getFullYear()} Lab2Next · Hecho en México para laboratorios de México y el mundo.
           </span>
           {!isProd && (
             <div className="l-footer-bottom-links">

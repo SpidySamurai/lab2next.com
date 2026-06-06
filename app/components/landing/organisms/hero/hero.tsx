@@ -22,17 +22,16 @@ export function Hero({ trustItems }: HeroProps) {
 
           <Reveal delay={1}>
             <h1 className="l-hero-title">
-              Tu laboratorio digital,{" "}
-              <em>operando hoy</em>
-              {" "}— sin instaladores ni servidores.
+              Tu laboratorio clínico,{" "}
+              <em>operando hoy</em>. Sin instaladores, sin servidores, sin IT.
             </h1>
           </Reveal>
 
           <Reveal delay={2}>
             <p className="l-hero-sub">
-              Lab2Next es la plataforma en la nube para laboratorios clínicos en México.
-              Te registras, configuras tus sucursales con catálogo pre-cargado y
-              empiezas a operar el mismo día. Sin instalar nada.
+              La plataforma en la nube para laboratorios clínicos en México.
+              Te registras, importas tu catálogo de más de 155 exámenes y
+              empiezas a operar el mismo día.
             </p>
           </Reveal>
 
