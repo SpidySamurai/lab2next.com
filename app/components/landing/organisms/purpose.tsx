@@ -12,7 +12,7 @@ const PILLARS = [
   {
     num: "02",
     title: "Construido con laboratorios",
-    body: "Cada módulo nació de conversaciones reales. No inventamos problemas — resolvemos los que ya existen.",
+    body: "Cada módulo nació de conversaciones reales. No inventamos problemas, resolvemos los que ya existen.",
   },
   {
     num: "03",

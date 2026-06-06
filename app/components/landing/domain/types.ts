@@ -45,7 +45,12 @@ export interface PricingFeature {
 }
 
 export interface PricingPlan {
+  /** Internal key (matches backend enum: FREE/BASIC/FOUNDER/PREMIUM/ENTERPRISE). Used for find/filter. */
   name: string;
+  /** Customer-facing name shown on the card. Decoupled from the enum key. */
+  displayName?: string;
+  /** Teaser tier not yet purchasable — renders a "Próximamente" badge and a disabled CTA. */
+  soon?: boolean;
   tagline: string;
   prices?: Partial<Record<Currency, { monthly: number; yearly: number }>>;
   priceCustom?: boolean;

@@ -7,7 +7,7 @@ export const HOW_IT_WORKS_STEPS: HowItWorksStep[] = [
     title: "Crea tu cuenta",
     body: "Te registras con email y datos del laboratorio. Tu cuenta queda activa de inmediato con catálogo de exámenes pre-cargado y 14 días de prueba sin tarjeta.",
     tasks: [
-      "Registro con email — sin tarjeta",
+      "Registro con email, sin tarjeta",
       "Verificación en segundos",
       "Catálogo con más de 155 exámenes listo",
     ],

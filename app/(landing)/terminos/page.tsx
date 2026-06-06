@@ -4,7 +4,7 @@ import { Section } from "../../components/landing/layout/section";
 import { Container } from "../../components/landing/layout/container";
 
 export const metadata: Metadata = {
-  title: "Términos de Servicio — Lab2Next",
+  title: "Términos de Servicio · Lab2Next",
   description:
     "Términos y condiciones de uso de Lab2Next, el sistema de gestión para laboratorios clínicos independientes.",
 };

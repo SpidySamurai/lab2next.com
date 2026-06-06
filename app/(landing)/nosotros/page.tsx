@@ -8,7 +8,7 @@ import { Button, buttonVariants } from "../../components/landing/atoms/button";
 import { cn } from "../../lib/utils";
 
 export const metadata: Metadata = {
-  title: "Nosotros — Lab2Next",
+  title: "Nosotros · Lab2Next",
   description:
     "Conoce al equipo detrás de Lab2Next. Construimos el sistema que los laboratorios clínicos independientes en LATAM merecían desde hace años.",
 };
@@ -17,12 +17,12 @@ const FOUNDER = {
   initials: "JC",
   name: "Javier Fernando Chi Ortíz",
   role: "Arquitecto de Software & IA",
-  bio: "Construyó Lab2Next desde cero después de ver de cerca la operación diaria de un laboratorio clínico independiente. Con años de experiencia en arquitectura de sistemas y aplicaciones de inteligencia artificial, diseñó una plataforma que da a cada laboratorio la misma capacidad tecnológica que las grandes cadenas, sin IT interno.",
+  bio: "Más de 6 años de experiencia profesional y 10 años programando. En ese camino entendió lo que define a Lab2Next: un gran producto de software se diseña para ser accesible: potente por dentro, simple por fuera. Con un historial construyendo sistemas complejos y aplicaciones de inteligencia artificial, puso esa visión a resolver un problema concreto: que cualquier laboratorio clínico independiente, sin departamento de TI, opere con la misma tecnología que las grandes cadenas.",
 };
 
 const STATS = [
   { n: "+2 000", label: "laboratorios independientes\nsolo en México" },
-  { n: "80%",   label: "siguen operando\nen papel o Excel" },
+  { n: "80%",   label: "siguen operando\nen Excel y métodos manuales" },
   { n: "Día 1", label: "capacidad de un gran laboratorio\nsin IT interno" },
 ];
 
@@ -49,25 +49,27 @@ export default function NosotrosPage() {
 
           {/* Lead — full-width hook */}
           <p className="mt-8 max-w-4xl text-[1.6rem] font-bold leading-[1.25] tracking-tight text-navy-900 sm:text-[2rem]">
-            Vimos de cerca cómo un laboratorio clínico independiente operaba
-            con cuadernos, hojas de Excel y WhatsApp manual. El director llegaba
-            a las 7am, recibía órdenes en papel, y a las 11pm todavía contestaba
-            mensajes de pacientes preguntando por sus resultados.
+            Vimos los sistemas con los que un laboratorio clínico tiene que
+            trabajar todos los días: limitados, obsoletos o tan difíciles de
+            usar que el personal termina peleándose más con el software que con
+            las muestras.
           </p>
 
           {/* Body — 2-col context */}
           <div className="mt-10 grid gap-x-14 gap-y-5 border-t border-navy-900/10 pt-10 text-[15px] leading-[1.8] text-ink-600 lg:grid-cols-2">
             <p>
-              No era un problema de disciplina ni de presupuesto. Era un problema
-              de acceso. Los grandes laboratorios tienen departamentos de TI,
-              sistemas integrados y equipos dedicados. El laboratorio independiente
-              tiene un director que también es técnico, recepcionista y gerente.
+              El problema casi nunca era el laboratorio, era la herramienta.
+              Interfaces ancladas en otra década, módulos que no se hablan entre
+              sí, capacitaciones de meses y precios pensados para grandes
+              cadenas. El laboratorio independiente quedaba atrapado entre
+              hojas de Excel y un sistema que, en el fondo, no quería abrir.
             </p>
             <p>
-              Lab2Next nació de una pregunta simple: ¿por qué el laboratorio de
-              la colonia no puede tener la misma tecnología que los grandes? No
-              hay razón técnica. Solo había falta de voluntad para construirlo.
-              Nosotros decidimos construirlo.
+              Por eso decidí crear y arquitecturizar Lab2Next desde cero: una
+              plataforma moderna, completa y fácil de usar, con la misma
+              capacidad tecnológica de las grandes cadenas pero pensada para
+              quien no tiene un departamento de TI. El software clínico que
+              debería existir y no existía.
             </p>
           </div>
 
@@ -143,7 +145,7 @@ export default function NosotrosPage() {
       <Section bg="dark">
         <Container className="flex flex-col items-center gap-4 text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            ¿Tu laboratorio sigue en papel?
+            ¿Tu laboratorio sigue en Excel?
           </h2>
           <p className="text-lg text-white/60">
             Empieza gratis. Sin tarjeta, sin contrato, sin IT.
