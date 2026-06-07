@@ -29,8 +29,8 @@ export function Hero({ trustItems }: HeroProps) {
           <Reveal delay={2}>
             <p className="l-hero-sub">
               La plataforma en la nube para laboratorios clínicos en México.
-              Te registras, importas tu catálogo de más de 155 exámenes y
-              empiezas a operar el mismo día. Sin instalar nada, sin servidores.
+              Te registras, tu catálogo de más de 155 exámenes ya viene cargado
+              y empiezas a operar el mismo día. Sin instalar nada, sin servidores.
             </p>
           </Reveal>
 

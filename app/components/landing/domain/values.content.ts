@@ -6,9 +6,9 @@ export const VALUE_CARDS: ValueCard[] = [
     num: "01",
     icon: Clock,
     title: "Operando el mismo día",
-    body: "Sin implementación, sin técnicos, sin esperar a nadie. Te registras, importas tu catálogo pre-cargado con más de 155 exámenes y recibes tu primera orden, todo en menos de una hora.",
+    body: "Sin implementación, sin técnicos, sin esperar a nadie. Te registras, tu catálogo de más de 155 exámenes ya viene cargado y recibes tu primera orden, todo en menos de una hora.",
     points: [
-      "Catálogo con más de 155 exámenes listo para importar",
+      "Catálogo con más de 155 exámenes ya cargado",
       "Configuración guiada sin soporte técnico",
       "Primera orden en menos de una hora",
     ],
