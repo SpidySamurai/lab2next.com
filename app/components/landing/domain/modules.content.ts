@@ -1,4 +1,4 @@
-import { ClipboardList, MessageCircle, Calendar, FlaskConical, BarChart2, UserCheck, FileText, Package } from "lucide-react";
+import { ClipboardList, MessageCircle, Calendar, FlaskConical, BarChart2, UserCheck, Wallet, Package } from "lucide-react";
 import type { ModuleCard } from "./types";
 
 export const MODULE_CARDS: ModuleCard[] = [
@@ -39,11 +39,10 @@ export const MODULE_CARDS: ModuleCard[] = [
     tags: ["Médicos", "Referidores", "Trazabilidad"],
   },
   {
-    icon: FileText,
-    title: "Facturación CFDI 4.0",
-    body: "Emite facturas timbradas ante el SAT desde la misma orden, sin armarlas en Word. Datos fiscales por sucursal y cancelaciones controladas.",
-    tags: ["CFDI 4.0", "SAT", "Timbrado"],
-    soon: true,
+    icon: Wallet,
+    title: "Caja, cobros y finanzas",
+    body: "Registra pagos y abonos por orden, controla el corte de caja por sucursal y da seguimiento a honorarios médicos. El dinero deja de fugarse en cuentas sueltas.",
+    tags: ["Caja", "Cobros", "Honorarios"],
   },
   {
     icon: Package,
