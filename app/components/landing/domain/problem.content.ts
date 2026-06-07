@@ -17,8 +17,8 @@ export const PROBLEM_CARDS: ProblemCard[] = [
     stat: [{ text: "Decisiones a ciegas, " }, { text: "todo el día", bold: true }],
   },
   {
-    title: "Facturación sin CFDI 4.0",
-    body: "Cobras y luego, en Word, armas la factura. El SAT cambia el formato y tu administrador pasa la tarde corrigiendo. CFDI 4.0 ya no es opcional.",
-    stat: [{ text: "15% del tiempo", bold: true }, { text: " administrativo en facturación" }],
+    title: "Precios y paquetes en Excel",
+    body: "Listas desactualizadas, descuentos a ojo, paquetes que se arman a mano cada vez. Cobras de menos sin darte cuenta.",
+    stat: [{ text: "Precios distintos " }, { text: "en cada sede", bold: true }],
   },
 ];

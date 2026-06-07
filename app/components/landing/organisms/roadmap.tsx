@@ -42,7 +42,6 @@ const PHASES: RoadmapPhase[] = [
       { text: "Control de inventario y reactivos" },
       { text: "Reportes financieros" },
       { text: "Impresión de etiquetas" },
-      { text: "Facturación CFDI 4.0" },
       { text: "Recepción de muestras" },
     ],
   },

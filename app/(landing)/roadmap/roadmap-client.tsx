@@ -61,9 +61,9 @@ const MILESTONES: Milestone[] = [
     tags: ["Caja, cobros y honorarios médicos", "Control de inventario", "Reportes financieros"],
   },
   {
-    date: "2026 · 2do semestre", title: "Etiquetas y facturación",
+    date: "2026 · 2do semestre", title: "Etiquetas y recepción",
     status: "building", side: "right", cx: 485, cy: 1375, trigger: 0.50,
-    tags: ["Impresión de etiquetas", "Facturación CFDI 4.0", "Recepción de muestras"],
+    tags: ["Impresión de etiquetas", "Recepción de muestras", "Códigos de barras"],
   },
   {
     date: "2026 · 2027", title: "Interfaces y movilidad",
