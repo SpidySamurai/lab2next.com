@@ -49,7 +49,7 @@ export default function NosotrosPage() {
       </header>
 
       {/* ── Origen ── */}
-      <Section bg="paper">
+      <Section bg="white">
         <Container>
           <span className="l-eyebrow">El origen</span>
 

@@ -59,7 +59,7 @@
   line-height: 1.12;
   letter-spacing: -0.025em;
   color: var(--navy-900);
-  max-width: 760px;
+  max-width: none;
 }
 
 .l-section-lede {
