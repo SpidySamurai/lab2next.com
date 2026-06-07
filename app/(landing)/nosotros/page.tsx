@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Nosotros · Lab2Next",
   description:
     "Conoce al equipo detrás de Lab2Next. Construimos el sistema que los laboratorios clínicos independientes en LATAM merecían desde hace años.",
+  alternates: { canonical: "/nosotros" },
 };
 
 const FOUNDER = {

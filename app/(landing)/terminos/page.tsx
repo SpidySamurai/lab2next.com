@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Términos de Servicio · Lab2Next",
   description:
     "Términos y condiciones de uso de Lab2Next, el sistema de gestión para laboratorios clínicos independientes.",
+  alternates: { canonical: "/terminos" },
 };
 
 const LAST_UPDATE = "30 de abril de 2025";
