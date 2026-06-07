@@ -15,6 +15,13 @@ export function Reveal({ children, delay = 0, threshold = 0.1 }: RevealProps) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) {
+      setInView(true);
+      return;
+    }
+
     const io = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
