@@ -11,6 +11,30 @@ interface PricingTeaserProps {
   plans: PricingPlan[];
 }
 
+// Highlights curados por plan para el teaser: resaltan lo que DIFERENCIA a cada
+// uno (Founder y Pro comparten el feature-set medio; aquí se vende su distinción).
+// La comparativa completa con todas las features vive en /precios.
+const HIGHLIGHTS: Record<string, string[]> = {
+  BASIC: [
+    "Portal de resultados con QR",
+    "WhatsApp y correo",
+    "Agenda de citas",
+    "Caja, cobros e inventario de insumos",
+  ],
+  FOUNDER: [
+    "Precio congelado de por vida",
+    "2 sucursales · hasta 15 usuarios",
+    "3 interfaces con tus equipos incluidas",
+    "Sucursales e interfaces extra a precio preferencial vitalicio",
+  ],
+  PREMIUM: [
+    "Tu laboratorio de punta a punta",
+    "Interfaces con tus equipos de análisis",
+    "Finanzas avanzadas e inventario por lotes",
+    "Diseñador de PDF avanzado",
+  ],
+};
+
 // Resumen de precios para la home. La tabla completa + comparativa vive en /precios.
 export function PricingTeaser({ plans }: PricingTeaserProps) {
   const core = plans.filter(
@@ -30,11 +54,12 @@ export function PricingTeaser({ plans }: PricingTeaserProps) {
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {core.map((p, i) => {
             const price = p.prices?.MXN?.monthly;
-            // En el teaser no mostramos Free, así que se omiten las líneas
-            // "Todo lo del plan X, más:" (referencian planes no visibles aquí).
-            const topFeatures = p.features
-              .filter((f) => f.included && !/^todo lo del plan/i.test(f.text))
-              .slice(0, 4);
+            const topFeatures =
+              HIGHLIGHTS[p.name] ??
+              p.features
+                .filter((f) => f.included && !/^todo lo del plan/i.test(f.text))
+                .map((f) => f.text)
+                .slice(0, 4);
             return (
               <Reveal key={p.name} delay={i}>
                 <div
@@ -65,11 +90,11 @@ export function PricingTeaser({ plans }: PricingTeaserProps) {
                   <ul className="mt-6 flex flex-1 flex-col gap-3">
                     {topFeatures.map((f) => (
                       <li
-                        key={f.text}
+                        key={f}
                         className="flex items-start gap-2.5 text-[15px] text-ink-600"
                       >
                         <Check size={17} className="mt-0.5 shrink-0 text-teal-600" />
-                        {f.text}
+                        {f}
                       </li>
                     ))}
                   </ul>
