@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from "../molecules/section-header";
@@ -62,12 +63,13 @@ export function Modules() {
           <div>
             <div className="relative mx-auto h-[20rem] w-full max-w-sm lg:h-[24rem] lg:max-w-md">
               {cards.map((m, i) => (
-                <img
+                <Image
                   key={m.image}
                   src={m.image}
                   alt={`Lab2Next: ${m.title}`}
-                  loading="lazy"
-                  className={`absolute inset-0 m-auto h-full w-full object-contain drop-shadow-2xl transition-opacity duration-500 ${
+                  fill
+                  sizes="(max-width: 1024px) 80vw, 38vw"
+                  className={`object-contain drop-shadow-2xl transition-opacity duration-500 ${
                     i === active ? "opacity-100" : "opacity-0"
                   }`}
                 />

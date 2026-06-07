@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MessageCircle, Search, FileText } from "lucide-react";
 
 const ORDERS = [
@@ -115,11 +116,13 @@ export function DashboardMockup() {
       </div>
 
       {/* Técnico anclado al mock (desktop) */}
-      <img
+      <Image
         src="/images/lab-hero-tech.png"
         alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-2 z-20 hidden w-[12rem] -scale-x-100 object-contain drop-shadow-2xl lg:block"
+        aria-hidden
+        width={1304}
+        height={800}
+        className="pointer-events-none absolute bottom-0 left-2 z-20 hidden h-auto w-[12rem] -scale-x-100 object-contain drop-shadow-2xl lg:block"
       />
     </div>
   );
