@@ -4,7 +4,7 @@ import { Problem } from "../components/landing/organisms/problem";
 import { Values } from "../components/landing/organisms/values";
 import { Modules } from "../components/landing/organisms/modules";
 import { HowItWorks } from "../components/landing/organisms/how-it-works";
-import { PricingTable } from "../components/landing/organisms/pricing-table";
+import { PricingTeaser } from "../components/landing/organisms/pricing-teaser";
 import { FAQ } from "../components/landing/organisms/faq";
 import { ContactCTA } from "../components/landing/organisms/contact-cta";
 
@@ -41,7 +41,7 @@ export default function Home() {
       <Modules />
       <HowItWorks steps={HOW_IT_WORKS_STEPS} />
       {/* <Testimonials items={TESTIMONIALS} /> */}{/* ACTIVATE when real testimonials ready */}
-      <PricingTable plans={PRICING_PLANS} />
+      <PricingTeaser plans={PRICING_PLANS} />
       <FAQ items={FAQ_ITEMS} />
       <ContactCTA guarantees={CONTACT_CTA_GUARANTEES} />
     </>
