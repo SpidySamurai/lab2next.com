@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Check } from "lucide-react";
 import { SectionHeader } from "../molecules/section-header";
 import { Section } from "../layout/section";
@@ -9,11 +10,11 @@ interface ValuesProps {
   cards: ValueCardData[];
 }
 
-// Ilustración 3D branded por fila.
+// Ilustración 3D branded por fila (dimensiones reales → sin CLS).
 const VISUAL_IMAGES = [
-  "/images/lab-login.png",
-  "/images/lab-whatsapp.png",
-  "/images/lab-team-laptop.png",
+  { src: "/images/lab-login.png", w: 1384, h: 752 },
+  { src: "/images/lab-whatsapp.png", w: 784, h: 1360 },
+  { src: "/images/lab-team-laptop.png", w: 1376, h: 752 },
 ];
 
 export function Values({ cards }: ValuesProps) {
@@ -36,10 +37,13 @@ export function Values({ cards }: ValuesProps) {
                 <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
                   {/* Ilustración integrada, sin caja */}
                   <div className={flipped ? "lg:order-2" : ""}>
-                    <img
-                      src={VISUAL_IMAGES[i] ?? VISUAL_IMAGES[0]}
-                      alt={c.title}
-                      className={`mx-auto w-full object-contain drop-shadow-2xl ${
+                    <Image
+                      src={(VISUAL_IMAGES[i] ?? VISUAL_IMAGES[0]).src}
+                      width={(VISUAL_IMAGES[i] ?? VISUAL_IMAGES[0]).w}
+                      height={(VISUAL_IMAGES[i] ?? VISUAL_IMAGES[0]).h}
+                      alt={`Lab2Next: ${c.title}`}
+                      sizes="(max-width: 1024px) 80vw, 40vw"
+                      className={`mx-auto h-auto w-full object-contain drop-shadow-2xl ${
                         i === 1 ? "max-w-[17rem]" : i === 2 ? "max-w-xl" : "max-w-md"
                       }`}
                     />
