@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Colabora con nosotros · Lab2Next",
   description:
     "Forma parte del equipo que construye Lab2Next. Comparte feedback, propón mejoras, sé beta tester y accede a precio preferencial.",
+  alternates: { canonical: "/colabora" },
 };
 
 export default function ColaboraPage() {

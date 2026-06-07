@@ -22,8 +22,8 @@ export function Hero({ trustItems }: HeroProps) {
 
           <Reveal delay={1}>
             <h1 className="l-hero-title">
-              Tu laboratorio clínico,{" "}
-              <em>operando hoy</em>. Sin instaladores, sin servidores, sin IT.
+              Software de laboratorio clínico,{" "}
+              <em>operando hoy</em>.
             </h1>
           </Reveal>
 
@@ -31,7 +31,7 @@ export function Hero({ trustItems }: HeroProps) {
             <p className="l-hero-sub">
               La plataforma en la nube para laboratorios clínicos en México.
               Te registras, importas tu catálogo de más de 155 exámenes y
-              empiezas a operar el mismo día.
+              empiezas a operar el mismo día. Sin instalar nada, sin servidores.
             </p>
           </Reveal>
 

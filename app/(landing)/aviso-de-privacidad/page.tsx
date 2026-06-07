@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Aviso de Privacidad · Lab2Next",
   description:
     "Aviso de privacidad integral de Lab2Next conforme a la LFPDPPP y su Reglamento.",
+  alternates: { canonical: "/aviso-de-privacidad" },
 };
 
 const LAST_UPDATE = "30 de abril de 2025";
