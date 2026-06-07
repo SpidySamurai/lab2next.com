@@ -30,7 +30,11 @@ export function PricingTeaser({ plans }: PricingTeaserProps) {
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {core.map((p, i) => {
             const price = p.prices?.MXN?.monthly;
-            const topFeatures = p.features.filter((f) => f.included).slice(0, 4);
+            // En el teaser no mostramos Free, así que se omiten las líneas
+            // "Todo lo del plan X, más:" (referencian planes no visibles aquí).
+            const topFeatures = p.features
+              .filter((f) => f.included && !/^todo lo del plan/i.test(f.text))
+              .slice(0, 4);
             return (
               <Reveal key={p.name} delay={i}>
                 <div
