@@ -16,9 +16,24 @@ import { FAQ_ITEMS } from "../components/landing/domain/faq.content";
 // import { Testimonials } from "../components/landing/organisms/testimonials"; // ACTIVATE when real testimonials ready
 // import { TESTIMONIALS } from "../components/landing/domain/testimonials.content";  // ACTIVATE with section above
 
+// FAQPage structured data → habilita rich result de FAQ en Google.
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Hero trustItems={HERO_TRUST_ITEMS} />
       <TrustBar badges={TRUST_BAR_BADGES} />
       <Problem />

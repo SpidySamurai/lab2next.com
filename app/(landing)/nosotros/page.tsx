@@ -8,11 +8,15 @@ import { Container } from "../../components/landing/layout/container";
 import { Button, buttonVariants } from "../../components/landing/atoms/button";
 import { cn } from "../../lib/utils";
 
+const title = "Sobre Lab2Next | El equipo detrás del software de laboratorio clínico";
+const description =
+  "Conoce al equipo detrás de Lab2Next, el software de laboratorio clínico en la nube para laboratorios independientes en México. La visión y la historia del producto.";
+
 export const metadata: Metadata = {
-  title: "Nosotros · Lab2Next",
-  description:
-    "Conoce al equipo detrás de Lab2Next. Construimos el sistema que los laboratorios clínicos independientes en LATAM merecían desde hace años.",
+  title,
+  description,
   alternates: { canonical: "/nosotros" },
+  openGraph: { title, description, url: "/nosotros" },
 };
 
 const FOUNDER = {

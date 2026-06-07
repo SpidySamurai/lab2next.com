@@ -65,8 +65,8 @@ export function Modules() {
                 <img
                   key={m.image}
                   src={m.image}
-                  alt=""
-                  aria-hidden="true"
+                  alt={`Lab2Next: ${m.title}`}
+                  loading="lazy"
                   className={`absolute inset-0 m-auto h-full w-full object-contain drop-shadow-2xl transition-opacity duration-500 ${
                     i === active ? "opacity-100" : "opacity-0"
                   }`}
