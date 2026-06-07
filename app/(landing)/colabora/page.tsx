@@ -3,11 +3,15 @@ import { Container } from "../../components/landing/layout/container";
 import { Section } from "../../components/landing/layout/section";
 import { ColaboraForm } from "../../components/landing/organisms/colabora-form";
 
+const title = "Colabora con Lab2Next | Beta del software de laboratorio clínico";
+const description =
+  "Forma parte del equipo que construye Lab2Next. Comparte feedback, propón mejoras, sé beta tester del software de laboratorio clínico y accede a precio preferencial.";
+
 export const metadata: Metadata = {
-  title: "Colabora con nosotros · Lab2Next",
-  description:
-    "Forma parte del equipo que construye Lab2Next. Comparte feedback, propón mejoras, sé beta tester y accede a precio preferencial.",
+  title,
+  description,
   alternates: { canonical: "/colabora" },
+  openGraph: { title, description, url: "/colabora" },
 };
 
 export default function ColaboraPage() {
