@@ -119,7 +119,7 @@ export function DashboardMockup() {
         src="/images/lab-hero-tech.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-2 z-20 hidden w-[12rem] object-contain drop-shadow-2xl lg:block"
+        className="pointer-events-none absolute bottom-0 left-2 z-20 hidden w-[12rem] -scale-x-100 object-contain drop-shadow-2xl lg:block"
       />
     </div>
   );
