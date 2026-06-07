@@ -20,12 +20,11 @@ export function Hero({ trustItems }: HeroProps) {
             </div>
           </Reveal>
 
-          <Reveal delay={1}>
-            <h1 className="l-hero-title">
-              Software de laboratorio clínico,{" "}
-              <em>operando hoy</em>.
-            </h1>
-          </Reveal>
+          {/* H1 sin Reveal: es el elemento LCP, debe pintar en el primer render (SSR). */}
+          <h1 className="l-hero-title">
+            Software de laboratorio clínico,{" "}
+            <em>operando hoy</em>.
+          </h1>
 
           <Reveal delay={2}>
             <p className="l-hero-sub">
