@@ -9,9 +9,7 @@ import { FAQ } from "../components/landing/organisms/faq";
 import { ContactCTA } from "../components/landing/organisms/contact-cta";
 
 import { HERO_TRUST_ITEMS, TRUST_BAR_BADGES, CONTACT_CTA_GUARANTEES } from "../components/landing/domain/hero.content";
-import { PROBLEM_CARDS } from "../components/landing/domain/problem.content";
 import { VALUE_CARDS } from "../components/landing/domain/values.content";
-import { MODULE_CARDS } from "../components/landing/domain/modules.content";
 import { HOW_IT_WORKS_STEPS } from "../components/landing/domain/how-it-works.content";
 import { PRICING_PLANS } from "../components/landing/domain/pricing.content";
 import { FAQ_ITEMS } from "../components/landing/domain/faq.content";
@@ -23,9 +21,9 @@ export default function Home() {
     <>
       <Hero trustItems={HERO_TRUST_ITEMS} />
       <TrustBar badges={TRUST_BAR_BADGES} />
-      <Problem cards={PROBLEM_CARDS} />
+      <Problem />
       <Values cards={VALUE_CARDS} />
-      <Modules cards={MODULE_CARDS} />
+      <Modules />
       <HowItWorks steps={HOW_IT_WORKS_STEPS} />
       {/* <Testimonials items={TESTIMONIALS} /> */}{/* ACTIVATE when real testimonials ready */}
       <PricingTable plans={PRICING_PLANS} />
