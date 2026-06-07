@@ -1,10 +1,10 @@
-import { Zap, MessageCircle, BarChart2 } from "lucide-react";
+import { Clock, MessageCircle, Gauge } from "lucide-react";
 import type { ValueCard } from "./types";
 
 export const VALUE_CARDS: ValueCard[] = [
   {
     num: "01",
-    icon: Zap,
+    icon: Clock,
     title: "Operando el mismo día",
     body: "Sin implementación, sin técnicos, sin esperar a nadie. Te registras, importas tu catálogo pre-cargado con más de 155 exámenes y recibes tu primera orden, todo en menos de una hora.",
     points: [
@@ -26,7 +26,7 @@ export const VALUE_CARDS: ValueCard[] = [
   },
   {
     num: "03",
-    icon: BarChart2,
+    icon: Gauge,
     title: "Visibilidad total de tu operación",
     body: "KPIs en tiempo real, tiempos de entrega por examen, ingresos por sucursal. El director sabe qué pasa en su laboratorio sin esperar el cierre del mes.",
     points: [

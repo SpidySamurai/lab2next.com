@@ -1,7 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
-import { Check, Minus, TrendingUp } from "lucide-react";
+import { Check, Minus } from "lucide-react";
 import { Reveal } from "../atoms/reveal";
 import { Button } from "../atoms/button";
 import type { PricingPlan } from "../domain/types";
@@ -213,18 +213,6 @@ export function PricingTable({ plans }: PricingTableProps) {
           </Reveal>
         )}
 
-        <Reveal>
-          <div className="l-pricing-growth-note">
-            <div className="l-pricing-growth-note-icon">
-              <TrendingUp size={18} />
-            </div>
-            <p>
-              <strong>Estamos trabajando en algo diferente.</strong> No te limitamos, te ayudamos a llevar tu operación.
-              Si creces en volumen de exámenes, te acompañamos con apoyo directo y
-              <strong> precio preferencial</strong>, sin necesidad de cambiar de plan.
-            </p>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
