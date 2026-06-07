@@ -11,7 +11,7 @@ export function Problem() {
         <Reveal>
           <div className="l-section-head">
             <div className="l-eyebrow">El problema</div>
-            <h2 className="text-3xl font-extrabold leading-[1.12] tracking-tight text-navy-900 sm:text-4xl lg:text-[2.625rem]">
+            <h2 className="l-section-title">
               Toda la potencia. Nada de la complejidad.
             </h2>
             <p className="l-section-lede">
