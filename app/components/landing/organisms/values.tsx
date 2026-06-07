@@ -33,23 +33,20 @@ export function Values({ cards }: ValuesProps) {
 
             return (
               <Reveal key={c.num}>
-                <div className="relative">
-                  {/* Ilustración combinada con el texto: bleed lateral, sin columna propia (desktop) */}
-                  <img
-                    src={VISUAL_IMAGES[i] ?? VISUAL_IMAGES[0]}
-                    alt=""
-                    aria-hidden="true"
-                    className={`pointer-events-none absolute top-1/2 z-0 hidden -translate-y-1/2 object-contain drop-shadow-2xl lg:block ${
-                      i === 1 ? "w-[34%] max-w-xs" : "w-[50%] max-w-lg"
-                    } ${flipped ? "right-[50%]" : "left-[50%]"}`}
-                  />
+                <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+                  {/* Ilustración integrada, sin caja */}
+                  <div className={flipped ? "lg:order-2" : ""}>
+                    <img
+                      src={VISUAL_IMAGES[i] ?? VISUAL_IMAGES[0]}
+                      alt={c.title}
+                      className={`mx-auto w-full object-contain drop-shadow-2xl ${
+                        i === 1 ? "max-w-[17rem]" : i === 2 ? "max-w-xl" : "max-w-md"
+                      }`}
+                    />
+                  </div>
 
-                  {/* Cuadro de texto (encima de la figura, overlap real) */}
-                  <div
-                    className={`relative z-10 max-w-2xl ${
-                      flipped ? "lg:ml-auto" : ""
-                    }`}
-                  >
+                  {/* Texto */}
+                  <div className={flipped ? "lg:order-1" : ""}>
                     <div className="flex items-center gap-4">
                       <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-teal-500/10 text-teal-600">
                         <Icon size={22} />
@@ -77,15 +74,6 @@ export function Values({ cards }: ValuesProps) {
                       ))}
                     </ul>
                   </div>
-
-                  {/* Ilustración mobile (apilada) */}
-                  <img
-                    src={VISUAL_IMAGES[i] ?? VISUAL_IMAGES[0]}
-                    alt={c.title}
-                    className={`mx-auto mt-8 w-full object-contain drop-shadow-2xl lg:hidden ${
-                      i === 1 ? "max-w-[15rem]" : "max-w-xs"
-                    }`}
-                  />
                 </div>
               </Reveal>
             );
