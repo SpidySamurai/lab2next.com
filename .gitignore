@@ -46,6 +46,16 @@ next-env.d.ts
 # Auto-memory (Claude session state)
 memory/
 
+# Internal docs (not public)
+CLAUDE.md
+CONTEXT.md
+CHANGELOG*
+changelog*
+/docs/superpowers/
+
+# Scratch design assets (source assets live in public/)
+/assets/
+
 # WSL Zone.Identifier artifacts
 *:Zone.Identifier
 
