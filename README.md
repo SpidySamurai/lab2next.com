@@ -46,6 +46,10 @@ pnpm dev
 
 Lab2Next is a cloud LIS: orders and patients, a WhatsApp results portal with digitally signed QR codes, appointments, cash register, and a live KPI dashboard. In production since May 2026, 50 registered users, 100+ lab exams processed. I built all of it solo, from Figma to production, including a 155-test catalog generated with AI-agent workflows and validated by practicing chemists.
 
+## License
+
+Source-available for viewing and reference. The code, copy, design, and brand assets belong to Lab2Next — see [LICENSE](LICENSE).
+
 ---
 
 Designed, written, and built by [Javier Chi Ortiz](https://javierchiortiz.dev/en) in Mérida, México 🇲🇽
