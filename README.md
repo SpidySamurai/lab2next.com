@@ -1,96 +1,51 @@
-# Lab2Next — Landing Page
+# lab2next.com
 
-Landing page de [Lab2Next](https://lab2next.com), el sistema de información clínica (LIS) SaaS para laboratorios independientes en México.
+The marketing site for [**Lab2Next**](https://lab2next.com), my SaaS for clinical laboratories in Mexico. This is the page that has to convince a lab director, in one scroll, that their lab can run on something better than paper and 1998 software.
 
-**Stack:** Next.js 16 · React 19 · TypeScript · Tailwind 4 · CSS custom properties
+![lab2next.com cover](.github/readme/cover.png)
 
----
+> The application itself (app.lab2next.com) is private, it is a commercial product. This repo is the public face: the landing I designed, wrote, and built to sell it.
 
-## Desarrollo local
+## The idea
+
+A landing for lab directors is not a landing for developers. My audience barely trusts software, got burned by expensive licenses, and decides with one question: "¿y esto qué tan difícil es?". Every section exists to answer that: the hero shows the actual dashboard working, the copy is in their language (orders, shifts, cash register, not "features"), and the main CTA promises the truth: registered and operating the same day.
+
+Selling my own product taught me a kind of frontend that client work never did: when the copy, the design, and the conversion are all yours, every pixel has a job.
+
+## What's inside
+
+- **Animated dashboard mockup in the hero**: real product UI recreated as a living component, orders updating, WhatsApp notification popping, so the visitor sees the product before clicking anything
+- **Conversion-first structure**: problem vs solution, three reasons, modules, how it works in 4 steps, pricing, FAQ, every section ends pointing to registration
+- **Pricing with a Founder plan**: lifetime price for the first 20 labs, scarcity done honestly
+- **Technical SEO from day one**: metadata, OpenGraph, semantic structure, performance tuning (the habits from my e-commerce years)
+- **WhatsApp-first contact**: my market does not fill contact forms, they send WhatsApps, so that is the channel
+- **Nexus**, the support AI agent, announced and coming soon
+
+## A quick tour
+
+| Desktop | Mobile |
+| --- | --- |
+| ![Desktop](.github/readme/desktop.png) | ![Mobile](.github/readme/mobile.png) |
+
+| Content that builds trust | Tablet |
+| --- | --- |
+| ![Content](.github/readme/content.png) | ![Tablet](.github/readme/tablet.png) |
+
+## Stack
+
+Next.js (App Router) · TypeScript · Tailwind CSS · deployed with CI/CD
+
+## Run it locally
 
 ```bash
-npm install
-npm run dev
-# http://localhost:3000
+pnpm install
+pnpm dev
 ```
 
-La app principal corre en `localhost:3000`. La landing usa el puerto 3002 por convención durante desarrollo.
+## The product behind it
+
+Lab2Next is a cloud LIS: orders and patients, a WhatsApp results portal with digitally signed QR codes, appointments, cash register, and a live KPI dashboard. In production since May 2026, 50 registered users, 100+ lab exams processed. I built all of it solo, from Figma to production, including a 155-test catalog generated with AI-agent workflows and validated by practicing chemists.
 
 ---
 
-## Estructura
-
-```
-app/
-├── components/landing/   # Secciones de la página
-│   ├── navbar.tsx
-│   ├── hero.tsx           # Dashboard mockup animado
-│   ├── trust-bar.tsx
-│   ├── problem.tsx
-│   ├── values.tsx
-│   ├── modules.tsx
-│   ├── how-it-works.tsx
-│   ├── pricing-table.tsx
-│   ├── faq.tsx
-│   ├── contact-cta.tsx
-│   └── footer.tsx
-├── globals.css            # Design system completo — variables, animaciones
-├── layout.tsx
-└── page.tsx
-```
-
----
-
-## Design system
-
-Colores, tipografía y componentes definidos en `globals.css` vía CSS custom properties (`--navy-900`, `--teal-500`, etc.). Sin framework de componentes externos — todo CSS custom prefijado con `l-`.
-
-**Fuentes:** Inter (variable 100–900) + JetBrains Mono (500–600)
-
----
-
-## Iteraciones del diseño
-
-### v1 — Bootstrap inicial
-Plantilla base `create-next-app`. Sin diseño propio.
-
-### v2 — Dark-first redesign (handoff Claude Design)
-Primer diseño real. Dark mode, paleta navy. Componentes modulares extraídos desde un handoff de Claude Design. Estructura de secciones definida.
-
-### v3 — Light-first + self-serve (actual)
-Rediseño completo orientado a conversión y precisión de features:
-
-- **Hero** — Dashboard mockup v3: tabla de órdenes 5 columnas, KPI chips, callouts flotantes animados. Copy actualizado a self-serve ("Crear cuenta gratis").
-- **Trust bar** — Franja navy oscura con 5 badges reales (sin tarjeta · 14 días · cancelas · soporte ES · datos MX). Sin logos falsos ni badges de certificación no obtenida.
-- **Módulos** — Reemplazado "Facturación CFDI 4.0" (no operativo) por "Muestras y trazabilidad" (operativo). WhatsApp descrito con precisión: envío de enlace por staff, no bot automático.
-- **Cómo funciona** — Flujo self-serve (~5 min registro, ~20 min config, día 1 operando). Animación de progreso scroll-driven.
-- **Precios** — 3 planes (BASIC · FOUNDER · ENTERPRISE). Toggle mensual/anual. PREMIUM congelado, no mostrado.
-- **FAQ** — WhatsApp, trial 14 días (corregido de 30), portabilidad de datos.
-- **CTA final** — Primary: registro. Secondary: demo por WhatsApp.
-- **Navbar** — "Crear cuenta gratis" en lugar de "Solicitar demo".
-- **Footer** — Badges técnicos (AWS · AES-256 · TLS 1.3 · Backups diarios). Sin número personal.
-
-### v3 — Animaciones web
-- Scroll reveals con spring easing (`cubic-bezier(0.16, 1, 0.3, 1)`) en todas las secciones
-- Dashboard: KPI chips y filas de órdenes aparecen en cascada al entrar al viewport
-- Íconos de módulos y valores: micro-lift + color shift en hover
-- CTA buttons: breathe glow en loop (navy en hero, teal en sección final)
-- Callouts flotantes del dashboard desclipeados (inner-clip wrapper)
-- Grid de órdenes corregido a 5 columnas
-- `prefers-reduced-motion` respetado en todas las animaciones
-
----
-
-## Feature accuracy
-
-Los contenidos de la landing reflejan únicamente features **operativas en producción**. Ver `FEATURE_STATUS.md` en el monorepo raíz para el control completo de qué se puede y no se puede comunicar.
-
----
-
-## Variables de entorno
-
-```env
-NEXT_PUBLIC_APP_URL=https://app.lab2next.com
-```
-
-En desarrollo sin `.env`, el fallback es `http://localhost:3000`.
+Designed, written, and built by [Javier Chi Ortiz](https://javierchiortiz.dev/en) in Mérida, México 🇲🇽
