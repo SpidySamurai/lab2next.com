@@ -3,7 +3,7 @@ import { Reveal } from "../atoms/reveal";
 import { Button } from "../atoms/button";
 import { APP_URL } from "../domain/config";
 
-const WA_DEMO = "https://wa.me/529994875155?text=Hola,%20me%20gustar%C3%ADa%20una%20demo%20de%20Lab2Next";
+const WA_DEMO = "https://wa.me/529904147791?text=Hola,%20me%20gustar%C3%ADa%20una%20demo%20de%20Lab2Next";
 
 interface ContactCTAProps {
   guarantees: readonly string[];

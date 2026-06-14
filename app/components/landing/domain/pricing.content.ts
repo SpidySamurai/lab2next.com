@@ -3,9 +3,9 @@
 // Reposicionamiento "Potencia de LIMS" (2026-06-06): BASIC→Esencial, PREMIUM→Pro;
 // Premium/Élite = teasers (soon). Sin web/hosting/white-label. Ver brain/Plan-Tiers.md.
 import type { PricingPlan } from "./types";
+import { APP_URL } from "./config";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
-const WA_DEMO = "https://wa.me/529994875155?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20una%20demo%20de%20Lab2Next";
+const WA_DEMO = "https://wa.me/529904147791?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20una%20demo%20de%20Lab2Next";
 
 export const PRICING_PLANS: PricingPlan[] = [
   {

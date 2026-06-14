@@ -79,7 +79,7 @@ export function Roadmap() {
               Construimos en público. Cada fase refleja lo que los laboratorios
               nos piden. Si tienes algo en mente,{" "}
               <a
-                href="https://wa.me/529994875155?text=Hola,%20tengo%20una%20sugerencia%20para%20Lab2Next"
+                href="https://wa.me/529904147791?text=Hola,%20tengo%20una%20sugerencia%20para%20Lab2Next"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="l-roadmap-link"
