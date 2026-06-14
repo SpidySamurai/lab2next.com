@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Check } from "lucide-react";
 import { Button } from "../atoms/button";
 
-const WA_NUMBER = "529994875155";
+const WA_NUMBER = "529904147791";
 
 interface Fields {
   nombre: string;

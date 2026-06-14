@@ -105,7 +105,7 @@ const CHIP_LABEL: Partial<Record<Status, string>> = {
   planned:  "Próximamente",
 };
 
-const WA = "https://wa.me/529994875155?text=Hola,%20tengo%20una%20sugerencia%20para%20el%20roadmap%20de%20Lab2Next";
+const WA = "https://wa.me/529904147791?text=Hola,%20tengo%20una%20sugerencia%20para%20el%20roadmap%20de%20Lab2Next";
 
 export function RoadmapClient() {
   const canvasRef = useRef<HTMLDivElement>(null);

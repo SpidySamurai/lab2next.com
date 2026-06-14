@@ -80,7 +80,7 @@ export function ChatButton() {
               </p>
               <div className="mt-3 flex gap-2">
                 <a
-                  href="https://wa.me/5219994875155"
+                  href="https://wa.me/5219904147791"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 rounded-lg bg-green-500 px-3 py-1.5 text-[12px] font-semibold text-white transition-colors hover:bg-green-600"
