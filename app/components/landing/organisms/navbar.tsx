@@ -117,7 +117,7 @@ export function Navbar({ links }: NavbarProps) {
         <div className="l-container l-nav-inner">
           <Link href="/" className="l-logo" onClick={close}>
             <span className="l-logo-mark">
-              <span className="l-logo-mark-text">L2</span>
+              <span className="l-logo-mark-text">L2N</span>
             </span>
             <span>Lab2Next</span>
           </Link>
@@ -166,7 +166,7 @@ export function Navbar({ links }: NavbarProps) {
         <div className="l-mobile-menu-head">
           <Link href="/" className="l-logo" onClick={close}>
             <span className="l-logo-mark">
-              <span className="l-logo-mark-text">L2</span>
+              <span className="l-logo-mark-text">L2N</span>
             </span>
             <span>Lab2Next</span>
           </Link>
