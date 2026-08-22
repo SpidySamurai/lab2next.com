@@ -34,7 +34,7 @@ export function Footer({ columns, miniBadges }: FooterProps) {
           <div className="l-footer-brand">
             <Link href="/" className="l-logo">
               <span className="l-logo-mark">
-                <span className="l-logo-mark-text">L2</span>
+                <span className="l-logo-mark-text">L2N</span>
               </span>
               <span>Lab2Next</span>
             </Link>

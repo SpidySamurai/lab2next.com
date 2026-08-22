@@ -221,7 +221,7 @@ export default async function OGImage() {
                 letterSpacing: "-0.04em",
               }}
             >
-              L2
+              L2N
             </div>
             <span
               style={{
