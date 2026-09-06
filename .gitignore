@@ -105,5 +105,8 @@ changelog*
 .vibe/
 .windsurf/
 .zencoder/
+
+# CodeGraph local index
+.codegraph/
 skills/
 skills-lock.json
