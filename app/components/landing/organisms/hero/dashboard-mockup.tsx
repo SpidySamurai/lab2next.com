@@ -115,7 +115,7 @@ export function DashboardMockup() {
         </div>
       </div>
 
-      {/* Técnico anclado al mock (desktop) */}
+      {/* Technician anchored to the mockup (desktop) */}
       <Image
         src="/images/lab-hero-tech.png"
         alt=""

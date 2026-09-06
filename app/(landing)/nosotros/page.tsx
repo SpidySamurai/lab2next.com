@@ -95,7 +95,7 @@ export default function NosotrosPage() {
         </Container>
       </Section>
 
-      {/* ── Misión ── */}
+      {/* ── Mission ── */}
       <Section bg="dark">
         <Container size="narrow">
           <span className="l-eyebrow l-eyebrow-light">Nuestra misión</span>

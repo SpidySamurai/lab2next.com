@@ -34,7 +34,7 @@ export function PricingTable({ plans }: PricingTableProps) {
   const free = plans.find((p) => p.name === "FREE");
   const enterprise = plans.find((p) => p.name === "ENTERPRISE");
   const corePlans = plans.filter((p) => p.name !== "FREE" && p.name !== "ENTERPRISE");
-  // 3 disponibles arriba (con staircase/rotación), 2 "Próximamente" centradas abajo.
+  // 3 available on top (with staircase/rotation), 2 "Próximamente" centered below.
   const topPlans = corePlans.filter((p) => !p.soon);
   const soonPlans = corePlans.filter((p) => p.soon);
 

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Lab2Next",
     title,
     description,
-    // Imagen OG generada dinámicamente por app/opengraph-image.tsx
+    // OG image generated dynamically by app/opengraph-image.tsx
   },
   twitter: {
     card: "summary_large_image",

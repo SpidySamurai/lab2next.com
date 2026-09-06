@@ -1,7 +1,7 @@
 // Feature lists mirror app SSOT features/billing/domain/plan-feature-matrix.ts — keep in sync.
 // `name` = internal enum key (find/filter). `displayName` = customer-facing label.
-// Reposicionamiento "Potencia de LIMS" (2026-06-06): BASIC→Esencial, PREMIUM→Pro;
-// Premium/Élite = teasers (soon). Sin web/hosting/white-label. Ver brain/Plan-Tiers.md.
+// "LIMS power" repositioning (2026-06-06): BASIC→Esencial, PREMIUM→Pro;
+// Premium/Élite = teasers (soon). No web/hosting/white-label. See brain/Plan-Tiers.md.
 import type { PricingPlan } from "./types";
 import { APP_URL } from "./config";
 

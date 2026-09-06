@@ -12,9 +12,9 @@ const ROUTES: {
   { path: "/nosotros", priority: 0.7, changeFrequency: "monthly" },
   { path: "/roadmap", priority: 0.6, changeFrequency: "weekly" },
   { path: "/colabora", priority: 0.5, changeFrequency: "monthly" },
-  // /terminos y /aviso-de-privacidad hacen notFound() en producción:
-  // no se incluyen para no listar 404 en el sitemap. Publicar las páginas
-  // (quitar el notFound) y volver a agregarlas cuando el contenido legal esté listo.
+  // /terminos and /aviso-de-privacidad call notFound() in production:
+  // they are not included so the sitemap does not list 404s. Publish the pages
+  // (remove the notFound) and add them back once the legal content is ready.
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
