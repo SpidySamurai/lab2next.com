@@ -20,9 +20,9 @@ export function Modules() {
     const grid = gridRef.current;
     if (!grid) return;
 
-    // Pin: la sección se "congela" centrada y, mientras sigues scrolleando esa
-    // distancia, el progreso (0..1) avanza el módulo activo. Al terminar, se suelta.
-    // Solo en desktop con movimiento permitido; en móvil queda lista normal.
+    // Pin: the section "freezes" centered and, while you keep scrolling that
+    // distance, the progress (0..1) advances the active module. It releases at the end.
+    // Desktop only, with motion allowed; on mobile it stays a normal list.
     const mm = gsap.matchMedia();
     mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
       const st = ScrollTrigger.create({
@@ -55,7 +55,7 @@ export function Modules() {
           lede="Sin integraciones eternas, sin licencias por módulo, sin servidor en el cuarto de atrás."
         />
 
-        {/* Showcase pinned: ilustración + lista se enfatizan mientras scrolleas */}
+        {/* Pinned showcase: illustration + list are emphasized as you scroll */}
         <div
           ref={gridRef}
           className="mt-14 grid items-center gap-10 lg:mt-16 lg:grid-cols-[1fr_1.1fr] lg:gap-16"

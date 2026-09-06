@@ -1,5 +1,5 @@
-// Comparativa "sistemas de siempre" vs Lab2Next.
-// Mensaje: misma potencia, sin la complejidad. Moderno y fácil vs obsoleto y difícil.
+// Comparison of "the usual systems" vs Lab2Next.
+// Message: same power, without the complexity. Modern and easy vs obsolete and difficult.
 
 export const PROBLEM_LEGACY = [
   "Interfaces obsoletas, ancladas en otra década",

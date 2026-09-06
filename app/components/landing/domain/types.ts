@@ -25,7 +25,7 @@ export interface ModuleCard {
   title: string;
   body: string;
   tags: string[];
-  /** Ilustración 3D que se muestra cuando el módulo está activo en el scroll. */
+  /** 3D illustration shown when the module is active during scroll. */
   image: string;
   /** Advertised on the roadmap but not yet shipped — renders a "Próximamente" badge */
   soon?: boolean;

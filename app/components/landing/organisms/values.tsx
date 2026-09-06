@@ -10,7 +10,7 @@ interface ValuesProps {
   cards: ValueCardData[];
 }
 
-// Ilustración 3D branded por fila (dimensiones reales → sin CLS).
+// Branded 3D illustration per row (real dimensions → no CLS).
 const VISUAL_IMAGES = [
   { src: "/images/lab-login.png", w: 1384, h: 752 },
   { src: "/images/lab-whatsapp.png", w: 784, h: 1360 },
@@ -35,7 +35,7 @@ export function Values({ cards }: ValuesProps) {
             return (
               <Reveal key={c.num}>
                 <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-                  {/* Ilustración integrada, sin caja */}
+                  {/* Integrated illustration, no card frame */}
                   <div className={flipped ? "lg:order-2" : ""}>
                     <Image
                       src={(VISUAL_IMAGES[i] ?? VISUAL_IMAGES[0]).src}

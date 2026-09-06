@@ -11,9 +11,9 @@ interface PricingTeaserProps {
   plans: PricingPlan[];
 }
 
-// Highlights curados por plan para el teaser: resaltan lo que DIFERENCIA a cada
-// uno (Founder y Pro comparten el feature-set medio; aquí se vende su distinción).
-// La comparativa completa con todas las features vive en /precios.
+// Curated highlights per plan for the teaser: they call out what DIFFERENTIATES each
+// one (Founder and Pro share the mid feature-set; this is where their distinction sells).
+// The full feature-by-feature comparison lives on /precios.
 const HIGHLIGHTS: Record<string, string[]> = {
   BASIC: [
     "Portal de resultados con QR",
@@ -35,7 +35,7 @@ const HIGHLIGHTS: Record<string, string[]> = {
   ],
 };
 
-// Resumen de precios para la home. La tabla completa + comparativa vive en /precios.
+// Pricing summary for the home page. The full table + comparison lives on /precios.
 export function PricingTeaser({ plans }: PricingTeaserProps) {
   const core = plans.filter(
     (p) => p.name !== "FREE" && p.name !== "ENTERPRISE" && !p.soon
