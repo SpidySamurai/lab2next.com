@@ -48,7 +48,6 @@ memory/
 
 # Internal docs (not public)
 CLAUDE.md
-CONTEXT.md
 DESIGN.md
 PRODUCT.md
 CHANGELOG*
