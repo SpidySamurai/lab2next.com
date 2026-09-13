@@ -25,8 +25,8 @@ const csp = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   turbopack: {
-    // pnpm monorepo: `next` is hoisted to the workspace root, not the package dir.
-    // Root must point at the monorepo root so Turbopack resolves next/package.json (Error Log E-002).
+    // Leftover from when the suite root was a pnpm workspace and `next` was hoisted there.
+    // The root is no longer a workspace; keep this until a build without it is verified.
     root: resolve(__dirname, ".."),
   },
   images: {

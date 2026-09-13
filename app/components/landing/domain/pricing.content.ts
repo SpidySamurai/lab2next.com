@@ -1,7 +1,8 @@
 // Feature lists mirror app SSOT features/billing/domain/plan-feature-matrix.ts — keep in sync.
 // `name` = internal enum key (find/filter). `displayName` = customer-facing label.
-// "LIMS power" repositioning (2026-06-06): BASIC→Esencial, PREMIUM→Pro;
-// Premium/Élite = teasers (soon). No web/hosting/white-label. See brain/Plan-Tiers.md.
+// Live tiers: FREE, BASIC ("Esencial"), FOUNDER, PREMIUM ("Pro"), ENTERPRISE.
+// Teasers only (soon: true, WhatsApp CTA, not orderable yet): PREMIUM_TIER ("Premium"),
+// ELITE ("Élite"). We do not sell web hosting or white-labeling as add-ons.
 import type { PricingPlan } from "./types";
 import { APP_URL } from "./config";
 
