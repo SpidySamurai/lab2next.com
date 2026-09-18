@@ -1,5 +1,5 @@
 import { fileURLToPath } from "url";
-import { dirname, resolve } from "path";
+import { dirname } from "path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -25,9 +25,11 @@ const csp = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   turbopack: {
-    // Leftover from when the suite root was a pnpm workspace and `next` was hoisted there.
-    // The root is no longer a workspace; keep this until a build without it is verified.
-    root: resolve(__dirname, ".."),
+    // Verified 2026-09-17: removing this makes `pnpm build` pick up the suite
+    // root's own pnpm-lock.yaml (used by its orchestration scripts and e2e
+    // tests, unrelated to this repo) and warn about an inferred project root.
+    // Not a workspace leftover; keep pinned to this repo's own root.
+    root: __dirname,
   },
   images: {
     formats: ["image/avif", "image/webp"],
