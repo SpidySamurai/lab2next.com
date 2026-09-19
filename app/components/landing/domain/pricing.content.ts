@@ -76,7 +76,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     external: false,
     featured: true,
     badge: "Tiempo limitado · 20 cupos",
-    spotsLeft: 15,
+    spotsLeft: 4,
     features: [
       { text: "Todo lo del plan Esencial, más:", included: true },
       { text: "Diseñador de PDF avanzado", included: true },
