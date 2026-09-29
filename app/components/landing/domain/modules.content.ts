@@ -14,7 +14,7 @@ export const MODULE_CARDS: ModuleCard[] = [
     title: "Portal de resultados por WhatsApp",
     body: "El staff envía el enlace al paciente por WhatsApp en un clic. El paciente accede a su portal seguro con código QR sin instalar ninguna aplicación.",
     tags: ["WhatsApp", "QR", "Portal web"],
-    image: "/images/lab-whatsapp.png",
+    image: "/images/lab-mod-whatsapp.png",
   },
   {
     icon: Calendar,
